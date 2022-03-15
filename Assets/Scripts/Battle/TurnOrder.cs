@@ -6,8 +6,9 @@ public class TurnOrder : MonoBehaviour
 {
     [SerializeField] private Character[] playableCharacters;
     [SerializeField] private Character[] enemyCharacters;
-    private List<Character> turnOrder;
     [SerializeField] private bool enemyGoFirst;
+    [HideInInspector] public List<Character> turnOrder;
+    private int turnIndex;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class TurnOrder : MonoBehaviour
             ComposeList(enemyCharacters);
             ComposeList(playableCharacters);
         }
+        turnIndex = 0;
     }
 
     private void ComposeList(Character[] arrayToAdd)
@@ -34,7 +36,13 @@ public class TurnOrder : MonoBehaviour
         for (int i = 0; i < arrayToAdd.Length; i++)
         {
             turnOrder.Add(arrayToAdd[i]);
-            print(arrayToAdd[i]);
         }
+    }
+
+    public void GoToNextTurn()
+    {
+        if (turnIndex + 1 < turnOrder.Count) turnIndex++;
+        else turnIndex = 0;
+        print(turnIndex);
     }
 }
