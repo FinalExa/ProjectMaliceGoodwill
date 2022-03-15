@@ -175,6 +175,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
+      propertyPath: isAI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
       propertyPath: characterStats.characterName
       value: Gladia
       objectReference: {fileID: 0}
@@ -400,6 +404,10 @@ PrefabInstance:
     - target: {fileID: 1136594033302870229, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
+      propertyPath: isAI
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
       propertyPath: characterStats.characterName

@@ -10,9 +10,24 @@ public class TurnOrder : MonoBehaviour
     [HideInInspector] public List<Character> turnOrder;
     private int turnIndex;
 
+    [SerializeField] private float turnWaitTimer;
+    private float turnWaitTime;
+    private bool turnWait;
+
+    private void Awake()
+    {
+        Character.passTurn += GoToNextTurn;
+    }
+
     private void Start()
     {
+        turnWaitTime = turnWaitTimer;
         CreateTurnOrder();
+    }
+
+    private void Update()
+    {
+        if (turnWait) TurnWaitTimer();
     }
 
     private void CreateTurnOrder()
@@ -29,20 +44,33 @@ public class TurnOrder : MonoBehaviour
             ComposeList(playableCharacters);
         }
         turnIndex = 0;
+        turnOrder[turnIndex].isLocked = false;
     }
 
     private void ComposeList(Character[] arrayToAdd)
     {
         for (int i = 0; i < arrayToAdd.Length; i++)
         {
+            arrayToAdd[i].isLocked = true;
             turnOrder.Add(arrayToAdd[i]);
         }
     }
 
-    public void GoToNextTurn()
+    public void GoToNextTurn(bool debug)
     {
-        if (turnIndex + 1 < turnOrder.Count) turnIndex++;
-        else turnIndex = 0;
-        print(turnIndex);
+        turnWait = true;
+    }
+
+    private void TurnWaitTimer()
+    {
+        if (turnWaitTime > 0) turnWaitTime -= Time.deltaTime;
+        else
+        {
+            if (turnIndex + 1 < turnOrder.Count) turnIndex++;
+            else turnIndex = 0;
+            turnOrder[turnIndex].isLocked = false;
+            turnWaitTime = turnWaitTimer;
+            turnWait = false;
+        }
     }
 }
