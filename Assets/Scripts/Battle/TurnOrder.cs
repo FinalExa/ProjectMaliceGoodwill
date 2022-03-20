@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TurnOrder : MonoBehaviour
 {
-    [SerializeField] private Character[] playableCharacters;
-    [SerializeField] private Character[] enemyCharacters;
+    public Character[] playableCharacters;
+    public Character[] enemyCharacters;
     [SerializeField] private bool enemyGoFirst;
     [HideInInspector] public List<Character> turnOrder;
     private int turnIndex;
