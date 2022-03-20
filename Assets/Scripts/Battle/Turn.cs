@@ -9,20 +9,24 @@ public class Turn : MonoBehaviour
 
     private void Update()
     {
-        if (currentCharacter != null) TurnOperations();
+        if (currentCharacter != null && !currentCharacter.isLocked) TurnOperations();
     }
 
     private void TurnOperations()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !currentCharacter.isAI)
-        {
-            print(currentCharacter.characterStats.characterName + " does Action!");
-            currentCharacter.PassTurn();
-        }
-        else if (currentCharacter.isAI)
-        {
-            print(currentCharacter.characterStats.characterName + " does Action!");
-            currentCharacter.PassTurn();
-        }
+        if (Input.GetKeyDown(KeyCode.F) && !currentCharacter.isAI) PlayableCharacterTurn();
+        else if (currentCharacter.isAI) AITurn();
+    }
+
+    private void PlayableCharacterTurn()
+    {
+        print(currentCharacter.characterStats.characterName + " does Action!");
+        currentCharacter.PassTurn();
+    }
+
+    private void AITurn()
+    {
+        print(currentCharacter.characterStats.characterName + " does Action!");
+        currentCharacter.PassTurn();
     }
 }
