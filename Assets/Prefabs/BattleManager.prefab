@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7328096488641203672}
   - component: {fileID: -3920999559667313699}
+  - component: {fileID: -6260356559489696910}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -53,3 +54,17 @@ MonoBehaviour:
   enemyGoFirst: 0
   turnOrder: []
   turnWaitTimer: 0.05
+--- !u!114 &-6260356559489696910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016859038119486068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d06d0be260676429df568b3feb47dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCharacter: {fileID: 0}
+  turnOrder: {fileID: -3920999559667313699}

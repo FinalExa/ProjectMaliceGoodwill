@@ -6,38 +6,52 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public static Action<bool> passTurn;
-    [SerializeField] private CharacterStats characterStats;
-    [SerializeField] private Action[] characterActions;
-    [SerializeField] private bool isAI;
+    [SerializeField] private CharacterUI characterUI;
+    private Turn turn;
+    public CharacterStats characterStats;
+    public Action[] characterActions;
+    public bool isAI;
+    [HideInInspector] public bool passageDone;
     [HideInInspector] public bool isLocked;
+    [HideInInspector] public bool incapacitated;
+
+    private void Awake()
+    {
+        turn = FindObjectOfType<Turn>();
+    }
 
     private void Start()
     {
         characterStats.SetStatsStartup();
+        UpdateAllBars();
     }
 
     private void Update()
     {
-        if (!isLocked) ThisCharacterTurn();
+        if (!isLocked && !passageDone)
+        {
+            if (!incapacitated) ThisCharacterTurn();
+            else PassTurn();
+        }
     }
 
     private void ThisCharacterTurn()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !isAI)
-        {
-            print(characterStats.characterName + " does Action!");
-            PassTurn();
-        }
-        else if (isAI)
-        {
-            print(characterStats.characterName + " does Action!");
-            PassTurn();
-        }
+        turn.currentCharacter = this;
+        passageDone = true;
     }
 
-    private void PassTurn()
+    public void PassTurn()
     {
         isLocked = true;
+        passageDone = false;
         passTurn(true);
+    }
+
+    public void UpdateAllBars()
+    {
+        characterUI.UpdateBar(characterUI.MGBar, characterStats.MGCurrentValue, characterStats.MGMaxLimit);
+        characterUI.UpdateBar(characterUI.staminaBar, characterStats.currentStamina, characterStats.maxStamina);
+        characterUI.UpdateBar(characterUI.mentalBar, characterStats.currentMental, characterStats.maxMental);
     }
 }

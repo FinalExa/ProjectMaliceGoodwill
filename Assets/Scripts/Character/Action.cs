@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Action", menuName = "ScriptableObjects/Action", order = 1)]
 public class Action : ScriptableObject
 {
+    public string actionName;
     public Type type;
     public float severity;
     public float severitySpectator;
@@ -13,6 +14,7 @@ public class Action : ScriptableObject
     public float staminaDamageSpectator;
     public float mentalDamage;
     public float mentalDamageSpectator;
-    public float MGRangeMin;
-    public float MGRangeMax;
+    public bool canHitEnemies;
+    public bool canHitAllies;
+    public bool canHitSelf;
 }
