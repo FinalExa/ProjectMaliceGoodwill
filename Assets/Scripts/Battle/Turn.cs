@@ -29,8 +29,12 @@ public class Turn : MonoBehaviour
 
     private void PlayableCharacterTurn()
     {
-        ActionPopulate();
-        stop = true;
+        if (!currentCharacter.incapacitated)
+        {
+            ActionPopulate();
+            stop = true;
+        }
+        else currentCharacter.PassTurn();
     }
 
     private void AITurn()
@@ -64,15 +68,18 @@ public class Turn : MonoBehaviour
         {
             foreach (Character enemy in turnOrder.enemyCharacters)
             {
-                possibleTargets.Add(enemy);
-                possibleTargetsNames.Add(enemy.characterStats.characterName);
+                if (!enemy.incapacitated)
+                {
+                    possibleTargets.Add(enemy);
+                    possibleTargetsNames.Add(enemy.characterStats.characterName);
+                }
             }
         }
         if (chosenAction.canHitAllies)
         {
             for (int i = 0; i < turnOrder.playableCharacters.Length; i++)
             {
-                if (turnOrder.playableCharacters[i] != currentCharacter)
+                if (turnOrder.playableCharacters[i] != currentCharacter && !turnOrder.playableCharacters[i].incapacitated)
                 {
                     possibleTargets.Add(turnOrder.playableCharacters[i]);
                     possibleTargetsNames.Add(turnOrder.playableCharacters[i].characterStats.characterName);
@@ -104,6 +111,22 @@ public class Turn : MonoBehaviour
         targetInfo.currentStamina -= chosenAction.staminaDamage;
         targetInfo.currentMental -= chosenAction.mentalDamage;
         target.UpdateAllBars();
-        if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0) target.incapacitated = true;
+        ActionOnSpectators();
+        if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0 || targetInfo.MGCurrentValue <= 0) target.incapacitated = true;
+    }
+
+    private void ActionOnSpectators()
+    {
+        for (int i = 0; i < turnOrder.turnOrder.Count; i++)
+        {
+            if (turnOrder.turnOrder[i] != this || turnOrder.turnOrder[i] != target || !turnOrder.turnOrder[i].incapacitated)
+            {
+                CharacterStats targetInfo = turnOrder.turnOrder[i].characterStats;
+                targetInfo.MGCurrentValue -= chosenAction.severitySpectator;
+                targetInfo.currentStamina -= chosenAction.staminaDamageSpectator;
+                targetInfo.currentMental -= chosenAction.mentalDamageSpectator;
+                turnOrder.turnOrder[i].UpdateAllBars();
+            }
+        }
     }
 }

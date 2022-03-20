@@ -21,6 +21,8 @@ MonoBehaviour:
   staminaDamageSpectator: 5
   mentalDamage: 10
   mentalDamageSpectator: 5
+  minMGRange: 0
+  maxMGRange: 100
   canHitEnemies: 1
   canHitAllies: 1
   canHitSelf: 1
