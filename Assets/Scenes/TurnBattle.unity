@@ -179,6 +179,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
+      propertyPath: characterData
+      value: 
+      objectReference: {fileID: 11400000, guid: 3394d2f2068efbb48a736666f5547a49, type: 2}
+    - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
       propertyPath: characterStats.characterName
       value: Gladia
       objectReference: {fileID: 0}
@@ -346,6 +350,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
+      propertyPath: characterData
+      value: 
+      objectReference: {fileID: 11400000, guid: c96fad65aafe5b345b75483e847d8c2f, type: 2}
+    - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
       propertyPath: characterStats.characterName
       value: Charlie
       objectReference: {fileID: 0}
@@ -434,6 +442,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
+      propertyPath: characterData
+      value: 
+      objectReference: {fileID: 11400000, guid: afef0a87107a20e42b6f4af1b0e76fad, type: 2}
+    - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
       propertyPath: characterStats.characterName
       value: Brute
       objectReference: {fileID: 0}
@@ -517,6 +529,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
+      propertyPath: characterData
+      value: 
+      objectReference: {fileID: 11400000, guid: 70a2e22e084009948aea57f60675e89d, type: 2}
     - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
       propertyPath: characterStats.characterName
       value: Mea
@@ -689,6 +705,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
+      propertyPath: characterData
+      value: 
+      objectReference: {fileID: 11400000, guid: c36aeb7f592c6ba4e825598470be8f58, type: 2}
     - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
       propertyPath: characterStats.characterName
       value: Fred

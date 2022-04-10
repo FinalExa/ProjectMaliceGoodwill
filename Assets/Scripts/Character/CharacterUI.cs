@@ -13,7 +13,7 @@ public class CharacterUI : MonoBehaviour
 
     private void Start()
     {
-        thisName.text = character.characterStats.characterName;
+        thisName.text = character.characterData.characterStats.characterName;
     }
 
     public void UpdateBar(Text barToUpdate, float barCurrentValue, float barMaxValue)

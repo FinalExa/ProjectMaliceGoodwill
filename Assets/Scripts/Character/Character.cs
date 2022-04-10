@@ -8,9 +8,7 @@ public class Character : MonoBehaviour
     public static Action<bool> passTurn;
     [SerializeField] private CharacterUI characterUI;
     private Turn turn;
-    public CharacterStats characterStats;
-    public Action[] characterActions;
-    public bool isAI;
+    public CharacterData characterData;
     [HideInInspector] public bool passageDone;
     [HideInInspector] public bool isLocked;
     [HideInInspector] public bool incapacitated;
@@ -22,7 +20,7 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-        characterStats.SetStatsStartup();
+        characterData.characterStats.SetStatsStartup();
         UpdateAllBars();
     }
 
@@ -50,8 +48,8 @@ public class Character : MonoBehaviour
 
     public void UpdateAllBars()
     {
-        characterUI.UpdateBar(characterUI.MGBar, characterStats.MGCurrentValue, characterStats.MGMaxLimit);
-        characterUI.UpdateBar(characterUI.staminaBar, characterStats.currentStamina, characterStats.maxStamina);
-        characterUI.UpdateBar(characterUI.mentalBar, characterStats.currentMental, characterStats.maxMental);
+        characterUI.UpdateBar(characterUI.MGBar, characterData.characterStats.MGCurrentValue, characterData.characterStats.MGMaxLimit);
+        characterUI.UpdateBar(characterUI.staminaBar, characterData.characterStats.currentStamina, characterData.characterStats.maxStamina);
+        characterUI.UpdateBar(characterUI.mentalBar, characterData.characterStats.currentMental, characterData.characterStats.maxMental);
     }
 }

@@ -7,6 +7,8 @@ public class Turn : MonoBehaviour
 {
     [HideInInspector] public Character currentCharacter;
     [SerializeField] private TurnOrder turnOrder;
+    [SerializeField] private ActionEffect actionEffect;
+    [SerializeField] private AITurn AITurn;
     [SerializeField] private GameObject actionsParent;
     [SerializeField] private Dropdown actionsDropdown;
     [SerializeField] private GameObject targetsParent;
@@ -15,16 +17,17 @@ public class Turn : MonoBehaviour
     private Action chosenAction;
     private Character target;
     private bool stop;
+    [HideInInspector] public bool fightIsOver;
 
     private void Update()
     {
-        if (currentCharacter != null && !currentCharacter.isLocked) TurnOperations();
+        if (currentCharacter != null && !currentCharacter.isLocked && !fightIsOver) TurnOperations();
     }
 
     private void TurnOperations()
     {
-        if (!currentCharacter.isAI && !stop) PlayableCharacterTurn();
-        else if (currentCharacter.isAI) AITurn();
+        if (!currentCharacter.characterData.isAI && !stop) PlayableCharacterTurn();
+        else if (currentCharacter.characterData.isAI) AITurn.AIStartup(currentCharacter);
     }
 
     private void PlayableCharacterTurn()
@@ -37,24 +40,18 @@ public class Turn : MonoBehaviour
         else currentCharacter.PassTurn();
     }
 
-    private void AITurn()
-    {
-        print(currentCharacter.characterStats.characterName + " does Action!");
-        currentCharacter.PassTurn();
-    }
-
     private void ActionPopulate()
     {
         actionsParent.SetActive(true);
         List<string> actionsList = new List<string>();
-        foreach (Action action in currentCharacter.characterActions) actionsList.Add(action.actionName);
+        foreach (Action action in currentCharacter.characterData.characterActions) actionsList.Add(action.actionName);
         actionsDropdown.ClearOptions();
         actionsDropdown.AddOptions(actionsList);
     }
 
     public void ActionConfirm()
     {
-        chosenAction = currentCharacter.characterActions[actionsDropdown.value];
+        chosenAction = currentCharacter.characterData.characterActions[actionsDropdown.value];
         actionsParent.SetActive(false);
         TargetPopulate();
     }
@@ -71,7 +68,7 @@ public class Turn : MonoBehaviour
                 if (!enemy.incapacitated)
                 {
                     possibleTargets.Add(enemy);
-                    possibleTargetsNames.Add(enemy.characterStats.characterName);
+                    possibleTargetsNames.Add(enemy.characterData.characterStats.characterName);
                 }
             }
         }
@@ -82,14 +79,14 @@ public class Turn : MonoBehaviour
                 if (turnOrder.playableCharacters[i] != currentCharacter && !turnOrder.playableCharacters[i].incapacitated)
                 {
                     possibleTargets.Add(turnOrder.playableCharacters[i]);
-                    possibleTargetsNames.Add(turnOrder.playableCharacters[i].characterStats.characterName);
+                    possibleTargetsNames.Add(turnOrder.playableCharacters[i].characterData.characterStats.characterName);
                 }
             }
         }
         if (chosenAction.canHitSelf)
         {
             possibleTargets.Add(currentCharacter);
-            possibleTargetsNames.Add(currentCharacter.characterStats.characterName);
+            possibleTargetsNames.Add(currentCharacter.characterData.characterStats.characterName);
         }
         targetsDropdown.ClearOptions();
         targetsDropdown.AddOptions(possibleTargetsNames);
@@ -106,25 +103,18 @@ public class Turn : MonoBehaviour
 
     private void ActionDoneOnTarget()
     {
-        CharacterStats targetInfo = target.characterStats;
-        targetInfo.MGCurrentValue -= chosenAction.severity;
-        targetInfo.currentStamina -= chosenAction.staminaDamage;
-        targetInfo.currentMental -= chosenAction.mentalDamage;
+        actionEffect.UpdateValues(target, chosenAction, false);
         target.UpdateAllBars();
         ActionOnSpectators();
-        if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0 || targetInfo.MGCurrentValue <= 0) target.incapacitated = true;
     }
 
     private void ActionOnSpectators()
     {
         for (int i = 0; i < turnOrder.turnOrder.Count; i++)
         {
-            if (turnOrder.turnOrder[i] != this || turnOrder.turnOrder[i] != target || !turnOrder.turnOrder[i].incapacitated)
+            if ((turnOrder.turnOrder[i] != this || turnOrder.turnOrder[i] != target) && !turnOrder.turnOrder[i].incapacitated)
             {
-                CharacterStats targetInfo = turnOrder.turnOrder[i].characterStats;
-                targetInfo.MGCurrentValue -= chosenAction.severitySpectator;
-                targetInfo.currentStamina -= chosenAction.staminaDamageSpectator;
-                targetInfo.currentMental -= chosenAction.mentalDamageSpectator;
+                actionEffect.UpdateValues(turnOrder.turnOrder[i], chosenAction, true);
                 turnOrder.turnOrder[i].UpdateAllBars();
             }
         }

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0141b398d4d2a4eae1b836a79a693a, type: 3}
+  m_Name: Mea
+  m_EditorClassIdentifier: 
+  characterStats:
+    characterName: Mea
+    MGMinLimit: 0
+    MGMaxLimit: 100
+    MGStartPoint: 50
+    MGCurrentValue: 50
+    maxStamina: 100
+    currentStamina: 100
+    maxMental: 100
+    currentMental: 100
+  characterOpinions:
+  - actionType: 0
+    actionTypeOpinion: 0
+  - actionType: 1
+    actionTypeOpinion: 4
+  - actionType: 2
+    actionTypeOpinion: 3
+  - actionType: 3
+    actionTypeOpinion: 1
+  - actionType: 4
+    actionTypeOpinion: 3
+  characterActions:
+  - {fileID: 11400000, guid: ae03f202b32dea7429a4ee0bb35d0872, type: 2}
+  - {fileID: 11400000, guid: 11417504c95530446ad0782ebb8cddd8, type: 2}
+  - {fileID: 11400000, guid: 4e2b59d0bc9bfc44392be751e0adb0d8, type: 2}
+  isAI: 0

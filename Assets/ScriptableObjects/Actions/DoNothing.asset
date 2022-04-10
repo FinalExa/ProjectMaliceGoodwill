@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
-  m_Name: Cry
+  m_Name: DoNothing
   m_EditorClassIdentifier: 
-  actionName: Cry
+  actionName: Do Nothing
   type:
-    actionType: 2
-  severity: 10
-  severitySpectator: 5
-  staminaDamage: 10
-  staminaDamageSpectator: 5
-  mentalDamage: 10
-  mentalDamageSpectator: 5
+    actionType: 0
+  severity: 0
+  severitySpectator: 0
+  staminaDamage: 0
+  staminaDamageSpectator: 0
+  mentalDamage: 0
+  mentalDamageSpectator: 0
   minMGRange: 0
-  maxMGRange: 100
+  maxMGRange: 0
   canHitEnemies: 1
-  canHitAllies: 0
-  canHitSelf: 0
+  canHitAllies: 1
+  canHitSelf: 1

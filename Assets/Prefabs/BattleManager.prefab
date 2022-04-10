@@ -570,6 +570,9 @@ GameObject:
   - component: {fileID: 7328096488641203672}
   - component: {fileID: -3920999559667313699}
   - component: {fileID: -6260356559489696910}
+  - component: {fileID: -2500228207376901259}
+  - component: {fileID: -7457356380004830230}
+  - component: {fileID: -7157956694862326779}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -629,10 +632,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCharacter: {fileID: 0}
   turnOrder: {fileID: -3920999559667313699}
+  actionEffect: {fileID: -2500228207376901259}
+  AITurn: {fileID: -7157956694862326779}
   actionsParent: {fileID: 1421814883525811965}
   actionsDropdown: {fileID: 6858196972186021604}
   targetsParent: {fileID: 2808319981767094480}
   targetsDropdown: {fileID: 3977595946840597849}
+  fightIsOver: 0
+--- !u!114 &-2500228207376901259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016859038119486068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be011f5283e3e0844b7ab5e993ac0868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endBattleConditions: {fileID: -7457356380004830230}
+  severelyNegativeCoeff: -1.5
+  negativeCoeff: -1
+  neutralCoeff: 0
+  positiveCoeff: 1
+  severelyPositiveCoeff: 1.5
+--- !u!114 &-7457356380004830230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016859038119486068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d25eca29c4a714ba7021222ee720d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turn: {fileID: -6260356559489696910}
+  turnOrder: {fileID: -3920999559667313699}
+--- !u!114 &-7157956694862326779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016859038119486068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1e78ece5d067f4e828f5d1dc3dc370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turn: {fileID: -6260356559489696910}
 --- !u!1 &2428737231869957598
 GameObject:
   m_ObjectHideFlags: 0
