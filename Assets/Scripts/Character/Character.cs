@@ -11,7 +11,6 @@ public class Character : MonoBehaviour
     public CharacterData characterData;
     [HideInInspector] public bool passageDone;
     [HideInInspector] public bool isLocked;
-    [HideInInspector] public bool incapacitated;
 
     private void Awake()
     {
@@ -28,7 +27,7 @@ public class Character : MonoBehaviour
     {
         if (!isLocked && !passageDone)
         {
-            if (!incapacitated) ThisCharacterTurn();
+            if (!characterData.incapacitated) ThisCharacterTurn();
             else PassTurn();
         }
     }

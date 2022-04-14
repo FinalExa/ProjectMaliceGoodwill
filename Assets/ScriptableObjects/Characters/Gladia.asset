@@ -17,11 +17,11 @@ MonoBehaviour:
     MGMinLimit: 0
     MGMaxLimit: 100
     MGStartPoint: 50
-    MGCurrentValue: -5
+    MGCurrentValue: 50
     maxStamina: 100
-    currentStamina: 45
+    currentStamina: 70
     maxMental: 100
-    currentMental: 45
+    currentMental: 88
   characterOpinions:
   - actionType: 0
     actionTypeOpinion: 2
@@ -40,5 +40,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 11417504c95530446ad0782ebb8cddd8, type: 2}
   - {fileID: 11400000, guid: 4e2b59d0bc9bfc44392be751e0adb0d8, type: 2}
   isAI: 1
-  AITargetPreference: []
-  actionSequences: []
+  AITargetPreference:
+  - {fileID: 11400000, guid: c36aeb7f592c6ba4e825598470be8f58, type: 2}
+  - {fileID: 11400000, guid: 70a2e22e084009948aea57f60675e89d, type: 2}
+  - {fileID: 11400000, guid: c96fad65aafe5b345b75483e847d8c2f, type: 2}
+  actionSequences:
+  - MGMinRange: 0
+    MGMaxRange: 100
+    actionOrderInThatRange:
+    - {fileID: 11400000, guid: 4e2b59d0bc9bfc44392be751e0adb0d8, type: 2}
+    - {fileID: 11400000, guid: ae03f202b32dea7429a4ee0bb35d0872, type: 2}
+    - {fileID: 11400000, guid: ae03f202b32dea7429a4ee0bb35d0872, type: 2}
+    - {fileID: 11400000, guid: f4c2c58dd52671247a56e158b521402f, type: 2}
+    actionOrderIndex: 0

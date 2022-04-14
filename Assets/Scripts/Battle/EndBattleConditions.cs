@@ -14,7 +14,7 @@ public class EndBattleConditions : MonoBehaviour
             bool enemiesDown = true;
             foreach (Character enemy in turnOrder.enemyCharacters)
             {
-                if (!enemy.incapacitated)
+                if (!enemy.characterData.incapacitated)
                 {
                     enemiesDown = false;
                     break;

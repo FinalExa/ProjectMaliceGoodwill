@@ -8,6 +8,7 @@ public class CharacterData : ScriptableObject
     public CharacterStats characterStats;
     public CharacterOpinions[] characterOpinions;
     public Action[] characterActions;
+    [HideInInspector] public bool incapacitated;
     [Header("AI Section")]
     public bool isAI;
     public CharacterData[] AITargetPreference;

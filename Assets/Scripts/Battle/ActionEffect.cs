@@ -15,11 +15,15 @@ public class ActionEffect : MonoBehaviour
     {
         CharacterStats targetInfo = target.characterData.characterStats;
         float coeff = CalculateCoeff(target, chosenAction.type);
-        if (!isSpectator) UpdateCharacterValues(targetInfo, coeff, chosenAction.severity, chosenAction.staminaDamage, chosenAction.mentalDamage);
+        if (!isSpectator)
+        {
+            UpdateCharacterValues(targetInfo, coeff, chosenAction.severity, chosenAction.staminaDamage, chosenAction.mentalDamage);
+            print(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + "!");
+        }
         else if (chosenAction.isSeen) UpdateCharacterValues(targetInfo, coeff, chosenAction.severitySpectator, chosenAction.staminaDamageSpectator, chosenAction.mentalDamageSpectator);
         if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0)
         {
-            target.incapacitated = true;
+            target.characterData.incapacitated = true;
             endBattleConditions.CheckForVictoryConditions(target);
         }
     }

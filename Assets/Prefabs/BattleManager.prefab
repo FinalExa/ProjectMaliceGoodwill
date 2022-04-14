@@ -703,6 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: {fileID: -6260356559489696910}
+  actionEffect: {fileID: -2500228207376901259}
 --- !u!1 &2428737231869957598
 GameObject:
   m_ObjectHideFlags: 0

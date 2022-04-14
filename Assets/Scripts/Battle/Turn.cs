@@ -29,7 +29,7 @@ public class Turn : MonoBehaviour
 
     private void PlayableCharacterTurn()
     {
-        if (!currentCharacter.incapacitated)
+        if (!currentCharacter.characterData.incapacitated)
         {
             populateDropdowns.ActionPopulate();
             stop = true;
@@ -49,7 +49,7 @@ public class Turn : MonoBehaviour
     {
         for (int i = 0; i < turnOrder.turnOrder.Count; i++)
         {
-            if ((turnOrder.turnOrder[i] != this || turnOrder.turnOrder[i] != target) && !turnOrder.turnOrder[i].incapacitated)
+            if ((turnOrder.turnOrder[i] != this || turnOrder.turnOrder[i] != target) && !turnOrder.turnOrder[i].characterData.incapacitated)
             {
                 actionEffect.UpdateValues(turnOrder.turnOrder[i], chosenAction, true);
                 turnOrder.turnOrder[i].UpdateAllBars();
