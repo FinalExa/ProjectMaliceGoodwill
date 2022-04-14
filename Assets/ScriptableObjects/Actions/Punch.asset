@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Punch
   type:
-    actionType: 0
+  - actionType: 0
   severity: 10
   severitySpectator: 5
   staminaDamage: 10
@@ -23,6 +23,7 @@ MonoBehaviour:
   mentalDamageSpectator: 1
   minMGRange: 0
   maxMGRange: 100
-  canHitEnemies: 1
-  canHitAllies: 0
-  canHitSelf: 0
+  canTargetEnemies: 1
+  canTargetAllies: 0
+  canTargetSelf: 0
+  isSeen: 1

@@ -7,7 +7,7 @@ using UnityEngine;
 public class Action : ScriptableObject
 {
     public string actionName;
-    public Type type;
+    public Type[] type;
     public float severity;
     public float severitySpectator;
     public float staminaDamage;
@@ -16,7 +16,8 @@ public class Action : ScriptableObject
     public float mentalDamageSpectator;
     public float minMGRange;
     public float maxMGRange;
-    public bool canHitEnemies;
-    public bool canHitAllies;
-    public bool canHitSelf;
+    public bool canTargetEnemies;
+    public bool canTargetAllies;
+    public bool canTargetSelf;
+    public bool isSeen;
 }

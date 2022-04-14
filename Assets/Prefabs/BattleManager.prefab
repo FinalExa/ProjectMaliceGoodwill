@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: -3920999559667313699}
   - component: {fileID: -6260356559489696910}
   - component: {fileID: -2500228207376901259}
+  - component: {fileID: 5141292673853435214}
   - component: {fileID: -7457356380004830230}
   - component: {fileID: -7157956694862326779}
   m_Layer: 0
@@ -631,13 +632,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentCharacter: {fileID: 0}
+  target: {fileID: 0}
+  possibleTargets: []
+  chosenAction: {fileID: 0}
+  stop: 0
   turnOrder: {fileID: -3920999559667313699}
   actionEffect: {fileID: -2500228207376901259}
   AITurn: {fileID: -7157956694862326779}
-  actionsParent: {fileID: 1421814883525811965}
-  actionsDropdown: {fileID: 6858196972186021604}
-  targetsParent: {fileID: 2808319981767094480}
-  targetsDropdown: {fileID: 3977595946840597849}
+  populateDropdowns: {fileID: 5141292673853435214}
   fightIsOver: 0
 --- !u!114 &-2500228207376901259
 MonoBehaviour:
@@ -657,6 +659,23 @@ MonoBehaviour:
   neutralCoeff: 0
   positiveCoeff: 1
   severelyPositiveCoeff: 1.5
+--- !u!114 &5141292673853435214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016859038119486068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a336d444186c04abd7a8373f2fb69e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turn: {fileID: -6260356559489696910}
+  actionsParent: {fileID: 1421814883525811965}
+  actionsDropdown: {fileID: 6858196972186021604}
+  targetsParent: {fileID: 2808319981767094480}
+  targetsDropdown: {fileID: 3977595946840597849}
 --- !u!114 &-7457356380004830230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,8 +1047,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -6260356559489696910}
-        m_TargetAssemblyTypeName: Turn, Assembly-CSharp
+      - m_Target: {fileID: 5141292673853435214}
+        m_TargetAssemblyTypeName: PopulateDropdowns, Assembly-CSharp
         m_MethodName: ActionConfirm
         m_Mode: 1
         m_Arguments:
@@ -2149,8 +2168,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -6260356559489696910}
-        m_TargetAssemblyTypeName: Turn, Assembly-CSharp
+      - m_Target: {fileID: 5141292673853435214}
+        m_TargetAssemblyTypeName: PopulateDropdowns, Assembly-CSharp
         m_MethodName: TargetConfirm
         m_Mode: 1
         m_Arguments:

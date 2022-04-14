@@ -33,8 +33,12 @@ MonoBehaviour:
     actionTypeOpinion: 0
   - actionType: 4
     actionTypeOpinion: 3
+  - actionType: 5
+    actionTypeOpinion: 2
   characterActions:
   - {fileID: 11400000, guid: ae03f202b32dea7429a4ee0bb35d0872, type: 2}
   - {fileID: 11400000, guid: 11417504c95530446ad0782ebb8cddd8, type: 2}
   - {fileID: 11400000, guid: 4e2b59d0bc9bfc44392be751e0adb0d8, type: 2}
   isAI: 1
+  AITargetPreference: []
+  actionSequences: []
