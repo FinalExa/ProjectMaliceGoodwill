@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Cry
   type:
-  - actionType: 0
-  severity: 10
-  severitySpectator: 5
-  staminaDamage: 10
-  staminaDamageSpectator: 5
-  mentalDamage: 10
-  mentalDamageSpectator: 5
+  - actionType: 2
+  severity: 3
+  severitySpectator: 1
+  staminaDamage: 0
+  staminaDamageSpectator: 0
+  mentalDamage: 5
+  mentalDamageSpectator: 2
   minMGRange: 0
   maxMGRange: 49
   canTargetEnemies: 1

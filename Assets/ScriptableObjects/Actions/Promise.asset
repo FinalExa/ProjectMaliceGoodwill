@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
-  m_Name: DebugAction
+  m_Name: Promise
   m_EditorClassIdentifier: 
-  actionName: DebugAction
+  actionName: Promise
   type:
   - actionType: 4
-  severity: 10
-  severitySpectator: 1
+  severity: 7
+  severitySpectator: 3
   staminaDamage: 0
   staminaDamageSpectator: 0
   mentalDamage: 0
   mentalDamageSpectator: 0
   minMGRange: 0
-  maxMGRange: 0
+  maxMGRange: 100
   canTargetEnemies: 1
   canTargetAllies: 0
   canTargetSelf: 0
-  isSeen: 0
+  isSeen: 1

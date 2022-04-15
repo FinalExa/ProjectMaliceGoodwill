@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     public CharacterData characterData;
     [HideInInspector] public bool incapacitated;
     [HideInInspector] public bool perdition;
+    [HideInInspector] public bool fullGoodwillAI;
     [HideInInspector] public bool passageDone;
     [HideInInspector] public bool isLocked;
 

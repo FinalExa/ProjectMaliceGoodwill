@@ -8,19 +8,21 @@ public class EndBattleConditions : MonoBehaviour
     [SerializeField] private TurnOrder turnOrder;
     private bool stopThis;
     private bool enemiesDownCondition;
+    private bool enemiesGoodwillCondition;
     private bool alliesDownCondition;
     private bool alliesPerditionCondition;
     private bool allPlayableInPerditionCondition;
 
     private void Update()
     {
-        if (!stopThis && enemiesDownCondition && !alliesPerditionCondition) Victory();
+        if (!stopThis && (enemiesDownCondition || enemiesGoodwillCondition) && !alliesPerditionCondition) Victory();
         if (!stopThis && (alliesDownCondition || allPlayableInPerditionCondition)) Defeat();
     }
 
     public void CheckForVictoryConditions()
     {
         EnemiesDownCondition();
+        EnemiesGoodwillCondition();
         AlliesPerditionCondition();
         AlliesDownCondition();
         AllPlayableInPerditionCondition();
@@ -77,6 +79,15 @@ public class EndBattleConditions : MonoBehaviour
         if (alliesPerdition) alliesPerditionCondition = true;
         else alliesPerditionCondition = false;
     }
+    private void EnemiesGoodwillCondition()
+    {
+        int count = 0;
+        foreach (Character enemy in turnOrder.enemyCharacters)
+        {
+            if (enemy.fullGoodwillAI) count++;
+        }
+        if (count == turnOrder.enemyCharacters.Length) enemiesGoodwillCondition = true;
+    }
 
     private void Victory()
     {
@@ -84,6 +95,8 @@ public class EndBattleConditions : MonoBehaviour
         turn.fightIsOver = true;
         stopThis = true;
         print("Victory!");
+        if (enemiesDownCondition) print("All enemies knocked out");
+        if (enemiesGoodwillCondition) print("All enemies goodwill maxed out");
     }
 
     private void Defeat()

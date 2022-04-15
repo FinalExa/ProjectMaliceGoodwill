@@ -33,11 +33,21 @@ public class AITurn : MonoBehaviour
     public void AIStartup(Character aiReceived)
     {
         aiToControl = aiReceived;
-        FindAIID();
-        AssignActionIndex();
-        AssignTarget();
-        ExecuteAction();
+        GoodwillCheck();
+        if (!aiToControl.fullGoodwillAI)
+        {
+            FindAIID();
+            AssignActionIndex();
+            AssignTarget();
+            ExecuteAction();
+        }
         turn.currentCharacter.PassTurn();
+    }
+
+    private void GoodwillCheck()
+    {
+        if (aiToControl.characterData.characterStats.MGCurrentValue == aiToControl.characterData.characterStats.MGMaxLimit) aiToControl.fullGoodwillAI = true;
+        else aiToControl.fullGoodwillAI = false;
     }
 
     private void FindAIID()
