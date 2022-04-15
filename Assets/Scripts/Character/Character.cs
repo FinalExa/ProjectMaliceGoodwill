@@ -28,10 +28,24 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
+        TurnCheck();
+        PerditionStopCheck();
+    }
+
+    private void TurnCheck()
+    {
         if (!isLocked && !passageDone)
         {
             if (!incapacitated) ThisCharacterTurn();
             else PassTurn();
+        }
+    }
+
+    private void PerditionStopCheck()
+    {
+        if (perdition && characterData.characterStats.MGCurrentValue > 0)
+        {
+            perdition = false;
         }
     }
 

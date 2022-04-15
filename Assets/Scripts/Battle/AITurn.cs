@@ -6,7 +6,7 @@ public class AITurn : MonoBehaviour
 {
     [SerializeField] private Turn turn;
     private Character aiToControl;
-    [SerializeField] private List<AITurnData> aiTurnData;
+    private List<AITurnData> aiTurnData;
     private int thisAIId;
 
     private void Start()

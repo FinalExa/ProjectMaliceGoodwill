@@ -21,14 +21,8 @@ public class ActionEffect : MonoBehaviour
             print(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + "!");
         }
         else if (chosenAction.isSeen) UpdateCharacterValues(targetInfo, coeff, chosenAction.severitySpectator, chosenAction.staminaDamageSpectator, chosenAction.mentalDamageSpectator);
-        if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0)
-        {
-            target.incapacitated = true;
-        }
-        if (targetInfo.MGCurrentValue == 0)
-        {
-            target.perdition = true;
-        }
+        if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0) target.incapacitated = true;
+        if (targetInfo.MGCurrentValue == 0) target.perdition = true;
     }
 
     private float CalculateCoeff(Character target, Type[] actionTypes)
