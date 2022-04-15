@@ -59,8 +59,11 @@ public class AITurn : MonoBehaviour
         CharacterStats stats = aiToControl.characterData.characterStats;
         for (int i = 0; i < actSeq.Length; i++)
         {
-            if (stats.MGCurrentValue <= actSeq[i].MGMaxRange && stats.MGCurrentValue >= actSeq[i].MGMinRange) index = i;
-            break;
+            if (stats.MGCurrentValue <= actSeq[i].MGMaxRange && stats.MGCurrentValue >= actSeq[i].MGMinRange)
+            {
+                index = i;
+                break;
+            }
         }
         if (index != aiTurnData[thisAIId].AIActionIndex)
         {
