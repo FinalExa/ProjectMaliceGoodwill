@@ -8,5 +8,5 @@ public class AIActionSequences
     public float MGMinRange;
     public float MGMaxRange;
     public Action[] actionOrderInThatRange;
-    [HideInInspector] public int actionOrderIndex;
+    public int actionOrderIndex;
 }

@@ -6,7 +6,7 @@ public class AITurn : MonoBehaviour
 {
     [SerializeField] private Turn turn;
     private Character aiToControl;
-    private List<AITurnData> aiTurnData;
+    [SerializeField] private List<AITurnData> aiTurnData;
     private int thisAIId;
 
     private void Start()
@@ -23,6 +23,7 @@ public class AITurn : MonoBehaviour
             aiInfo.AIName = enemy.characterData.characterStats.characterName;
             aiInfo.AIActionIndex = 0;
             aiInfo.targetOrder = new List<CharacterData>();
+            aiInfo.sequence = enemy.characterData.actionSequences;
             foreach (CharacterData target in enemy.characterData.AITargetPreference) aiInfo.targetOrder.Add(target);
             aiTurnData.Add(aiInfo);
         }
@@ -33,6 +34,7 @@ public class AITurn : MonoBehaviour
         aiToControl = aiReceived;
         FindAIID();
         AssignActionIndex();
+        AssignTarget();
         ExecuteAction();
         turn.currentCharacter.PassTurn();
     }
@@ -65,7 +67,7 @@ public class AITurn : MonoBehaviour
         if (index != aiTurnData[thisAIId].AIActionIndex)
         {
             aiTurnData[thisAIId].AIActionIndex = index;
-            aiToControl.characterData.actionSequences[aiTurnData[thisAIId].AIActionIndex].actionOrderIndex = 0;
+            aiTurnData[thisAIId].sequence[index].actionOrderIndex = 0;
         }
     }
 
@@ -89,11 +91,11 @@ public class AITurn : MonoBehaviour
 
     private void ExecuteAction()
     {
-        AssignTarget();
-        AIActionSequences[] actSeq = aiToControl.characterData.actionSequences;
+        AIActionSequences[] actSeq = aiTurnData[thisAIId].sequence;
         int index = aiTurnData[thisAIId].AIActionIndex;
+        Action[] actionOrder = actSeq[index].actionOrderInThatRange;
         turn.chosenAction = actSeq[index].actionOrderInThatRange[actSeq[index].actionOrderIndex];
-        if (actSeq[index].actionOrderIndex + 1 >= actSeq.Length) actSeq[index].actionOrderIndex = 0;
+        if (actSeq[index].actionOrderIndex + 1 >= actionOrder.Length) actSeq[index].actionOrderIndex = 0;
         else actSeq[index].actionOrderIndex++;
         turn.ActionDoneOnTarget();
     }
