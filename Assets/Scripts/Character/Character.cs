@@ -20,6 +20,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         characterData.characterStats.SetStatsStartup();
+        characterData.incapacitated = false;
         UpdateAllBars();
     }
 

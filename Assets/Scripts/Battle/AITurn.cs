@@ -23,10 +23,7 @@ public class AITurn : MonoBehaviour
             aiInfo.AIName = enemy.characterData.characterStats.characterName;
             aiInfo.AIActionIndex = 0;
             aiInfo.targetOrder = new List<CharacterData>();
-            foreach (CharacterData target in enemy.characterData.AITargetPreference)
-            {
-                aiInfo.targetOrder.Add(target);
-            }
+            foreach (CharacterData target in enemy.characterData.AITargetPreference) aiInfo.targetOrder.Add(target);
             aiTurnData.Add(aiInfo);
         }
     }
