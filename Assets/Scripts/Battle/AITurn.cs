@@ -24,6 +24,7 @@ public class AITurn : MonoBehaviour
             aiInfo.AIActionIndex = 0;
             aiInfo.targetOrder = new List<CharacterData>();
             aiInfo.sequence = enemy.characterData.actionSequences;
+            for (int i = 0; i < aiInfo.sequence.Length; i++) aiInfo.sequence[i].actionOrderIndex = 0;
             foreach (CharacterData target in enemy.characterData.AITargetPreference) aiInfo.targetOrder.Add(target);
             aiTurnData.Add(aiInfo);
         }
@@ -54,7 +55,7 @@ public class AITurn : MonoBehaviour
     private void AssignActionIndex()
     {
         int index = 0;
-        AIActionSequences[] actSeq = aiToControl.characterData.actionSequences;
+        AIActionSequences[] actSeq = aiTurnData[thisAIId].sequence;
         CharacterStats stats = aiToControl.characterData.characterStats;
         for (int i = 0; i < actSeq.Length; i++)
         {
