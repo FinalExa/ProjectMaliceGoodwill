@@ -25,6 +25,10 @@ public class ActionEffect : MonoBehaviour
         {
             target.incapacitated = true;
         }
+        if (targetInfo.MGCurrentValue == 0)
+        {
+            target.perdition = true;
+        }
     }
 
     private float CalculateCoeff(Character target, Type[] actionTypes)

@@ -25,20 +25,24 @@ public class Turn : MonoBehaviour
 
     private void TurnOperations()
     {
-        if (!currentCharacter.characterData.isAI && !stop) PlayableCharacterTurn();
-        else if (currentCharacter.characterData.isAI) AITurn.AIStartup(currentCharacter);
+        if (!currentCharacter.incapacitated)
+        {
+            if (!currentCharacter.perdition)
+            {
+                if (!currentCharacter.characterData.isAI && !stop) PlayableCharacterTurn();
+                else if (currentCharacter.characterData.isAI) AITurn.AIStartup(currentCharacter);
+            }
+            else perditionTurn.PerditionStartup(currentCharacter);
+        }
+        else currentCharacter.PassTurn();
         endBattleConditions.CheckForVictoryConditions();
     }
 
     private void PlayableCharacterTurn()
     {
-        if (!currentCharacter.incapacitated)
-        {
-            populateDropdowns.ActionPopulate();
-            stop = true;
-            print(currentCharacter.characterData.characterStats.characterName + "'s turn.");
-        }
-        else currentCharacter.PassTurn();
+        populateDropdowns.ActionPopulate();
+        stop = true;
+        print(currentCharacter.characterData.characterStats.characterName + "'s turn.");
     }
 
     public void ActionDoneOnTarget()
