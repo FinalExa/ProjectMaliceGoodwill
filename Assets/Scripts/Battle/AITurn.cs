@@ -74,7 +74,7 @@ public class AITurn : MonoBehaviour
 
     private void AssignTarget()
     {
-        if (aiTurnData[thisAIId].targetOrder[0].incapacitated)
+        if (aiTurnData[thisAIId].targetOrder[0].thisCharacter.incapacitated)
         {
             CharacterData tempCharacterData = aiTurnData[thisAIId].targetOrder[0];
             aiTurnData[thisAIId].targetOrder.RemoveAt(0);

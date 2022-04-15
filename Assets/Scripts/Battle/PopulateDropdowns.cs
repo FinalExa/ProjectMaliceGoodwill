@@ -40,7 +40,7 @@ public class PopulateDropdowns : MonoBehaviour
         {
             foreach (Character enemy in turn.turnOrder.enemyCharacters)
             {
-                if (!enemy.characterData.incapacitated)
+                if (!enemy.incapacitated)
                 {
                     turn.possibleTargets.Add(enemy);
                     possibleTargetsNames.Add(enemy.characterData.characterStats.characterName);
@@ -51,7 +51,7 @@ public class PopulateDropdowns : MonoBehaviour
         {
             for (int i = 0; i < turn.turnOrder.playableCharacters.Length; i++)
             {
-                if (turn.turnOrder.playableCharacters[i] != turn.currentCharacter && !turn.turnOrder.playableCharacters[i].characterData.incapacitated)
+                if (turn.turnOrder.playableCharacters[i] != turn.currentCharacter && !turn.turnOrder.playableCharacters[i].incapacitated)
                 {
                     turn.possibleTargets.Add(turn.turnOrder.playableCharacters[i]);
                     possibleTargetsNames.Add(turn.turnOrder.playableCharacters[i].characterData.characterStats.characterName);
@@ -74,5 +74,17 @@ public class PopulateDropdowns : MonoBehaviour
         targetsParent.SetActive(false);
         turn.stop = false;
         turn.currentCharacter.PassTurn();
+    }
+
+    public void TurnAllOff()
+    {
+        actionsParent.SetActive(false);
+        targetsParent.SetActive(false);
+    }
+
+    public void BackToAction()
+    {
+        targetsParent.SetActive(false);
+        ActionPopulate();
     }
 }

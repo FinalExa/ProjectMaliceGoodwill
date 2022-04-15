@@ -23,18 +23,14 @@ public class ActionEffect : MonoBehaviour
         else if (chosenAction.isSeen) UpdateCharacterValues(targetInfo, coeff, chosenAction.severitySpectator, chosenAction.staminaDamageSpectator, chosenAction.mentalDamageSpectator);
         if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0)
         {
-            target.characterData.incapacitated = true;
-            endBattleConditions.CheckForVictoryConditions(target);
+            target.incapacitated = true;
         }
     }
 
     private float CalculateCoeff(Character target, Type[] actionTypes)
     {
         float coeff = 0f;
-        foreach (Type actionType in actionTypes)
-        {
-            coeff += EvaluateActionReaction(target.characterData, actionType.actionType);
-        }
+        foreach (Type actionType in actionTypes) coeff += EvaluateActionReaction(target.characterData, actionType.actionType);
         return coeff;
     }
 

@@ -11,9 +11,11 @@ public class Turn : MonoBehaviour
     [HideInInspector] public Action chosenAction;
     [HideInInspector] public bool stop;
     public TurnOrder turnOrder;
+    public PopulateDropdowns populateDropdowns;
     [SerializeField] private ActionEffect actionEffect;
     [SerializeField] private AITurn AITurn;
-    [SerializeField] private PopulateDropdowns populateDropdowns;
+    [SerializeField] private PerditionTurn perditionTurn;
+    [SerializeField] private EndBattleConditions endBattleConditions;
     [HideInInspector] public bool fightIsOver;
 
     private void Update()
@@ -25,11 +27,12 @@ public class Turn : MonoBehaviour
     {
         if (!currentCharacter.characterData.isAI && !stop) PlayableCharacterTurn();
         else if (currentCharacter.characterData.isAI) AITurn.AIStartup(currentCharacter);
+        endBattleConditions.CheckForVictoryConditions();
     }
 
     private void PlayableCharacterTurn()
     {
-        if (!currentCharacter.characterData.incapacitated)
+        if (!currentCharacter.incapacitated)
         {
             populateDropdowns.ActionPopulate();
             stop = true;
@@ -49,7 +52,7 @@ public class Turn : MonoBehaviour
     {
         for (int i = 0; i < turnOrder.turnOrder.Count; i++)
         {
-            if ((turnOrder.turnOrder[i] != this || turnOrder.turnOrder[i] != target) && !turnOrder.turnOrder[i].characterData.incapacitated)
+            if ((turnOrder.turnOrder[i] != this || turnOrder.turnOrder[i] != target) && !turnOrder.turnOrder[i].incapacitated)
             {
                 actionEffect.UpdateValues(turnOrder.turnOrder[i], chosenAction, true);
                 turnOrder.turnOrder[i].UpdateAllBars();

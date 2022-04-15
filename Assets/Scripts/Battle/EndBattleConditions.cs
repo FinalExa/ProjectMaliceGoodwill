@@ -7,28 +7,28 @@ public class EndBattleConditions : MonoBehaviour
     [SerializeField] private Turn turn;
     [SerializeField] private TurnOrder turnOrder;
 
-    public void CheckForVictoryConditions(Character target)
+    public void CheckForVictoryConditions()
     {
-        if (target.characterData.isAI)
+        EnemiesDownCondition();
+    }
+    private void EnemiesDownCondition()
+    {
+        bool enemiesDown = true;
+        foreach (Character enemy in turnOrder.enemyCharacters)
         {
-            bool enemiesDown = true;
-            foreach (Character enemy in turnOrder.enemyCharacters)
+            if (!enemy.incapacitated)
             {
-                if (!enemy.characterData.incapacitated)
-                {
-                    enemiesDown = false;
-                    break;
-                }
-            }
-            if (enemiesDown)
-            {
-                turn.fightIsOver = true;
-                print("Victory!");
+                enemiesDown = false;
+                break;
             }
         }
-        else
-        {
+        if (enemiesDown) Victory();
+    }
 
-        }
+    private void Victory()
+    {
+        turn.populateDropdowns.TurnAllOff();
+        turn.fightIsOver = true;
+        print("Victory!");
     }
 }

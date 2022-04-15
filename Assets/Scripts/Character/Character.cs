@@ -9,18 +9,20 @@ public class Character : MonoBehaviour
     [SerializeField] private CharacterUI characterUI;
     private Turn turn;
     public CharacterData characterData;
+    [HideInInspector] public bool incapacitated;
+    [HideInInspector] public bool perdition;
     [HideInInspector] public bool passageDone;
     [HideInInspector] public bool isLocked;
 
     private void Awake()
     {
         turn = FindObjectOfType<Turn>();
+        characterData.thisCharacter = this;
     }
 
     private void Start()
     {
         characterData.characterStats.SetStatsStartup();
-        characterData.incapacitated = false;
         UpdateAllBars();
     }
 
@@ -28,7 +30,7 @@ public class Character : MonoBehaviour
     {
         if (!isLocked && !passageDone)
         {
-            if (!characterData.incapacitated) ThisCharacterTurn();
+            if (!incapacitated) ThisCharacterTurn();
             else PassTurn();
         }
     }
