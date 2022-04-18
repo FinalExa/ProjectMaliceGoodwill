@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Cry
   type:
-  - actionType: 2
+  - actionType: 3
   severity: 3
   severitySpectator: 1
   staminaDamage: 0
