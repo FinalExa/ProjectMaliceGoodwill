@@ -15,15 +15,15 @@ MonoBehaviour:
   actionName: TYPE2HALFWAYMOVE
   type:
   - actionType: 1
-  severity: 0
-  severitySpectator: 0
+  severity: 5
+  severitySpectator: 2
   staminaDamage: 0
   staminaDamageSpectator: 0
-  mentalDamage: 0
+  mentalDamage: 7
   mentalDamageSpectator: 0
   minMGRange: 21
   maxMGRange: 65
-  canTargetEnemies: 0
-  canTargetAllies: 0
+  canTargetEnemies: 1
+  canTargetAllies: 1
   canTargetSelf: 0
   isSeen: 1

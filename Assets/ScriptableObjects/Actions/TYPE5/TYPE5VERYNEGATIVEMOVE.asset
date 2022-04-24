@@ -15,15 +15,15 @@ MonoBehaviour:
   actionName: TYPE5VERYNEGATIVEMOVE
   type:
   - actionType: 4
-  severity: 0
-  severitySpectator: 0
-  staminaDamage: 0
-  staminaDamageSpectator: 0
-  mentalDamage: 0
-  mentalDamageSpectator: 0
+  severity: 10
+  severitySpectator: 10
+  staminaDamage: 6
+  staminaDamageSpectator: 6
+  mentalDamage: 6
+  mentalDamageSpectator: 6
   minMGRange: 0
   maxMGRange: 10
   canTargetEnemies: 0
   canTargetAllies: 0
-  canTargetSelf: 0
+  canTargetSelf: 1
   isSeen: 1

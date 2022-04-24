@@ -15,7 +15,7 @@ MonoBehaviour:
   actionName: TYPE4VERYPOSITIVEMOVE
   type:
   - actionType: 3
-  severity: 0
+  severity: 1
   severitySpectator: 0
   staminaDamage: 0
   staminaDamageSpectator: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
   mentalDamageSpectator: 0
   minMGRange: 81
   maxMGRange: 100
-  canTargetEnemies: 0
-  canTargetAllies: 0
+  canTargetEnemies: 1
+  canTargetAllies: 1
   canTargetSelf: 0
   isSeen: 1

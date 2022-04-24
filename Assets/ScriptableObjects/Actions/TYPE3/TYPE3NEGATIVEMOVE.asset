@@ -15,8 +15,8 @@ MonoBehaviour:
   actionName: TYPE3NEGATIVEMOVE
   type:
   - actionType: 2
-  severity: 0
-  severitySpectator: 0
+  severity: 6
+  severitySpectator: 6
   staminaDamage: 0
   staminaDamageSpectator: 0
   mentalDamage: 0
@@ -25,5 +25,5 @@ MonoBehaviour:
   maxMGRange: 20
   canTargetEnemies: 0
   canTargetAllies: 0
-  canTargetSelf: 0
+  canTargetSelf: 1
   isSeen: 1

@@ -15,15 +15,15 @@ MonoBehaviour:
   actionName: TYPE4POSITIVEMOVE
   type:
   - actionType: 3
-  severity: 0
-  severitySpectator: 0
-  staminaDamage: 0
+  severity: 2
+  severitySpectator: 1
+  staminaDamage: 1
   staminaDamageSpectator: 0
-  mentalDamage: 0
+  mentalDamage: 1
   mentalDamageSpectator: 0
   minMGRange: 66
   maxMGRange: 80
-  canTargetEnemies: 0
-  canTargetAllies: 0
+  canTargetEnemies: 1
+  canTargetAllies: 1
   canTargetSelf: 0
   isSeen: 1
