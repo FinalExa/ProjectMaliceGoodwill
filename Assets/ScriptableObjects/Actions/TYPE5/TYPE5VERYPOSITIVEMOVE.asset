@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
-  m_Name: DoNothing
+  m_Name: TYPE5VERYPOSITIVEMOVE
   m_EditorClassIdentifier: 
-  actionName: Do Nothing
+  actionName: TYPE5VERYPOSITIVEMOVE
   type:
-  - actionType: 5
+  - actionType: 4
   severity: 0
   severitySpectator: 0
   staminaDamage: 0
@@ -22,8 +22,8 @@ MonoBehaviour:
   mentalDamage: 0
   mentalDamageSpectator: 0
   minMGRange: 0
-  maxMGRange: 100
-  canTargetEnemies: 1
-  canTargetAllies: 1
-  canTargetSelf: 1
+  maxMGRange: 0
+  canTargetEnemies: 0
+  canTargetAllies: 0
+  canTargetSelf: 0
   isSeen: 1

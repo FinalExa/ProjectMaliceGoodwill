@@ -6,10 +6,16 @@ public class ActionEffect : MonoBehaviour
 {
     [SerializeField] private EndBattleConditions endBattleConditions;
     [SerializeField] private float severelyNegativeCoeff;
+    [SerializeField] private string severelyNegativeDisplay;
     [SerializeField] private float negativeCoeff;
+    [SerializeField] private string negativeDisplay;
     [SerializeField] private float neutralCoeff;
+    [SerializeField] private string neutralDisplay;
     [SerializeField] private float positiveCoeff;
+    [SerializeField] private string positiveDisplay;
     [SerializeField] private float severelyPositiveCoeff;
+    [SerializeField] private string severelyPositiveDisplay;
+    private string textToDisplay;
 
     public void UpdateValues(Character target, Action chosenAction, bool isSpectator)
     {
@@ -19,6 +25,7 @@ public class ActionEffect : MonoBehaviour
         {
             UpdateCharacterValues(targetInfo, coeff, chosenAction.severity, chosenAction.staminaDamage, chosenAction.mentalDamage);
             print(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + "!");
+            print(target.characterData.characterStats.characterName + " " + textToDisplay + " it!");
         }
         else if (chosenAction.isSeen) UpdateCharacterValues(targetInfo, coeff, chosenAction.severitySpectator, chosenAction.staminaDamageSpectator, chosenAction.mentalDamageSpectator);
         if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0) target.incapacitated = true;
@@ -63,21 +70,24 @@ public class ActionEffect : MonoBehaviour
         {
             case Type.ActionOpinion.SEVERELY_NEGATIVE:
                 coeff = severelyNegativeCoeff;
+                textToDisplay = severelyNegativeDisplay;
                 break;
             case Type.ActionOpinion.NEGATIVE:
                 coeff = negativeCoeff;
-                break;
-            case Type.ActionOpinion.NEUTRAL:
-                coeff = neutralCoeff;
+                textToDisplay = negativeDisplay;
                 break;
             case Type.ActionOpinion.POSITIVE:
                 coeff = positiveCoeff;
+                textToDisplay = positiveDisplay;
                 break;
             case Type.ActionOpinion.SEVERELY_POSITIVE:
                 coeff = severelyPositiveCoeff;
+                textToDisplay = severelyPositiveDisplay;
                 break;
+            case Type.ActionOpinion.NEUTRAL:
             default:
                 coeff = neutralCoeff;
+                textToDisplay = neutralDisplay;
                 break;
         }
         return coeff;

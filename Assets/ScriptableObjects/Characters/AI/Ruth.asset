@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0141b398d4d2a4eae1b836a79a693a, type: 3}
+  m_Name: Ruth
+  m_EditorClassIdentifier: 
+  characterStats:
+    characterName: Ruth
+    MGMinLimit: 0
+    MGMaxLimit: 100
+    MGStartPoint: 50
+    MGCurrentValue: 22
+    maxStamina: 150
+    currentStamina: 65
+    maxMental: 110
+    currentMental: 81
+  characterOpinions:
+  - actionType: 0
+    actionTypeOpinion: 2
+  - actionType: 1
+    actionTypeOpinion: 1
+  - actionType: 2
+    actionTypeOpinion: 1
+  - actionType: 3
+    actionTypeOpinion: 1
+  - actionType: 4
+    actionTypeOpinion: 3
+  - actionType: 5
+    actionTypeOpinion: 4
+  characterActions:
+  - {fileID: 11400000, guid: 52a4a2875e8841c4faa108f2bf56b4d8, type: 2}
+  - {fileID: 11400000, guid: 8ab5c93dcfc01e049864f3302676d257, type: 2}
+  - {fileID: 11400000, guid: f3f8b654330187847933306fc9c83f38, type: 2}
+  - {fileID: 11400000, guid: e9eb4b0d13255a04c9b31a8abeeec6bd, type: 2}
+  - {fileID: 11400000, guid: 96fd45ddc80eabc42b6b037b2f127c02, type: 2}
+  - {fileID: 11400000, guid: 1fdda619887a41943a46df0fbad31f05, type: 2}
+  - {fileID: 11400000, guid: 2f77a84410c14a84e98146bc7de95ea7, type: 2}
+  - {fileID: 11400000, guid: b5c604cd712ad0a4981cc4568fc64dec, type: 2}
+  - {fileID: 11400000, guid: 5d85db4a5bf588647b16a5d2bc346bfc, type: 2}
+  - {fileID: 11400000, guid: debc7160a2e448a4ebd40082de58980e, type: 2}
+  - {fileID: 11400000, guid: c3af1e3e5d5e75e41a9e2f6265e06ca5, type: 2}
+  - {fileID: 11400000, guid: 764e723ab756adb46a19d2e712e9e4df, type: 2}
+  - {fileID: 11400000, guid: dfe47aaae029b554c9dfda950019a194, type: 2}
+  - {fileID: 11400000, guid: d9fc162f255d3904ca9a08054a0d57d5, type: 2}
+  - {fileID: 11400000, guid: f144f92fa1604e847bacc54a35ce7287, type: 2}
+  - {fileID: 11400000, guid: 6d0901e795fffee4eb3b3caa4d3dc476, type: 2}
+  - {fileID: 11400000, guid: ef6c0c0ce4a82104b844fd18a43245f4, type: 2}
+  - {fileID: 11400000, guid: 11417504c95530446ad0782ebb8cddd8, type: 2}
+  - {fileID: 11400000, guid: f4c2c58dd52671247a56e158b521402f, type: 2}
+  - {fileID: 11400000, guid: 4e2b59d0bc9bfc44392be751e0adb0d8, type: 2}
+  - {fileID: 11400000, guid: 42f390990a60c3f429c1b141635f73be, type: 2}
+  - {fileID: 11400000, guid: e960fcc4d8bd3344f94005dd55895e66, type: 2}
+  - {fileID: 11400000, guid: 914a4c00b3082f44699bee953ba11fbb, type: 2}
+  - {fileID: 11400000, guid: ae03f202b32dea7429a4ee0bb35d0872, type: 2}
+  - {fileID: 11400000, guid: 46aa6252babc0524f94fb1f6128ddae7, type: 2}
+  - {fileID: 11400000, guid: b2fc6d9808674e54cb36d5983bde28a7, type: 2}
+  - {fileID: 11400000, guid: 22e0739203c180345bcbcac756db4785, type: 2}
+  - {fileID: 11400000, guid: 59a43231ed522464eb859ab77ddc9b57, type: 2}
+  - {fileID: 11400000, guid: e03b21761bc423c4b950730a057313fb, type: 2}
+  - {fileID: 11400000, guid: 28d9912dfd752364ba52f86ec08687ea, type: 2}
+  isAI: 1
+  AITargetPreference:
+  - {fileID: 11400000, guid: 70a2e22e084009948aea57f60675e89d, type: 2}
+  - {fileID: 11400000, guid: c36aeb7f592c6ba4e825598470be8f58, type: 2}
+  - {fileID: 11400000, guid: c96fad65aafe5b345b75483e847d8c2f, type: 2}
+  actionSequences:
+  - MGMinRange: 1
+    MGMaxRange: 10
+    actionOrderInThatRange: []
+    actionOrderIndex: 0
+  - MGMinRange: 11
+    MGMaxRange: 20
+    actionOrderInThatRange: []
+    actionOrderIndex: 0
+  - MGMinRange: 21
+    MGMaxRange: 65
+    actionOrderInThatRange: []
+    actionOrderIndex: 0
+  - MGMinRange: 66
+    MGMaxRange: 80
+    actionOrderInThatRange: []
+    actionOrderIndex: 0
+  - MGMinRange: 81
+    MGMaxRange: 100
+    actionOrderInThatRange: []
+    actionOrderIndex: 0
+  thisCharacter: {fileID: 0}
