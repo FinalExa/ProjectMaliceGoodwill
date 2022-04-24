@@ -22,7 +22,7 @@ MonoBehaviour:
   mentalDamage: 0
   mentalDamageSpectator: 0
   minMGRange: 0
-  maxMGRange: 0
+  maxMGRange: 10
   canTargetEnemies: 0
   canTargetAllies: 0
   canTargetSelf: 0

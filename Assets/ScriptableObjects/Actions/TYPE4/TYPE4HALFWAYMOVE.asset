@@ -21,8 +21,8 @@ MonoBehaviour:
   staminaDamageSpectator: 0
   mentalDamage: 0
   mentalDamageSpectator: 0
-  minMGRange: 0
-  maxMGRange: 0
+  minMGRange: 21
+  maxMGRange: 65
   canTargetEnemies: 0
   canTargetAllies: 0
   canTargetSelf: 0

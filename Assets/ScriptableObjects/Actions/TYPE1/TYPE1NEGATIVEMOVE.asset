@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
-  m_Name: TYPE1POSITIVE
+  m_Name: TYPE1NEGATIVEMOVE
   m_EditorClassIdentifier: 
-  actionName: TYPE1POSITIVE
+  actionName: TYPE1NEGATIVEMOVE
   type:
   - actionType: 0
   severity: 0
@@ -22,8 +22,8 @@ MonoBehaviour:
   mentalDamage: 0
   mentalDamageSpectator: 0
   minMGRange: 0
-  maxMGRange: 100
-  canTargetEnemies: 1
-  canTargetAllies: 1
-  canTargetSelf: 1
+  maxMGRange: 0
+  canTargetEnemies: 0
+  canTargetAllies: 0
+  canTargetSelf: 0
   isSeen: 1
