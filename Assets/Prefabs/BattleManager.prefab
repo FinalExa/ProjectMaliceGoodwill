@@ -744,7 +744,7 @@ MonoBehaviour:
   neutralDisplay: is indifferent towards
   positiveCoeff: 1
   positiveDisplay: likes
-  severelyPositiveCoeff: 1.5
+  severelyPositiveCoeff: 1.2
   severelyPositiveDisplay: loves
 --- !u!114 &5141292673853435214
 MonoBehaviour:

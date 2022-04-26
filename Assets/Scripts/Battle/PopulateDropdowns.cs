@@ -26,7 +26,15 @@ public class PopulateDropdowns : MonoBehaviour
 
     public void ActionConfirm()
     {
-        turn.chosenAction = turn.currentCharacter.characterData.characterActions[actionsDropdown.value];
+        foreach (Action action in turn.currentCharacter.characterData.characterActions)
+        {
+            if (action.actionName == actionsDropdown.options[actionsDropdown.value].text)
+            {
+                turn.chosenAction = action;
+                break;
+            }
+        }
+        //turn.chosenAction = turn.currentCharacter.characterData.characterActions[actionsDropdown.value];
         actionsParent.SetActive(false);
         TargetPopulate();
     }
