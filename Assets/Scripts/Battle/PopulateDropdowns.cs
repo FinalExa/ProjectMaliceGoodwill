@@ -34,7 +34,6 @@ public class PopulateDropdowns : MonoBehaviour
                 break;
             }
         }
-        //turn.chosenAction = turn.currentCharacter.characterData.characterActions[actionsDropdown.value];
         actionsParent.SetActive(false);
         TargetPopulate();
     }
