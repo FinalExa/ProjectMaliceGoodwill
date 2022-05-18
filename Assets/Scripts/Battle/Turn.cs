@@ -9,6 +9,7 @@ public class Turn : MonoBehaviour
     [HideInInspector] public Character target;
     [HideInInspector] public List<Character> possibleTargets = new List<Character>();
     [HideInInspector] public Action chosenAction;
+    [HideInInspector] public Type.ActionType chosenIntention;
     [HideInInspector] public bool stop;
     public TurnOrder turnOrder;
     public PopulateDropdowns populateDropdowns;
@@ -40,7 +41,7 @@ public class Turn : MonoBehaviour
 
     private void PlayableCharacterTurn()
     {
-        populateDropdowns.ActionPopulate();
+        populateDropdowns.IntentionsPopulate();
         stop = true;
         print(currentCharacter.characterData.characterStats.characterName + "'s turn.");
     }

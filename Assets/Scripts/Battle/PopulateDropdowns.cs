@@ -6,10 +6,39 @@ using UnityEngine.UI;
 public class PopulateDropdowns : MonoBehaviour
 {
     [SerializeField] private Turn turn;
+    [SerializeField] private GameObject intentionsParent;
+    [SerializeField] private Dropdown intentionsDropdown;
     [SerializeField] private GameObject actionsParent;
     [SerializeField] private Dropdown actionsDropdown;
     [SerializeField] private GameObject targetsParent;
     [SerializeField] private Dropdown targetsDropdown;
+
+    public void IntentionsPopulate()
+    {
+        intentionsParent.SetActive(true);
+        List<string> intentionsList = new List<string>();
+        Character curCharacter = turn.currentCharacter;
+        float MGValue = curCharacter.characterData.characterStats.MGCurrentValue;
+        foreach (Type.Intention intention in curCharacter.characterData.characterIntentions)
+        {
+            if (MGValue <= intention.mgMaxRange && MGValue >= intention.mgMinRange) intentionsList.Add(intention.intention.ToString());
+        }
+        intentionsDropdown.ClearOptions();
+        intentionsDropdown.AddOptions(intentionsList);
+    }
+    public void IntentionConfirm()
+    {
+        foreach (Type.Intention intention in turn.currentCharacter.characterData.characterIntentions)
+        {
+            if (intention.intention.ToString() == actionsDropdown.options[actionsDropdown.value].text)
+            {
+                turn.chosenIntention = intention.intention;
+                break;
+            }
+        }
+        actionsParent.SetActive(false);
+        ActionPopulate();
+    }
     public void ActionPopulate()
     {
         actionsParent.SetActive(true);

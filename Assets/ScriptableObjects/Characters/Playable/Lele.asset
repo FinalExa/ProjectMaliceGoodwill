@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd0141b398d4d2a4eae1b836a79a693a, type: 3}
-  m_Name: Mea
+  m_Name: Lele
   m_EditorClassIdentifier: 
   characterStats:
     characterName: Lele
@@ -35,6 +35,10 @@ MonoBehaviour:
     actionTypeOpinion: 2
   - actionType: 5
     actionTypeOpinion: 2
+  characterIntentions:
+  - intention: 0
+    mgMinRange: 0
+    mgMaxRange: 100
   characterActions: []
   isAI: 0
   AITargetPreference: []

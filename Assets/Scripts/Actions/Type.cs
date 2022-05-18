@@ -5,7 +5,14 @@ using UnityEngine;
 [System.Serializable]
 public class Type
 {
-    [HideInInspector] public enum ActionType { TYPE1, TYPE2, TYPE3, TYPE4, TYPE5, TYPE6 };
+    [HideInInspector] public enum ActionType { ANGER, SADNESS, HAPPINESS, ANXIETY, APATHY, CALMNESS, IRRITATION, ATTENTIVENESS, DEPRESSION, HELPFULNESS, EMPATHY };
     public ActionType actionType;
+    [System.Serializable]
+    public struct Intention
+    {
+        public ActionType intention;
+        public int mgMinRange;
+        public int mgMaxRange;
+    }
     [HideInInspector] public enum ActionOpinion { SEVERELY_NEGATIVE, NEGATIVE, NEUTRAL, POSITIVE, SEVERELY_POSITIVE };
 }

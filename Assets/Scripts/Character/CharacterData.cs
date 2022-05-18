@@ -7,6 +7,7 @@ public class CharacterData : ScriptableObject
 {
     public CharacterStats characterStats;
     public CharacterOpinions[] characterOpinions;
+    public Type.Intention[] characterIntentions;
     public Action[] characterActions;
     [Header("AI Section")]
     public bool isAI;

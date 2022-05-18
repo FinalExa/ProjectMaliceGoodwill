@@ -35,6 +35,10 @@ MonoBehaviour:
     actionTypeOpinion: 3
   - actionType: 5
     actionTypeOpinion: 3
+  characterIntentions:
+  - intention: 0
+    mgMinRange: 0
+    mgMaxRange: 100
   characterActions: []
   isAI: 0
   AITargetPreference: []
