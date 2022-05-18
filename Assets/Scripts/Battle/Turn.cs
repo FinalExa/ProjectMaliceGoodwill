@@ -9,7 +9,7 @@ public class Turn : MonoBehaviour
     [HideInInspector] public Character target;
     [HideInInspector] public List<Character> possibleTargets = new List<Character>();
     [HideInInspector] public Action chosenAction;
-    [HideInInspector] public Type.ActionType chosenIntention;
+    [HideInInspector] public Type.Intention chosenIntention;
     [HideInInspector] public bool stop;
     public TurnOrder turnOrder;
     public PopulateDropdowns populateDropdowns;

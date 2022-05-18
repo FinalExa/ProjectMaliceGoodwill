@@ -30,9 +30,9 @@ public class PopulateDropdowns : MonoBehaviour
     {
         foreach (Type.Intention intention in turn.currentCharacter.characterData.characterIntentions)
         {
-            if (intention.intention.ToString() == actionsDropdown.options[actionsDropdown.value].text)
+            if (intention.intention.ToString() == intentionsDropdown.options[intentionsDropdown.value].text)
             {
-                turn.chosenIntention = intention.intention;
+                turn.chosenIntention = intention;
                 break;
             }
         }
@@ -44,10 +44,17 @@ public class PopulateDropdowns : MonoBehaviour
         actionsParent.SetActive(true);
         List<string> actionsList = new List<string>();
         Character curCharacter = turn.currentCharacter;
-        foreach (Action action in curCharacter.characterData.characterActions)
+        Type.Intention characterIntention = turn.chosenIntention;
+        foreach (Type.Intention intention in curCharacter.characterData.characterIntentions)
         {
-            float MGValue = curCharacter.characterData.characterStats.MGCurrentValue;
-            if (MGValue <= action.maxMGRange && MGValue >= action.minMGRange) actionsList.Add(action.actionName);
+            if (characterIntention.intention == intention.intention)
+            {
+                foreach (Action action in intention.intentionActions)
+                {
+                    actionsList.Add(action.actionName);
+                }
+                break;
+            }
         }
         actionsDropdown.ClearOptions();
         actionsDropdown.AddOptions(actionsList);
@@ -55,7 +62,7 @@ public class PopulateDropdowns : MonoBehaviour
 
     public void ActionConfirm()
     {
-        foreach (Action action in turn.currentCharacter.characterData.characterActions)
+        foreach (Action action in turn.chosenIntention.intentionActions)
         {
             if (action.actionName == actionsDropdown.options[actionsDropdown.value].text)
             {
@@ -122,5 +129,11 @@ public class PopulateDropdowns : MonoBehaviour
     {
         targetsParent.SetActive(false);
         ActionPopulate();
+    }
+
+    public void BackToIntention()
+    {
+        actionsParent.SetActive(false);
+        IntentionsPopulate();
     }
 }

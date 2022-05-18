@@ -17,11 +17,11 @@ MonoBehaviour:
     MGMinLimit: 0
     MGMaxLimit: 100
     MGStartPoint: 50
-    MGCurrentValue: 22
+    MGCurrentValue: 50
     maxStamina: 150
-    currentStamina: 65
+    currentStamina: 150
     maxMental: 110
-    currentMental: 81
+    currentMental: 110
   characterOpinions:
   - actionType: 0
     actionTypeOpinion: 2
@@ -39,6 +39,10 @@ MonoBehaviour:
   - intention: 0
     mgMinRange: 0
     mgMaxRange: 100
+    intentionActions:
+    - {fileID: 11400000, guid: b8609bdedff2f7b4f928cf7189b0ee54, type: 2}
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
   characterActions: []
   isAI: 1
   AITargetPreference:
@@ -49,36 +53,36 @@ MonoBehaviour:
   - MGMinRange: 1
     MGMaxRange: 10
     actionOrderInThatRange:
-    - {fileID: 11400000, guid: ae03f202b32dea7429a4ee0bb35d0872, type: 2}
-    - {fileID: 11400000, guid: f4c2c58dd52671247a56e158b521402f, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
     actionOrderIndex: 0
   - MGMinRange: 11
     MGMaxRange: 20
     actionOrderInThatRange:
-    - {fileID: 11400000, guid: ef6c0c0ce4a82104b844fd18a43245f4, type: 2}
-    - {fileID: 11400000, guid: e960fcc4d8bd3344f94005dd55895e66, type: 2}
-    - {fileID: 11400000, guid: ef6c0c0ce4a82104b844fd18a43245f4, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     actionOrderIndex: 0
   - MGMinRange: 21
     MGMaxRange: 65
     actionOrderInThatRange:
-    - {fileID: 11400000, guid: 2f77a84410c14a84e98146bc7de95ea7, type: 2}
-    - {fileID: 11400000, guid: b2fc6d9808674e54cb36d5983bde28a7, type: 2}
-    - {fileID: 11400000, guid: f144f92fa1604e847bacc54a35ce7287, type: 2}
-    - {fileID: 11400000, guid: 6d0901e795fffee4eb3b3caa4d3dc476, type: 2}
-    - {fileID: 11400000, guid: 2f77a84410c14a84e98146bc7de95ea7, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     actionOrderIndex: 0
   - MGMinRange: 66
     MGMaxRange: 80
     actionOrderInThatRange:
-    - {fileID: 11400000, guid: 11417504c95530446ad0782ebb8cddd8, type: 2}
-    - {fileID: 11400000, guid: 5d85db4a5bf588647b16a5d2bc346bfc, type: 2}
-    - {fileID: 11400000, guid: e9eb4b0d13255a04c9b31a8abeeec6bd, type: 2}
-    - {fileID: 11400000, guid: 914a4c00b3082f44699bee953ba11fbb, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     actionOrderIndex: 0
   - MGMinRange: 81
     MGMaxRange: 100
     actionOrderInThatRange:
-    - {fileID: 11400000, guid: 52a4a2875e8841c4faa108f2bf56b4d8, type: 2}
+    - {fileID: 0}
     actionOrderIndex: 0
   thisCharacter: {fileID: 0}

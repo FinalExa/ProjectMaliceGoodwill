@@ -17,11 +17,11 @@ MonoBehaviour:
     MGMinLimit: 0
     MGMaxLimit: 100
     MGStartPoint: 50
-    MGCurrentValue: 5
+    MGCurrentValue: 50
     maxStamina: 150
-    currentStamina: 75
+    currentStamina: 150
     maxMental: 80
-    currentMental: 64
+    currentMental: 80
   characterOpinions:
   - actionType: 0
     actionTypeOpinion: 1
@@ -39,6 +39,10 @@ MonoBehaviour:
   - intention: 0
     mgMinRange: 0
     mgMaxRange: 100
+    intentionActions:
+    - {fileID: 11400000, guid: b8609bdedff2f7b4f928cf7189b0ee54, type: 2}
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
   characterActions: []
   isAI: 0
   AITargetPreference: []

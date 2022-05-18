@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
-  m_Name: TYPE2VERYNEGATIVEMOVE
+  m_Name: Fight
   m_EditorClassIdentifier: 
-  actionName: TYPE2VERYNEGATIVEMOVE
+  actionName: Fight
   type:
-  - actionType: 1
-  severity: 15
-  severitySpectator: 6
-  staminaDamage: 0
-  staminaDamageSpectator: 0
-  mentalDamage: 17
-  mentalDamageSpectator: 7
-  minMGRange: 0
-  maxMGRange: 10
+  - actionType: 0
+  severity: 10
+  severitySpectator: 10
+  staminaDamage: 10
+  staminaDamageSpectator: 10
+  mentalDamage: 10
+  mentalDamageSpectator: 10
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 0
+  canTargetSelf: 1
   isSeen: 1
+  isMagic: 0

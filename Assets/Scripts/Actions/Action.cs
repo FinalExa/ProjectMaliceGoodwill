@@ -14,10 +14,9 @@ public class Action : ScriptableObject
     public float staminaDamageSpectator;
     public float mentalDamage;
     public float mentalDamageSpectator;
-    public float minMGRange;
-    public float maxMGRange;
     public bool canTargetEnemies;
     public bool canTargetAllies;
     public bool canTargetSelf;
     public bool isSeen;
+    public bool isMagic;
 }
