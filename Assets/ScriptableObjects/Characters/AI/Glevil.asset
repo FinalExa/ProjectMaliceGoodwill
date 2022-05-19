@@ -43,47 +43,18 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b8609bdedff2f7b4f928cf7189b0ee54, type: 2}
     magicActionCooldown: 0
     magicActionCooldownCount: 0
-  characterActions: []
   isAI: 1
   AITargetPreference:
   - {fileID: 11400000, guid: c36aeb7f592c6ba4e825598470be8f58, type: 2}
   - {fileID: 11400000, guid: 70a2e22e084009948aea57f60675e89d, type: 2}
   - {fileID: 11400000, guid: c96fad65aafe5b345b75483e847d8c2f, type: 2}
   actionSequences:
-  - MGMinRange: 1
-    MGMaxRange: 10
-    actionOrderInThatRange:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    actionOrderIndex: 0
-  - MGMinRange: 11
-    MGMaxRange: 20
-    actionOrderInThatRange:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    actionOrderIndex: 0
-  - MGMinRange: 21
-    MGMaxRange: 65
-    actionOrderInThatRange:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    actionOrderIndex: 0
-  - MGMinRange: 66
-    MGMaxRange: 80
-    actionOrderInThatRange:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    actionOrderIndex: 0
-  - MGMinRange: 81
+  - MGMinRange: 0
     MGMaxRange: 100
     actionOrderInThatRange:
     - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     actionOrderIndex: 0
   thisCharacter: {fileID: 0}
+  generateCharacterData: 0

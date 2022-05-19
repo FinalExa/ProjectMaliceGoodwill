@@ -17,6 +17,7 @@ public class Turn : MonoBehaviour
     [SerializeField] private AITurn AITurn;
     [SerializeField] private PerditionTurn perditionTurn;
     [SerializeField] private EndBattleConditions endBattleConditions;
+    public Type.ActionType[] actionTypes;
     [HideInInspector] public bool fightIsOver;
 
     private void Update()

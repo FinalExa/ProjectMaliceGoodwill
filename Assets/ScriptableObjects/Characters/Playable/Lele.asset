@@ -43,8 +43,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b8609bdedff2f7b4f928cf7189b0ee54, type: 2}
     magicActionCooldown: 0
     magicActionCooldownCount: 0
-  characterActions: []
   isAI: 0
   AITargetPreference: []
   actionSequences: []
   thisCharacter: {fileID: 0}
+  generateCharacterData: 0
