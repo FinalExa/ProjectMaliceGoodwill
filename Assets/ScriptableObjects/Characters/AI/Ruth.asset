@@ -26,24 +26,100 @@ MonoBehaviour:
   - actionType: 0
     actionTypeOpinion: 2
   - actionType: 1
-    actionTypeOpinion: 0
+    actionTypeOpinion: 2
   - actionType: 2
-    actionTypeOpinion: 1
+    actionTypeOpinion: 2
   - actionType: 3
-    actionTypeOpinion: 1
+    actionTypeOpinion: 2
   - actionType: 4
-    actionTypeOpinion: 3
+    actionTypeOpinion: 2
   - actionType: 5
-    actionTypeOpinion: 4
+    actionTypeOpinion: 2
+  - actionType: 6
+    actionTypeOpinion: 2
+  - actionType: 7
+    actionTypeOpinion: 2
+  - actionType: 8
+    actionTypeOpinion: 2
+  - actionType: 9
+    actionTypeOpinion: 2
+  - actionType: 10
+    actionTypeOpinion: 2
+  - actionType: 11
+    actionTypeOpinion: 2
   characterIntentions:
   - intention: 0
     mgMinRange: 0
     mgMaxRange: 100
-    intentionActions:
-    - {fileID: 11400000, guid: b8609bdedff2f7b4f928cf7189b0ee54, type: 2}
+    intentionActions: []
     magicActionCooldown: 0
     magicActionCooldownCount: 0
-  characterActions: []
+  - intention: 1
+    mgMinRange: 0
+    mgMaxRange: 100
+    intentionActions: []
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
+  - intention: 2
+    mgMinRange: 0
+    mgMaxRange: 100
+    intentionActions: []
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
+  - intention: 3
+    mgMinRange: 0
+    mgMaxRange: 100
+    intentionActions: []
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
+  - intention: 4
+    mgMinRange: 0
+    mgMaxRange: 100
+    intentionActions: []
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
+  - intention: 5
+    mgMinRange: 0
+    mgMaxRange: 100
+    intentionActions: []
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
+  - intention: 6
+    mgMinRange: 0
+    mgMaxRange: 100
+    intentionActions: []
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
+  - intention: 7
+    mgMinRange: 0
+    mgMaxRange: 100
+    intentionActions: []
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
+  - intention: 8
+    mgMinRange: 0
+    mgMaxRange: 100
+    intentionActions: []
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
+  - intention: 9
+    mgMinRange: 0
+    mgMaxRange: 100
+    intentionActions: []
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
+  - intention: 10
+    mgMinRange: 0
+    mgMaxRange: 100
+    intentionActions: []
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
+  - intention: 11
+    mgMinRange: 0
+    mgMaxRange: 100
+    intentionActions: []
+    magicActionCooldown: 0
+    magicActionCooldownCount: 0
   isAI: 1
   AITargetPreference:
   - {fileID: 11400000, guid: 70a2e22e084009948aea57f60675e89d, type: 2}
@@ -86,3 +162,4 @@ MonoBehaviour:
     - {fileID: 0}
     actionOrderIndex: 0
   thisCharacter: {fileID: 0}
+  generateCharacterData: 0
