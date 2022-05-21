@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: AngerMagic
   m_EditorClassIdentifier: 
-  actionName: Fight
+  actionName: AngerMagic
   type:
   - actionType: 0
   severity: 10

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: AttentivenessFight
   m_EditorClassIdentifier: 
-  actionName: 
-  type: []
+  actionName: AttentivenessFight
+  type:
+  - actionType: 8
   severity: 0
   severitySpectator: 0
   staminaDamage: 0
