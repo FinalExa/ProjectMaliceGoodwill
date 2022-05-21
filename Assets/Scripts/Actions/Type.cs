@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Type
 {
-    [HideInInspector] public enum ActionType { ANGER, SADNESS, HAPPINESS, PANIC, ANXIETY, APATHY, CALMNESS, IRRITATION, ATTENTIVENESS, DEPRESSION, HELPFULNESS, EMPATHY };
+    [HideInInspector] public enum ActionType { ANGER, SADNESS, HAPPINESS, PANIC, ANXIETY, APATHY, CALMNESS, IRRITATION, ATTENTIVENESS, DESPERATION, HELPFULNESS, EMPATHY };
     public ActionType actionType;
     [System.Serializable]
     public struct Intention

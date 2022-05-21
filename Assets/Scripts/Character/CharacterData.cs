@@ -23,18 +23,13 @@ public class CharacterData : ScriptableObject
             List<Type.Intention> intentions = new List<Type.Intention>();
             List<CharacterOpinions> opinions = new List<CharacterOpinions>();
             Turn turn = FindObjectOfType<Turn>();
-            for (int i = 0; i < turn.actionTypes.Length; i++)
+            for (int i = 0; i < turn.intentions.Length; i++)
             {
                 CharacterOpinions opinion = new CharacterOpinions();
-                opinion.actionType = turn.actionTypes[i];
+                opinion.actionType = turn.intentions[i].intention;
                 opinion.actionTypeOpinion = Type.ActionOpinion.NEUTRAL;
                 opinions.Add(opinion);
-                Type.Intention intention = new Type.Intention();
-                intention.intention = turn.actionTypes[i];
-                intention.mgMinRange = 0;
-                intention.mgMaxRange = 100;
-                intentions.Add(intention);
-
+                intentions.Add(turn.intentions[i]);
             }
             characterOpinions = opinions.ToArray();
             characterIntentions = intentions.ToArray();
