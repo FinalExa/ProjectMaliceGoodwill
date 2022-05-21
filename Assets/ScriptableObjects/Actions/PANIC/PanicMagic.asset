@@ -24,5 +24,5 @@ MonoBehaviour:
   canTargetEnemies: 0
   canTargetAllies: 0
   canTargetSelf: 0
-  isSeen: 0
-  isMagic: 0
+  isSeen: 1
+  isMagic: 1

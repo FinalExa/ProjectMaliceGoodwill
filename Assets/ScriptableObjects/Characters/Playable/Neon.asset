@@ -24,7 +24,7 @@ MonoBehaviour:
     currentMental: 80
   characterOpinions:
   - actionType: 0
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 4
     actionTypeOpinion: 2
   - actionType: 5

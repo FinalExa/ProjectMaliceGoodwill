@@ -17,10 +17,10 @@ MonoBehaviour:
   - actionType: 0
   severity: 5
   severitySpectator: 5
-  staminaDamage: 0
-  staminaDamageSpectator: 0
-  mentalDamage: -8
-  mentalDamageSpectator: -4
+  staminaValueChange: 0
+  staminaValueChangeSpectator: 0
+  mentalValueChange: -8
+  mentalValueChangeSpectator: -4
   canTargetEnemies: 1
   canTargetAllies: 1
   canTargetSelf: 0

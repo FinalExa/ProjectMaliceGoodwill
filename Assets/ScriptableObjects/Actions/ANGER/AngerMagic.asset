@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: AngerMagic
   m_EditorClassIdentifier: 
-  actionName: Magic Hurt Wave
+  actionName: Hurt Wave
   type:
   - actionType: 0
   severity: 15
   severitySpectator: 10
-  staminaDamage: -25
-  staminaDamageSpectator: -10
-  mentalDamage: 0
-  mentalDamageSpectator: 0
+  staminaValueChange: -25
+  staminaValueChangeSpectator: -10
+  mentalValueChange: 0
+  mentalValueChangeSpectator: 0
   canTargetEnemies: 1
   canTargetAllies: 1
   canTargetSelf: 1

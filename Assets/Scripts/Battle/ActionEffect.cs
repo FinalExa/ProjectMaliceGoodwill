@@ -23,11 +23,11 @@ public class ActionEffect : MonoBehaviour
         float coeff = CalculateCoeff(target, chosenAction.type);
         if (!isSpectator)
         {
-            UpdateCharacterValues(targetInfo, coeff, chosenAction.severity, chosenAction.staminaDamage, chosenAction.mentalDamage);
+            UpdateCharacterValues(targetInfo, coeff, chosenAction.severity, chosenAction.staminaValueChange, chosenAction.mentalValueChange);
             print(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + "!");
             print(target.characterData.characterStats.characterName + " " + textToDisplay + " it!");
         }
-        else if (chosenAction.isSeen) UpdateCharacterValues(targetInfo, coeff, chosenAction.severitySpectator, chosenAction.staminaDamageSpectator, chosenAction.mentalDamageSpectator);
+        else if (chosenAction.isSeen) UpdateCharacterValues(targetInfo, coeff, chosenAction.severitySpectator, chosenAction.staminaValueChangeSpectator, chosenAction.mentalValueChangeSpectator);
         if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0) target.incapacitated = true;
         if (targetInfo.MGCurrentValue == 0) target.perdition = true;
     }
