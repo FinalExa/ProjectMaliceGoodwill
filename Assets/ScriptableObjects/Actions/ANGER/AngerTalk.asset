@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: AngerTalk
   m_EditorClassIdentifier: 
-  actionName: AngerTalk
+  actionName: Verbally Abuse
   type:
   - actionType: 0
-  severity: 10
-  severitySpectator: 10
-  staminaDamage: 10
-  staminaDamageSpectator: 10
-  mentalDamage: 10
-  mentalDamageSpectator: 10
+  severity: 5
+  severitySpectator: 5
+  staminaDamage: 0
+  staminaDamageSpectator: 0
+  mentalDamage: -8
+  mentalDamageSpectator: -4
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 1
+  canTargetSelf: 0
   isSeen: 1
   isMagic: 0

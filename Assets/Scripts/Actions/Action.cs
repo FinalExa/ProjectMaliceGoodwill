@@ -19,9 +19,4 @@ public class Action : ScriptableObject
     public bool canTargetSelf;
     public bool isSeen;
     public bool isMagic;
-
-    private void OnValidate()
-    {
-        actionName = name;
-    }
 }

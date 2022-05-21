@@ -43,9 +43,9 @@ public class ActionEffect : MonoBehaviour
     {
         target.MGCurrentValue += MGValue * coeff;
         target.MGCurrentValue = Mathf.Clamp(target.MGCurrentValue, target.MGMinLimit, target.MGMaxLimit);
-        target.currentStamina -= staminaValue;
+        target.currentStamina += staminaValue;
         target.currentStamina = Mathf.Clamp(target.currentStamina, 0, target.maxStamina);
-        target.currentMental -= mentalValue;
+        target.currentMental += mentalValue;
         target.currentMental = Mathf.Clamp(target.currentMental, 0, target.maxMental);
     }
 
