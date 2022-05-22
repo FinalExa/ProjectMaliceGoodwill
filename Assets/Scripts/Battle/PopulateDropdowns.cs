@@ -121,6 +121,7 @@ public class PopulateDropdowns : MonoBehaviour
 
     public void TurnAllOff()
     {
+        intentionsParent.SetActive(false);
         actionsParent.SetActive(false);
         targetsParent.SetActive(false);
     }

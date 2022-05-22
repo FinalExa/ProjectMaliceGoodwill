@@ -27,6 +27,12 @@ public class Turn : MonoBehaviour
 
     private void TurnOperations()
     {
+        endBattleConditions.CheckForVictoryConditions();
+        if (!fightIsOver) CheckForTurnToPlay();
+    }
+
+    private void CheckForTurnToPlay()
+    {
         if (!currentCharacter.incapacitated)
         {
             if (!currentCharacter.perdition)
@@ -37,7 +43,6 @@ public class Turn : MonoBehaviour
             else perditionTurn.PerditionStartup(currentCharacter);
         }
         else currentCharacter.PassTurn();
-        endBattleConditions.CheckForVictoryConditions();
     }
 
     private void PlayableCharacterTurn()

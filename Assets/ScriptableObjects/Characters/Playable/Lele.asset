@@ -17,9 +17,9 @@ MonoBehaviour:
     MGMinLimit: 0
     MGMaxLimit: 100
     MGStartPoint: 50
-    MGCurrentValue: 50
+    MGCurrentValue: 37
     maxStamina: 80
-    currentStamina: 80
+    currentStamina: 70
     maxMental: 150
     currentMental: 150
   characterOpinions:
@@ -30,7 +30,7 @@ MonoBehaviour:
   - actionType: 5
     actionTypeOpinion: 3
   - actionType: 8
-    actionTypeOpinion: 1
+    actionTypeOpinion: 3
   - actionType: 6
     actionTypeOpinion: 3
   - actionType: 9
