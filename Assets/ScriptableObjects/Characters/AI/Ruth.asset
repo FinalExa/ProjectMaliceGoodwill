@@ -19,34 +19,34 @@ MonoBehaviour:
     MGStartPoint: 50
     MGCurrentValue: 50
     maxStamina: 150
-    currentStamina: 140
+    currentStamina: 150
     maxMental: 110
     currentMental: 110
   characterOpinions:
   - actionType: 0
     actionTypeOpinion: 1
   - actionType: 4
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 5
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 8
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 6
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 9
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 11
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 2
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 10
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 7
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 3
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 1
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   characterIntentions:
   - intention: 0
     mgMinRange: 0

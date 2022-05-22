@@ -26,27 +26,27 @@ MonoBehaviour:
   - actionType: 0
     actionTypeOpinion: 1
   - actionType: 4
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 5
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 8
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 6
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 9
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 11
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 2
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 10
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 7
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 3
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 1
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   characterIntentions:
   - intention: 0
     mgMinRange: 0

@@ -26,58 +26,40 @@ MonoBehaviour:
   - actionType: 0
     actionTypeOpinion: 1
   - actionType: 4
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 5
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 8
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 6
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 9
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 11
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 2
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 10
-    actionTypeOpinion: 2
+    actionTypeOpinion: 3
   - actionType: 7
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 3
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   - actionType: 1
-    actionTypeOpinion: 2
+    actionTypeOpinion: 1
   characterIntentions:
   - intention: 0
     mgMinRange: 0
-    mgMaxRange: 100
+    mgMaxRange: 10
     intentionActions:
     - {fileID: 11400000, guid: b8609bdedff2f7b4f928cf7189b0ee54, type: 2}
     - {fileID: 11400000, guid: bfba072a9c72e0d41b274961216cf45a, type: 2}
     - {fileID: 11400000, guid: 0a2314b3f75d33344af904f7e5ba3f73, type: 2}
     magicActionCooldown: 3
     magicActionCooldownCount: 0
-  - intention: 4
-    mgMinRange: 0
-    mgMaxRange: 100
-    intentionActions:
-    - {fileID: 11400000, guid: fedcabc4b8365a44f845744a983f0d04, type: 2}
-    - {fileID: 11400000, guid: 6cab65223e84ea9428242d07e0fe7a0f, type: 2}
-    - {fileID: 11400000, guid: 796df42f007a43944a8fdd37465ee6b0, type: 2}
-    magicActionCooldown: 3
-    magicActionCooldownCount: 0
-  - intention: 5
-    mgMinRange: 0
-    mgMaxRange: 100
-    intentionActions:
-    - {fileID: 11400000, guid: c9589def0ff7caf4b8474c7d8125a06a, type: 2}
-    - {fileID: 11400000, guid: e0d184d9f25b2fb48b06346c60362978, type: 2}
-    - {fileID: 11400000, guid: a6439cdf85e73a947b5693ed5953cb1d, type: 2}
-    magicActionCooldown: 3
-    magicActionCooldownCount: 0
   - intention: 8
-    mgMinRange: 0
-    mgMaxRange: 100
+    mgMinRange: 46
+    mgMaxRange: 65
     intentionActions:
     - {fileID: 11400000, guid: a12e404ae08e02549a091957b4305b3e, type: 2}
     - {fileID: 11400000, guid: 4d8847f7e467a2f4baca9f33151400ef, type: 2}
@@ -85,8 +67,8 @@ MonoBehaviour:
     magicActionCooldown: 3
     magicActionCooldownCount: 0
   - intention: 6
-    mgMinRange: 0
-    mgMaxRange: 100
+    mgMinRange: 56
+    mgMaxRange: 80
     intentionActions:
     - {fileID: 11400000, guid: 3451b7a2c1a5435448ff41f63be17fd4, type: 2}
     - {fileID: 11400000, guid: 6e1e4d36698a8b944b35e1133dec397a, type: 2}
@@ -95,7 +77,7 @@ MonoBehaviour:
     magicActionCooldownCount: 0
   - intention: 9
     mgMinRange: 0
-    mgMaxRange: 100
+    mgMaxRange: 10
     intentionActions:
     - {fileID: 11400000, guid: d56d07427b2b786428409a017f2d2617, type: 2}
     - {fileID: 11400000, guid: 8ed141cef8bf95c4f8bd135ac80dcf80, type: 2}
@@ -103,7 +85,7 @@ MonoBehaviour:
     magicActionCooldown: 3
     magicActionCooldownCount: 0
   - intention: 11
-    mgMinRange: 0
+    mgMinRange: 81
     mgMaxRange: 100
     intentionActions:
     - {fileID: 11400000, guid: 8f4741c4f2598e64fb905722a627f170, type: 2}
@@ -112,8 +94,8 @@ MonoBehaviour:
     magicActionCooldown: 3
     magicActionCooldownCount: 0
   - intention: 2
-    mgMinRange: 0
-    mgMaxRange: 100
+    mgMinRange: 65
+    mgMaxRange: 80
     intentionActions:
     - {fileID: 11400000, guid: 80c9a5a5c08caba47a45a13b30be4503, type: 2}
     - {fileID: 11400000, guid: cdd31abd178ce254189497fbcf452bae, type: 2}
@@ -121,7 +103,7 @@ MonoBehaviour:
     magicActionCooldown: 3
     magicActionCooldownCount: 0
   - intention: 10
-    mgMinRange: 0
+    mgMinRange: 81
     mgMaxRange: 100
     intentionActions:
     - {fileID: 11400000, guid: 2df6caac8036ab74fb36930e3e322e46, type: 2}
@@ -130,8 +112,8 @@ MonoBehaviour:
     magicActionCooldown: 3
     magicActionCooldownCount: 0
   - intention: 7
-    mgMinRange: 0
-    mgMaxRange: 100
+    mgMinRange: 26
+    mgMaxRange: 60
     intentionActions:
     - {fileID: 11400000, guid: fcda7700513438646aee5776fe50ecf2, type: 2}
     - {fileID: 11400000, guid: 8ea9fec4c3611054f977d995b311b915, type: 2}
@@ -139,8 +121,8 @@ MonoBehaviour:
     magicActionCooldown: 3
     magicActionCooldownCount: 0
   - intention: 3
-    mgMinRange: 0
-    mgMaxRange: 100
+    mgMinRange: 6
+    mgMaxRange: 30
     intentionActions:
     - {fileID: 11400000, guid: 51181d6a81769a84ebbb77f16fa716ae, type: 2}
     - {fileID: 11400000, guid: b2695359b5b61e64287ba67eb283f0cc, type: 2}
@@ -148,8 +130,8 @@ MonoBehaviour:
     magicActionCooldown: 3
     magicActionCooldownCount: 0
   - intention: 1
-    mgMinRange: 0
-    mgMaxRange: 100
+    mgMinRange: 6
+    mgMaxRange: 35
     intentionActions:
     - {fileID: 11400000, guid: 32974e349460ef14ca34eba45bb6f1f6, type: 2}
     - {fileID: 11400000, guid: f15b99b56b7c84c469d77a5e0410df29, type: 2}
