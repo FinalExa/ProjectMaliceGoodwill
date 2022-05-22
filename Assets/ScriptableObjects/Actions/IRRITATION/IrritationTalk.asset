@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: IrritationTalk
   m_EditorClassIdentifier: 
-  actionName: IrritationTalk
+  actionName: Express irritation
   type:
   - actionType: 7
-  severity: 0
-  severitySpectator: 0
-  staminaDamage: 0
-  staminaDamageSpectator: 0
-  mentalDamage: 0
-  mentalDamageSpectator: 0
+  severity: 7
+  severitySpectator: 3
+  staminaValueChange: 0
+  staminaValueChangeSpectator: 0
+  mentalValueChange: -7
+  mentalValueChangeSpectator: 0
   canTargetEnemies: 0
   canTargetAllies: 0
   canTargetSelf: 0

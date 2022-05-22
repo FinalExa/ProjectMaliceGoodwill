@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: IrritationMagic
   m_EditorClassIdentifier: 
-  actionName: IrritationMagic
+  actionName: Project irritation in other
   type:
   - actionType: 7
-  severity: 0
+  severity: 10
   severitySpectator: 0
-  staminaDamage: 0
-  staminaDamageSpectator: 0
-  mentalDamage: 0
-  mentalDamageSpectator: 0
-  canTargetEnemies: 0
-  canTargetAllies: 0
+  staminaValueChange: -12
+  staminaValueChangeSpectator: 0
+  mentalValueChange: -12
+  mentalValueChangeSpectator: 0
+  canTargetEnemies: 1
+  canTargetAllies: 1
   canTargetSelf: 0
   isSeen: 1
   isMagic: 1

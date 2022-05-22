@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: HappinessTalk
   m_EditorClassIdentifier: 
-  actionName: HappinessTalk
+  actionName: I don't want to fight!
   type:
   - actionType: 2
-  severity: 0
-  severitySpectator: 0
-  staminaDamage: 0
-  staminaDamageSpectator: 0
-  mentalDamage: 0
-  mentalDamageSpectator: 0
+  severity: 15
+  severitySpectator: 15
+  staminaValueChange: 0
+  staminaValueChangeSpectator: 0
+  mentalValueChange: -15
+  mentalValueChangeSpectator: 0
   canTargetEnemies: 0
   canTargetAllies: 0
-  canTargetSelf: 0
+  canTargetSelf: 1
   isSeen: 1
   isMagic: 0

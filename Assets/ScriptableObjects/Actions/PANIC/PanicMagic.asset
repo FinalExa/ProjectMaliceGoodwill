@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: PanicMagic
   m_EditorClassIdentifier: 
-  actionName: PanicMagic
+  actionName: Repel Wave
   type:
   - actionType: 3
-  severity: 0
-  severitySpectator: 0
-  staminaDamage: 0
-  staminaDamageSpectator: 0
-  mentalDamage: 0
-  mentalDamageSpectator: 0
+  severity: 5
+  severitySpectator: 10
+  staminaValueChange: 0
+  staminaValueChangeSpectator: -10
+  mentalValueChange: 0
+  mentalValueChangeSpectator: -10
   canTargetEnemies: 0
   canTargetAllies: 0
-  canTargetSelf: 0
+  canTargetSelf: 1
   isSeen: 1
   isMagic: 1
