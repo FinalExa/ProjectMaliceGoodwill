@@ -6,55 +6,20 @@ using UnityEngine.UI;
 public class PopulateDropdowns : MonoBehaviour
 {
     [SerializeField] private Turn turn;
-    [SerializeField] private GameObject intentionsParent;
-    [SerializeField] private Dropdown intentionsDropdown;
     [SerializeField] private GameObject actionsParent;
     [SerializeField] private Dropdown actionsDropdown;
     [SerializeField] private GameObject targetsParent;
     [SerializeField] private Dropdown targetsDropdown;
 
-    public void IntentionsPopulate()
-    {
-        intentionsParent.SetActive(true);
-        List<string> intentionsList = new List<string>();
-        Character curCharacter = turn.currentCharacter;
-        float MGValue = curCharacter.characterData.characterStats.MGCurrentValue;
-        foreach (Type.Intention intention in curCharacter.characterData.characterIntentions)
-        {
-            if (MGValue <= intention.mgMaxRange && MGValue >= intention.mgMinRange) intentionsList.Add(intention.intention.ToString());
-        }
-        intentionsDropdown.ClearOptions();
-        intentionsDropdown.AddOptions(intentionsList);
-    }
-    public void IntentionConfirm()
-    {
-        foreach (Type.Intention intention in turn.currentCharacter.characterData.characterIntentions)
-        {
-            if (intention.intention.ToString() == intentionsDropdown.options[intentionsDropdown.value].text)
-            {
-                turn.chosenIntention = intention;
-                break;
-            }
-        }
-        actionsParent.SetActive(false);
-        ActionPopulate();
-    }
     public void ActionPopulate()
     {
         actionsParent.SetActive(true);
         List<string> actionsList = new List<string>();
         Character curCharacter = turn.currentCharacter;
-        Type.Intention characterIntention = turn.chosenIntention;
-        foreach (Type.Intention intention in curCharacter.characterData.characterIntentions)
+        float MG = curCharacter.characterData.characterStats.MGCurrentValue;
+        foreach (Action action in curCharacter.characterData.characterActions)
         {
-            if (characterIntention.intention == intention.intention)
-            {
-                foreach (Action action in intention.intentionActions)
-                {
-                    actionsList.Add(action.actionName);
-                }
-                break;
-            }
+            if (MG >= action.mgMinRange && MG <= action.mgMaxRange) actionsList.Add(action.actionName);
         }
         actionsDropdown.ClearOptions();
         actionsDropdown.AddOptions(actionsList);
@@ -62,7 +27,7 @@ public class PopulateDropdowns : MonoBehaviour
 
     public void ActionConfirm()
     {
-        foreach (Action action in turn.chosenIntention.intentionActions)
+        foreach (Action action in turn.currentCharacter.characterData.characterActions)
         {
             if (action.actionName == actionsDropdown.options[actionsDropdown.value].text)
             {
@@ -121,7 +86,6 @@ public class PopulateDropdowns : MonoBehaviour
 
     public void TurnAllOff()
     {
-        intentionsParent.SetActive(false);
         actionsParent.SetActive(false);
         targetsParent.SetActive(false);
     }
@@ -130,11 +94,5 @@ public class PopulateDropdowns : MonoBehaviour
     {
         targetsParent.SetActive(false);
         ActionPopulate();
-    }
-
-    public void BackToIntention()
-    {
-        actionsParent.SetActive(false);
-        IntentionsPopulate();
     }
 }

@@ -7,7 +7,7 @@ public class CharacterData : ScriptableObject
 {
     public CharacterStats characterStats;
     public CharacterOpinions[] characterOpinions;
-    public Type.Intention[] characterIntentions;
+    public Action[] characterActions;
     [Header("AI Section")]
     public bool isAI;
     public CharacterData[] AITargetPreference;
@@ -20,19 +20,16 @@ public class CharacterData : ScriptableObject
     {
         if (generateCharacterData)
         {
-            List<Type.Intention> intentions = new List<Type.Intention>();
             List<CharacterOpinions> opinions = new List<CharacterOpinions>();
             Turn turn = FindObjectOfType<Turn>();
-            for (int i = 0; i < turn.intentions.Length; i++)
+            for (int i = 0; i < turn.types.Length; i++)
             {
                 CharacterOpinions opinion = new CharacterOpinions();
-                opinion.actionType = turn.intentions[i].intention;
+                opinion.actionType = turn.types[i];
                 opinion.actionTypeOpinion = Type.ActionOpinion.NEUTRAL;
                 opinions.Add(opinion);
-                intentions.Add(turn.intentions[i]);
             }
             characterOpinions = opinions.ToArray();
-            characterIntentions = intentions.ToArray();
             generateCharacterData = false;
         }
     }

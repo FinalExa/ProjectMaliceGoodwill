@@ -25,105 +25,26 @@ MonoBehaviour:
   characterOpinions:
   - actionType: 0
     actionTypeOpinion: 1
-  - actionType: 4
-    actionTypeOpinion: 1
-  - actionType: 5
-    actionTypeOpinion: 1
-  - actionType: 8
-    actionTypeOpinion: 1
-  - actionType: 6
-    actionTypeOpinion: 1
-  - actionType: 9
-    actionTypeOpinion: 1
-  - actionType: 11
-    actionTypeOpinion: 3
-  - actionType: 2
-    actionTypeOpinion: 3
-  - actionType: 10
-    actionTypeOpinion: 3
-  - actionType: 7
-    actionTypeOpinion: 1
-  - actionType: 3
-    actionTypeOpinion: 3
   - actionType: 1
-    actionTypeOpinion: 1
-  characterIntentions:
-  - intention: 0
-    mgMinRange: 0
-    mgMaxRange: 100
-    intentionActions:
-    - {fileID: 11400000, guid: b8609bdedff2f7b4f928cf7189b0ee54, type: 2}
-    - {fileID: 11400000, guid: bfba072a9c72e0d41b274961216cf45a, type: 2}
-    - {fileID: 11400000, guid: 0a2314b3f75d33344af904f7e5ba3f73, type: 2}
-    magicActionCooldown: 3
-    magicActionCooldownCount: 0
-  - intention: 5
-    mgMinRange: 41
-    mgMaxRange: 100
-    intentionActions:
-    - {fileID: 11400000, guid: c9589def0ff7caf4b8474c7d8125a06a, type: 2}
-    - {fileID: 11400000, guid: e0d184d9f25b2fb48b06346c60362978, type: 2}
-    - {fileID: 11400000, guid: a6439cdf85e73a947b5693ed5953cb1d, type: 2}
-    magicActionCooldown: 3
-    magicActionCooldownCount: 0
-  - intention: 11
-    mgMinRange: 81
-    mgMaxRange: 100
-    intentionActions:
-    - {fileID: 11400000, guid: 8f4741c4f2598e64fb905722a627f170, type: 2}
-    - {fileID: 11400000, guid: 913b370df814e2d4bab977f685983e34, type: 2}
-    - {fileID: 11400000, guid: 2d3b73092a2d17f4393fbeeaf833e1ac, type: 2}
-    magicActionCooldown: 3
-    magicActionCooldownCount: 0
-  - intention: 2
-    mgMinRange: 51
-    mgMaxRange: 100
-    intentionActions:
-    - {fileID: 11400000, guid: 80c9a5a5c08caba47a45a13b30be4503, type: 2}
-    - {fileID: 11400000, guid: cdd31abd178ce254189497fbcf452bae, type: 2}
-    - {fileID: 11400000, guid: 825e34380d1ce6549bc9babefad57819, type: 2}
-    magicActionCooldown: 3
-    magicActionCooldownCount: 0
-  - intention: 7
-    mgMinRange: 31
-    mgMaxRange: 100
-    intentionActions:
-    - {fileID: 11400000, guid: fcda7700513438646aee5776fe50ecf2, type: 2}
-    - {fileID: 11400000, guid: 8ea9fec4c3611054f977d995b311b915, type: 2}
-    - {fileID: 11400000, guid: fa362f2949a29fc459b77fc8d1944fac, type: 2}
-    magicActionCooldown: 3
-    magicActionCooldownCount: 0
-  - intention: 3
-    mgMinRange: 0
-    mgMaxRange: 100
-    intentionActions:
-    - {fileID: 11400000, guid: 51181d6a81769a84ebbb77f16fa716ae, type: 2}
-    - {fileID: 11400000, guid: b2695359b5b61e64287ba67eb283f0cc, type: 2}
-    - {fileID: 11400000, guid: 29f97e681665150438c2b444ba6c6814, type: 2}
-    magicActionCooldown: 3
-    magicActionCooldownCount: 0
+    actionTypeOpinion: 3
+  characterActions:
+  - {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
+  - {fileID: 11400000, guid: 23b552949a2f7374d9754d1290de08a1, type: 2}
   isAI: 1
   AITargetPreference:
   - {fileID: 11400000, guid: 70a2e22e084009948aea57f60675e89d, type: 2}
   - {fileID: 11400000, guid: c36aeb7f592c6ba4e825598470be8f58, type: 2}
   - {fileID: 11400000, guid: c96fad65aafe5b345b75483e847d8c2f, type: 2}
   actionSequences:
-  - MGMinRange: 1
-    MGMaxRange: 60
+  - MGMinRange: 0
+    MGMaxRange: 50
     actionOrderInThatRange:
-    - {fileID: 11400000, guid: b8609bdedff2f7b4f928cf7189b0ee54, type: 2}
-    - {fileID: 11400000, guid: b8609bdedff2f7b4f928cf7189b0ee54, type: 2}
-    - {fileID: 11400000, guid: fcda7700513438646aee5776fe50ecf2, type: 2}
-    - {fileID: 11400000, guid: b2695359b5b61e64287ba67eb283f0cc, type: 2}
-    - {fileID: 11400000, guid: fcda7700513438646aee5776fe50ecf2, type: 2}
+    - {fileID: 11400000, guid: 23b552949a2f7374d9754d1290de08a1, type: 2}
     actionOrderIndex: 0
-  - MGMinRange: 61
+  - MGMinRange: 51
     MGMaxRange: 100
     actionOrderInThatRange:
-    - {fileID: 11400000, guid: 80c9a5a5c08caba47a45a13b30be4503, type: 2}
-    - {fileID: 11400000, guid: 80c9a5a5c08caba47a45a13b30be4503, type: 2}
-    - {fileID: 11400000, guid: 8f4741c4f2598e64fb905722a627f170, type: 2}
-    - {fileID: 11400000, guid: 80c9a5a5c08caba47a45a13b30be4503, type: 2}
+    - {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
     actionOrderIndex: 0
   thisCharacter: {fileID: 0}
   generateCharacterData: 0
