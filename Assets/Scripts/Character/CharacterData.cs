@@ -26,7 +26,7 @@ public class CharacterData : ScriptableObject
             {
                 CharacterOpinions opinion = new CharacterOpinions();
                 opinion.actionType = turn.types[i];
-                opinion.actionTypeOpinion = Type.ActionOpinion.NEUTRAL;
+                opinion.actionTypeOpinion = Type.ActionOpinion.NEGATIVE;
                 opinions.Add(opinion);
             }
             characterOpinions = opinions.ToArray();

@@ -11,9 +11,7 @@ public class Action : ScriptableObject
     public float severity;
     public float severitySpectator;
     public float staminaValueChange;
-    public float staminaValueChangeSpectator;
     public float mentalValueChange;
-    public float mentalValueChangeSpectator;
     public float mgMinRange;
     public float mgMaxRange;
     public bool canTargetEnemies;
@@ -21,4 +19,9 @@ public class Action : ScriptableObject
     public bool canTargetSelf;
     public bool isSeen;
     public bool isMagic;
+
+    private void OnValidate()
+    {
+        actionName = name;
+    }
 }

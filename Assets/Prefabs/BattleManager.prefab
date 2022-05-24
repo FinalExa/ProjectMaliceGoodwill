@@ -737,16 +737,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endBattleConditions: {fileID: -7457356380004830230}
-  severelyNegativeCoeff: -1.5
-  severelyNegativeDisplay: hates
-  negativeCoeff: -1
-  negativeDisplay: doesn't like
-  neutralCoeff: 0
-  neutralDisplay: is indifferent towards
-  positiveCoeff: 1
-  positiveDisplay: likes
-  severelyPositiveCoeff: 1.2
-  severelyPositiveDisplay: loves
+  negativeCoeff: -0.7
+  positiveCoeff: 0.7
 --- !u!114 &5141292673853435214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,8 +752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: {fileID: -6260356559489696910}
-  intentionsParent: {fileID: 0}
-  intentionsDropdown: {fileID: 0}
   actionsParent: {fileID: 1421814883525811965}
   actionsDropdown: {fileID: 6858196972186021604}
   targetsParent: {fileID: 2808319981767094480}
