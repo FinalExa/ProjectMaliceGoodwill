@@ -7,7 +7,7 @@ using UnityEngine;
 public class Action : ScriptableObject
 {
     public string actionName;
-    public Type[] type;
+    public Type type;
     public float severity;
     public float severitySpectator;
     public float staminaValueChange;
@@ -18,7 +18,6 @@ public class Action : ScriptableObject
     public bool canTargetAllies;
     public bool canTargetSelf;
     public bool isSeen;
-    public bool isMagic;
 
     private void OnValidate()
     {

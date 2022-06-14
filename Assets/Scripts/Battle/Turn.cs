@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Turn : MonoBehaviour
 {
+    public GameData gameData;
     [HideInInspector] public Character currentCharacter;
     [HideInInspector] public Character target;
     [HideInInspector] public List<Character> possibleTargets = new List<Character>();

@@ -46,7 +46,7 @@ public class AITurn : MonoBehaviour
 
     private void GoodwillCheck()
     {
-        if (aiToControl.characterData.characterStats.MGCurrentValue == aiToControl.characterData.characterStats.MGMaxLimit) aiToControl.fullGoodwillAI = true;
+        if (aiToControl.characterData.characterStats.SACurrentValue == turn.gameData.SAMaxValue) aiToControl.fullGoodwillAI = true;
         else aiToControl.fullGoodwillAI = false;
     }
 
@@ -69,7 +69,7 @@ public class AITurn : MonoBehaviour
         CharacterStats stats = aiToControl.characterData.characterStats;
         for (int i = 0; i < actSeq.Length; i++)
         {
-            if (stats.MGCurrentValue <= actSeq[i].MGMaxRange && stats.MGCurrentValue >= actSeq[i].MGMinRange)
+            if (stats.SACurrentValue <= actSeq[i].MGMaxRange && stats.SACurrentValue >= actSeq[i].MGMinRange)
             {
                 index = i;
                 break;

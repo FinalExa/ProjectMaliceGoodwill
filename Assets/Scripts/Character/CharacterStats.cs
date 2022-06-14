@@ -5,10 +5,8 @@ using UnityEngine;
 public class CharacterStats
 {
     public string characterName;
-    public float MGMinLimit;
-    public float MGMaxLimit;
-    public float MGStartPoint;
-    [HideInInspector] public float MGCurrentValue;
+    public float SAStartPoint;
+    [HideInInspector] public float SACurrentValue;
     public float maxStamina;
     [HideInInspector] public float currentStamina;
     public float maxMental;
@@ -16,7 +14,7 @@ public class CharacterStats
 
     public void SetStatsStartup()
     {
-        MGCurrentValue = MGStartPoint;
+        SACurrentValue = SAStartPoint;
         currentStamina = maxStamina;
         currentMental = maxMental;
     }

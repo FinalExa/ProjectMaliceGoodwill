@@ -711,6 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d06d0be260676429df568b3feb47dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameData: {fileID: 11400000, guid: 18c29b82a7e5f7e4b9576c862abf365d, type: 2}
   currentCharacter: {fileID: 0}
   target: {fileID: 0}
   possibleTargets: []

@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class ActionEffect : MonoBehaviour
 {
+    private GameData gameData;
     [SerializeField] private EndBattleConditions endBattleConditions;
     [SerializeField] private float negativeCoeff;
     [SerializeField] private float positiveCoeff;
-
+    private void Awake()
+    {
+        gameData = FindObjectOfType<Turn>().gameData;
+    }
     public void UpdateValues(Character target, Action chosenAction, bool isSpectator)
     {
         CharacterStats targetInfo = target.characterData.characterStats;
-        float coeff = CalculateCoeff(target, chosenAction.type);
+        float coeff = CalculateCoeff(target, chosenAction.type.actionType);
         if (!isSpectator)
         {
             UpdateCharacterValues(targetInfo, coeff, chosenAction.severity, chosenAction.staminaValueChange, chosenAction.mentalValueChange);
@@ -19,55 +23,29 @@ public class ActionEffect : MonoBehaviour
         }
         else if (chosenAction.isSeen) UpdateCharacterValues(targetInfo, coeff, chosenAction.severitySpectator, 0f, 0f);
         if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0) target.incapacitated = true;
-        if (targetInfo.MGCurrentValue == 0) target.perdition = true;
+        if (targetInfo.SACurrentValue == 0) target.perdition = true;
     }
 
-    private float CalculateCoeff(Character target, Type[] actionTypes)
+    private float CalculateCoeff(Character target, Type.ActionType actionType)
     {
         float coeff = 0f;
-        foreach (Type actionType in actionTypes) coeff += EvaluateActionReaction(target.characterData, actionType.actionType);
+        foreach (GameTypes gameTypes in gameData.gameTypes)
+        {
+            if (gameTypes.actionType == actionType)
+            {
+                return gameTypes.actionTypeCoefficient;
+            }
+        }
         return coeff;
     }
 
-    private void UpdateCharacterValues(CharacterStats target, float coeff, float MGValue, float staminaValue, float mentalValue)
+    private void UpdateCharacterValues(CharacterStats target, float coeff, float SAValue, float staminaValue, float mentalValue)
     {
-        target.MGCurrentValue += MGValue * coeff;
-        target.MGCurrentValue = Mathf.Clamp(target.MGCurrentValue, target.MGMinLimit, target.MGMaxLimit);
+        target.SACurrentValue += SAValue * coeff;
+        target.SACurrentValue = Mathf.Clamp(target.SACurrentValue, gameData.SAMinValue, gameData.SAMaxValue);
         target.currentStamina += staminaValue;
         target.currentStamina = Mathf.Clamp(target.currentStamina, 0, target.maxStamina);
         target.currentMental += mentalValue;
         target.currentMental = Mathf.Clamp(target.currentMental, 0, target.maxMental);
-    }
-
-    private float EvaluateActionReaction(CharacterData characterData, Type.ActionType actionReceivedType)
-    {
-        float chosenCoeff = 0f;
-        foreach (CharacterOpinions opinion in characterData.characterOpinions)
-        {
-            if (opinion.actionType == actionReceivedType)
-            {
-                chosenCoeff = AssignCoeff(opinion);
-                break;
-            }
-        }
-        return chosenCoeff;
-    }
-
-    private float AssignCoeff(CharacterOpinions opinions)
-    {
-        float coeff;
-        switch (opinions.actionTypeOpinion)
-        {
-            case Type.ActionOpinion.NEGATIVE:
-                coeff = negativeCoeff;
-                break;
-            case Type.ActionOpinion.POSITIVE:
-                coeff = positiveCoeff;
-                break;
-            default:
-                coeff = 0f;
-                break;
-        }
-        return coeff;
     }
 }

@@ -35,7 +35,7 @@ public class PerditionTurn : MonoBehaviour
         availableActions.Clear();
         foreach (Action action in curCharacter.characterData.characterActions)
         {
-            if (action.mgMinRange == 0 && !action.isMagic) availableActions.Add(action);
+            if (action.mgMinRange == 0) availableActions.Add(action);
         }
     }
 

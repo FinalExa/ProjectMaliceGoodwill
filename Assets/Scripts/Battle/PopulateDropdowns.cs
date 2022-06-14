@@ -16,7 +16,7 @@ public class PopulateDropdowns : MonoBehaviour
         actionsParent.SetActive(true);
         List<string> actionsList = new List<string>();
         Character curCharacter = turn.currentCharacter;
-        float MG = curCharacter.characterData.characterStats.MGCurrentValue;
+        float MG = curCharacter.characterData.characterStats.SACurrentValue;
         foreach (Action action in curCharacter.characterData.characterActions)
         {
             if (MG >= action.mgMinRange && MG <= action.mgMaxRange) actionsList.Add(action.actionName);
