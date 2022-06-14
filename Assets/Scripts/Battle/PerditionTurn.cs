@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PerditionTurn : MonoBehaviour
 {
-    [SerializeField] private Turn turn;
+    private Turn turn;
     private Character curCharacter;
     private List<Action> availableActions;
     private Action chosenAction;
     private List<Character> availableTargets;
     private Character chosenTarget;
+
+    private void Awake()
+    {
+        turn = this.gameObject.GetComponent<Turn>();
+    }
     private void Start()
     {
         availableActions = new List<Action>();
@@ -27,15 +32,15 @@ public class PerditionTurn : MonoBehaviour
         turn.chosenAction = chosenAction;
         turn.target = chosenTarget;
         turn.ActionDoneOnTarget();
-        curCharacter.PassTurn();
+        turn.PassTurn();
     }
 
     private void GetPossibleActions()
     {
         availableActions.Clear();
-        foreach (Action action in curCharacter.characterData.characterActions)
+        foreach (CharacterData.CharacterActions characterAction in curCharacter.characterData.characterActions)
         {
-            if (action.mgMinRange == 0) availableActions.Add(action);
+            if (characterAction.SAMinValue == 0) availableActions.Add(characterAction.action);
         }
     }
 

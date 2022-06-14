@@ -6,7 +6,14 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     public CharacterStats characterStats;
-    public Action[] characterActions;
+    [System.Serializable]
+    public struct CharacterActions
+    {
+        public Action action;
+        public int SAMinValue;
+        public int SAMaxValue;
+    }
+    public CharacterActions[] characterActions;
     [Header("AI Section")]
     public bool isAI;
     public CharacterData[] AITargetPreference;

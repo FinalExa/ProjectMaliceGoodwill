@@ -12,8 +12,6 @@ public class Action : ScriptableObject
     public float severitySpectator;
     public float staminaValueChange;
     public float mentalValueChange;
-    public float mgMinRange;
-    public float mgMaxRange;
     public bool canTargetEnemies;
     public bool canTargetAllies;
     public bool canTargetSelf;

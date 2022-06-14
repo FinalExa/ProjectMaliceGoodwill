@@ -18,10 +18,10 @@ public class ActionEffect : MonoBehaviour
         float coeff = CalculateCoeff(target, chosenAction.type.actionType);
         if (!isSpectator)
         {
-            UpdateCharacterValues(targetInfo, coeff, chosenAction.severity, chosenAction.staminaValueChange, chosenAction.mentalValueChange);
+            UpdateCharacterValues(target, coeff, chosenAction.severity, chosenAction.staminaValueChange, chosenAction.mentalValueChange);
             print(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + "!");
         }
-        else if (chosenAction.isSeen) UpdateCharacterValues(targetInfo, coeff, chosenAction.severitySpectator, 0f, 0f);
+        else if (chosenAction.isSeen) UpdateCharacterValues(target, coeff, chosenAction.severitySpectator, 0f, 0f);
         if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0) target.incapacitated = true;
         if (targetInfo.SACurrentValue == 0) target.perdition = true;
     }
@@ -39,13 +39,17 @@ public class ActionEffect : MonoBehaviour
         return coeff;
     }
 
-    private void UpdateCharacterValues(CharacterStats target, float coeff, float SAValue, float staminaValue, float mentalValue)
+    private void UpdateCharacterValues(Character target, float coeff, float SAValue, float staminaValue, float mentalValue)
     {
-        target.SACurrentValue += SAValue * coeff;
-        target.SACurrentValue = Mathf.Clamp(target.SACurrentValue, gameData.SAMinValue, gameData.SAMaxValue);
-        target.currentStamina += staminaValue;
-        target.currentStamina = Mathf.Clamp(target.currentStamina, 0, target.maxStamina);
-        target.currentMental += mentalValue;
-        target.currentMental = Mathf.Clamp(target.currentMental, 0, target.maxMental);
+        CharacterStats targetStats = target.characterData.characterStats;
+        if (!target.perdition)
+        {
+            targetStats.SACurrentValue += SAValue * coeff;
+            targetStats.SACurrentValue = Mathf.Clamp(targetStats.SACurrentValue, gameData.SAMinValue, gameData.SAMaxValue);
+        }
+        targetStats.currentStamina += staminaValue;
+        targetStats.currentStamina = Mathf.Clamp(targetStats.currentStamina, 0, targetStats.maxStamina);
+        targetStats.currentMental += mentalValue;
+        targetStats.currentMental = Mathf.Clamp(targetStats.currentMental, 0, targetStats.maxMental);
     }
 }

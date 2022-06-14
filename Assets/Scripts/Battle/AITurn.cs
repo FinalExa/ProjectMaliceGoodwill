@@ -41,7 +41,7 @@ public class AITurn : MonoBehaviour
             AssignTarget();
             ExecuteAction();
         }
-        turn.currentCharacter.PassTurn();
+        turn.PassTurn();
     }
 
     private void GoodwillCheck()

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public static Action<bool> passTurn;
     [SerializeField] private CharacterUI characterUI;
     private Turn turn;
     public CharacterData characterData;
@@ -38,7 +37,7 @@ public class Character : MonoBehaviour
         if (!isLocked && !passageDone)
         {
             if (!incapacitated) ThisCharacterTurn();
-            else PassTurn();
+            else turn.PassTurn();
         }
     }
 
@@ -54,13 +53,6 @@ public class Character : MonoBehaviour
     {
         turn.currentCharacter = this;
         passageDone = true;
-    }
-
-    public void PassTurn()
-    {
-        isLocked = true;
-        passageDone = false;
-        passTurn(true);
     }
 
     public void UpdateAllBars()

@@ -17,9 +17,10 @@ public class PopulateDropdowns : MonoBehaviour
         List<string> actionsList = new List<string>();
         Character curCharacter = turn.currentCharacter;
         float MG = curCharacter.characterData.characterStats.SACurrentValue;
-        foreach (Action action in curCharacter.characterData.characterActions)
+        foreach (CharacterData.CharacterActions characterAction in curCharacter.characterData.characterActions)
         {
-            if (MG >= action.mgMinRange && MG <= action.mgMaxRange) actionsList.Add(action.actionName);
+            Action action = characterAction.action;
+            if (MG >= characterAction.SAMinValue && MG <= characterAction.SAMaxValue) actionsList.Add(action.actionName);
         }
         actionsDropdown.ClearOptions();
         actionsDropdown.AddOptions(actionsList);
@@ -27,8 +28,9 @@ public class PopulateDropdowns : MonoBehaviour
 
     public void ActionConfirm()
     {
-        foreach (Action action in turn.currentCharacter.characterData.characterActions)
+        foreach (CharacterData.CharacterActions characterAction in turn.currentCharacter.characterData.characterActions)
         {
+            Action action = characterAction.action;
             if (action.actionName == actionsDropdown.options[actionsDropdown.value].text)
             {
                 turn.chosenAction = action;
@@ -81,7 +83,7 @@ public class PopulateDropdowns : MonoBehaviour
         turn.ActionDoneOnTarget();
         targetsParent.SetActive(false);
         turn.stop = false;
-        turn.currentCharacter.PassTurn();
+        turn.PassTurn();
     }
 
     public void TurnAllOff()

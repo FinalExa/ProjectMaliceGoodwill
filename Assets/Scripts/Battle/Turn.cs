@@ -11,14 +11,23 @@ public class Turn : MonoBehaviour
     [HideInInspector] public List<Character> possibleTargets = new List<Character>();
     [HideInInspector] public Action chosenAction;
     [HideInInspector] public bool stop;
-    public TurnOrder turnOrder;
-    public PopulateDropdowns populateDropdowns;
-    [SerializeField] private ActionEffect actionEffect;
-    [SerializeField] private AITurn AITurn;
-    [SerializeField] private PerditionTurn perditionTurn;
-    [SerializeField] private EndBattleConditions endBattleConditions;
-    public Type.ActionType[] types;
+    [HideInInspector] public TurnOrder turnOrder;
+    [HideInInspector] public PopulateDropdowns populateDropdowns;
+    private ActionEffect actionEffect;
+    private AITurn aiTurn;
+    private PerditionTurn perditionTurn;
+    private EndBattleConditions endBattleConditions;
     [HideInInspector] public bool fightIsOver;
+
+    private void Awake()
+    {
+        turnOrder = this.gameObject.GetComponent<TurnOrder>();
+        populateDropdowns = this.gameObject.GetComponent<PopulateDropdowns>();
+        actionEffect = this.gameObject.GetComponent<ActionEffect>();
+        aiTurn = this.gameObject.GetComponent<AITurn>();
+        perditionTurn = this.gameObject.GetComponent<PerditionTurn>();
+        endBattleConditions = this.gameObject.GetComponent<EndBattleConditions>();
+    }
 
     private void Update()
     {
@@ -38,11 +47,11 @@ public class Turn : MonoBehaviour
             if (!currentCharacter.perdition)
             {
                 if (!currentCharacter.characterData.isAI && !stop) PlayableCharacterTurn();
-                else if (currentCharacter.characterData.isAI) AITurn.AIStartup(currentCharacter);
+                else if (currentCharacter.characterData.isAI) aiTurn.AIStartup(currentCharacter);
             }
             else perditionTurn.PerditionStartup(currentCharacter);
         }
-        else currentCharacter.PassTurn();
+        else PassTurn();
     }
 
     private void PlayableCharacterTurn()
@@ -57,6 +66,13 @@ public class Turn : MonoBehaviour
         actionEffect.UpdateValues(target, chosenAction, false);
         target.UpdateAllBars();
         ActionOnSpectators();
+    }
+
+    public void PassTurn()
+    {
+        currentCharacter.isLocked = true;
+        currentCharacter.passageDone = false;
+        turnOrder.turnWait = true;
     }
 
     private void ActionOnSpectators()

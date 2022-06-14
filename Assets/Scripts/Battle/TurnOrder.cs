@@ -12,12 +12,7 @@ public class TurnOrder : MonoBehaviour
 
     [SerializeField] private float turnWaitTimer;
     private float turnWaitTime;
-    private bool turnWait;
-
-    private void Awake()
-    {
-        Character.passTurn += GoToNextTurn;
-    }
+    public bool turnWait;
 
     private void Start()
     {
@@ -54,11 +49,6 @@ public class TurnOrder : MonoBehaviour
             arrayToAdd[i].isLocked = true;
             turnOrder.Add(arrayToAdd[i]);
         }
-    }
-
-    public void GoToNextTurn(bool debug)
-    {
-        turnWait = true;
     }
 
     private void TurnWaitTimer()

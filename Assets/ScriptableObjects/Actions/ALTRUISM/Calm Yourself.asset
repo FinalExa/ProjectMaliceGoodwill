@@ -14,15 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Calm Yourself
   type:
-  - actionType: 1
+    actionType: 1
   severity: 5
   severitySpectator: 0
   staminaValueChange: 0
   mentalValueChange: 20
-  mgMinRange: 61
-  mgMaxRange: 100
   canTargetEnemies: 0
   canTargetAllies: 0
   canTargetSelf: 1
   isSeen: 1
-  isMagic: 0
