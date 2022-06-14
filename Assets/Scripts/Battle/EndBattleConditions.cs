@@ -6,12 +6,18 @@ public class EndBattleConditions : MonoBehaviour
 {
     [SerializeField] private Turn turn;
     [SerializeField] private TurnOrder turnOrder;
+    [HideInInspector] public bool perditionCheck;
     private bool stopThis;
     private bool enemiesDownCondition;
     private bool enemiesGoodwillCondition;
     private bool alliesDownCondition;
     private bool alliesPerditionCondition;
     private bool allPlayableInPerditionCondition;
+
+    private void Start()
+    {
+        perditionCheck = false;
+    }
 
     private void Update()
     {
@@ -22,7 +28,7 @@ public class EndBattleConditions : MonoBehaviour
     public void CheckForVictoryConditions()
     {
         EnemiesDownCondition();
-        EnemiesGoodwillCondition();
+        EnemiesAltruismCondition();
         AlliesPerditionCondition();
         AlliesDownCondition();
         AllPlayableInPerditionCondition();
@@ -79,8 +85,9 @@ public class EndBattleConditions : MonoBehaviour
         if (alliesPerdition) alliesPerditionCondition = true;
         else alliesPerditionCondition = false;
     }
-    private void EnemiesGoodwillCondition()
+    private void EnemiesAltruismCondition()
     {
+        if (perditionCheck) return;
         int count = 0;
         foreach (Character enemy in turnOrder.enemyCharacters)
         {
@@ -96,7 +103,7 @@ public class EndBattleConditions : MonoBehaviour
         stopThis = true;
         print("Victory!");
         if (enemiesDownCondition) print("All enemies knocked out");
-        if (enemiesGoodwillCondition) print("All enemies goodwill maxed out");
+        if (enemiesGoodwillCondition) print("All enemies altruism maxed out");
     }
 
     private void Defeat()

@@ -36,12 +36,6 @@ public class Turn : MonoBehaviour
 
     private void TurnOperations()
     {
-        endBattleConditions.CheckForVictoryConditions();
-        if (!fightIsOver) CheckForTurnToPlay();
-    }
-
-    private void CheckForTurnToPlay()
-    {
         if (!currentCharacter.incapacitated)
         {
             if (!currentCharacter.perdition)
@@ -49,7 +43,11 @@ public class Turn : MonoBehaviour
                 if (!currentCharacter.characterData.isAI && !stop) PlayableCharacterTurn();
                 else if (currentCharacter.characterData.isAI) aiTurn.AIStartup(currentCharacter);
             }
-            else perditionTurn.PerditionStartup(currentCharacter);
+            else
+            {
+                if (!endBattleConditions.perditionCheck) endBattleConditions.perditionCheck = true;
+                perditionTurn.PerditionStartup(currentCharacter);
+            }
         }
         else PassTurn();
     }
@@ -70,6 +68,7 @@ public class Turn : MonoBehaviour
 
     public void PassTurn()
     {
+        endBattleConditions.CheckForVictoryConditions();
         currentCharacter.isLocked = true;
         currentCharacter.passageDone = false;
         turnOrder.turnWait = true;
