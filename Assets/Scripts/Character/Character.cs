@@ -6,6 +6,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField] private CharacterUI characterUI;
+    [SerializeField] private GameObject turnIndicator;
     private Turn turn;
     public CharacterData characterData;
     [HideInInspector] public bool incapacitated;
@@ -22,6 +23,7 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
+        turnIndicator.SetActive(false);
         characterData.characterStats.SetStatsStartup();
         UpdateAllBars();
     }
@@ -39,6 +41,7 @@ public class Character : MonoBehaviour
             if (!incapacitated) ThisCharacterTurn();
             else
             {
+                turnIndicator.SetActive(false);
                 turn.ContinueTurn();
                 turn.PassTurn();
             }
@@ -57,6 +60,7 @@ public class Character : MonoBehaviour
     {
         turn.currentCharacter = this;
         passageDone = true;
+        turnIndicator.SetActive(true);
     }
 
     public void UpdateAllBars()
