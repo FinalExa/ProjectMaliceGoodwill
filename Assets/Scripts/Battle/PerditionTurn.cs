@@ -40,7 +40,7 @@ public class PerditionTurn : MonoBehaviour
         availableActions.Clear();
         foreach (CharacterData.CharacterActions characterAction in curCharacter.characterData.characterActions)
         {
-            if (characterAction.SAMinValue == 0) availableActions.Add(characterAction.action);
+            if (characterAction.BGMinValue == 0) availableActions.Add(characterAction.action);
         }
     }
 

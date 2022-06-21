@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class Type
 {
-    [HideInInspector] public enum ActionType { SELFISHNESS, ALTRUISM };
+    [HideInInspector] public enum ActionType { HURT, CALM };
     public ActionType actionType;
 }

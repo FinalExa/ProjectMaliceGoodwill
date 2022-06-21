@@ -17,5 +17,5 @@ MonoBehaviour:
     actionTypeCoefficient: -1
   - actionType: 1
     actionTypeCoefficient: 1
-  SAMinValue: 0
-  SAMaxValue: 100
+  BGMinValue: 0
+  BGMaxValue: 100

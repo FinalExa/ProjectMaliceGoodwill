@@ -6,6 +6,6 @@ using UnityEngine;
 public class GameData : ScriptableObject
 {
     public GameTypes[] gameTypes;
-    public int SAMinValue;
-    public int SAMaxValue;
+    public int BGMinValue;
+    public int BGMaxValue;
 }

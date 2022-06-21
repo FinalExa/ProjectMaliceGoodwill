@@ -16,11 +16,11 @@ public class PopulateDropdowns : MonoBehaviour
         actionsParent.SetActive(true);
         List<string> actionsList = new List<string>();
         Character curCharacter = turn.currentCharacter;
-        float MG = curCharacter.characterData.characterStats.SACurrentValue;
+        float MG = curCharacter.characterData.characterStats.BGCurrentValue;
         foreach (CharacterData.CharacterActions characterAction in curCharacter.characterData.characterActions)
         {
             Action action = characterAction.action;
-            if (MG >= characterAction.SAMinValue && MG <= characterAction.SAMaxValue) actionsList.Add(action.actionName);
+            if (MG >= characterAction.BGMinValue && MG <= characterAction.BGMaxValue) actionsList.Add(action.actionName);
         }
         actionsDropdown.ClearOptions();
         actionsDropdown.AddOptions(actionsList);
@@ -82,7 +82,6 @@ public class PopulateDropdowns : MonoBehaviour
         turn.target = turn.possibleTargets[targetsDropdown.value];
         turn.ActionDoneOnTarget();
         targetsParent.SetActive(false);
-        turn.stop = false;
         turn.PassTurn();
     }
 

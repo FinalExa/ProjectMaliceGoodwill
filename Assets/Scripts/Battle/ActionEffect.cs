@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class ActionEffect : MonoBehaviour
 {
+    private Turn turn;
     private GameData gameData;
-    [SerializeField] private EndBattleConditions endBattleConditions;
-    [SerializeField] private float negativeCoeff;
-    [SerializeField] private float positiveCoeff;
     private void Awake()
     {
-        gameData = FindObjectOfType<Turn>().gameData;
+        turn = this.gameObject.GetComponent<Turn>();
+        gameData = turn.gameData;
     }
     public void UpdateValues(Character target, Action chosenAction, bool isSpectator)
     {
@@ -19,11 +18,11 @@ public class ActionEffect : MonoBehaviour
         if (!isSpectator)
         {
             UpdateCharacterValues(target, coeff, chosenAction.severity, chosenAction.staminaValueChange, chosenAction.mentalValueChange);
-            print(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + "!");
+            turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + "!");
         }
         else if (chosenAction.isSeen) UpdateCharacterValues(target, coeff, chosenAction.severitySpectator, 0f, 0f);
-        if (targetInfo.currentStamina <= 0 || targetInfo.currentMental <= 0) target.incapacitated = true;
-        if (targetInfo.SACurrentValue == 0) target.perdition = true;
+        if (targetInfo.maxHP <= 0) target.incapacitated = true;
+        if (targetInfo.BGCurrentValue == 0) target.perdition = true;
     }
 
     private float CalculateCoeff(Character target, Type.ActionType actionType)
@@ -44,12 +43,10 @@ public class ActionEffect : MonoBehaviour
         CharacterStats targetStats = target.characterData.characterStats;
         if (!target.perdition)
         {
-            targetStats.SACurrentValue += SAValue * coeff;
-            targetStats.SACurrentValue = Mathf.Clamp(targetStats.SACurrentValue, gameData.SAMinValue, gameData.SAMaxValue);
+            targetStats.BGCurrentValue += SAValue * coeff;
+            targetStats.BGCurrentValue = Mathf.Clamp(targetStats.BGCurrentValue, gameData.BGMinValue, gameData.BGMaxValue);
         }
-        targetStats.currentStamina += staminaValue;
-        targetStats.currentStamina = Mathf.Clamp(targetStats.currentStamina, 0, targetStats.maxStamina);
-        targetStats.currentMental += mentalValue;
-        targetStats.currentMental = Mathf.Clamp(targetStats.currentMental, 0, targetStats.maxMental);
+        targetStats.currentHP += staminaValue;
+        targetStats.currentHP = Mathf.Clamp(targetStats.currentHP, 0, targetStats.maxHP);
     }
 }

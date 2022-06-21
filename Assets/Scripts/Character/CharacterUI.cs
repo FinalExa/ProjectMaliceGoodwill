@@ -5,19 +5,37 @@ using UnityEngine.UI;
 
 public class CharacterUI : MonoBehaviour
 {
-    [SerializeField] private Character character;
+    private Character character;
+    [SerializeField] private GameData gameData;
     public Text thisName;
-    public Text MGBar;
-    public Text staminaBar;
-    public Text mentalBar;
+    public Slider BGBar;
+    public Slider HPBar;
+    public SpriteRenderer characterSprite;
+
+    private void Awake()
+    {
+        character = this.gameObject.GetComponent<Character>();
+    }
 
     private void Start()
     {
-        thisName.text = character.characterData.characterStats.characterName;
+        InitializeCharacterUI();
     }
 
-    public void UpdateBar(Text barToUpdate, float barCurrentValue, float barMaxValue)
+    public void UpdateBar(Slider barToUpdate, float barCurrentValue)
     {
-        barToUpdate.text = barToUpdate.name + ": " + barCurrentValue.ToString() + "/" + barMaxValue.ToString();
+        barToUpdate.value = barCurrentValue;
+    }
+
+    private void InitializeCharacterUI()
+    {
+        thisName.text = character.characterData.characterStats.characterName;
+        characterSprite.color = character.characterData.characterStats.characterColor;
+        BGBar.minValue = gameData.BGMinValue;
+        BGBar.maxValue = gameData.BGMaxValue;
+        BGBar.value = character.characterData.characterStats.BGCurrentValue;
+        HPBar.minValue = 0;
+        HPBar.maxValue = character.characterData.characterStats.maxHP;
+        HPBar.value = character.characterData.characterStats.currentHP;
     }
 }

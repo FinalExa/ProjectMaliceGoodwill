@@ -14,43 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterStats:
     characterName: Glevil
-    SAStartPoint: 50
-    SACurrentValue: 0
-    maxStamina: 110
-    currentStamina: 110
-    maxMental: 150
-    currentMental: 150
+    characterColor: {r: 1, g: 0.5019608, b: 0, a: 1}
+    BGStartPoint: 50
+    BGCurrentValue: 50
+    maxHP: 150
+    currentHP: 150
   characterActions:
   - action: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
-    SAMinValue: 0
-    SAMaxValue: 100
+    BGMinValue: 0
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: f40f942697ce9564e80b18a18378cf6e, type: 2}
-    SAMinValue: 0
-    SAMaxValue: 100
+    BGMinValue: 0
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
-    SAMinValue: 0
-    SAMaxValue: 100
+    BGMinValue: 0
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: d37879bdef027844588a9bebbee6ae7c, type: 2}
-    SAMinValue: 0
-    SAMaxValue: 100
+    BGMinValue: 0
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: 2fbb54bb44df1b74da58de081681724b, type: 2}
-    SAMinValue: 0
-    SAMaxValue: 100
+    BGMinValue: 0
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: 60fa7e4881b07b846bcc1cf7a46a7929, type: 2}
-    SAMinValue: 0
-    SAMaxValue: 100
+    BGMinValue: 0
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: 6462a776fa3e2ce4aa42b815db6c9376, type: 2}
-    SAMinValue: 0
-    SAMaxValue: 100
+    BGMinValue: 0
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: 23b552949a2f7374d9754d1290de08a1, type: 2}
-    SAMinValue: 0
-    SAMaxValue: 100
+    BGMinValue: 0
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: 50d34d68d4907f84cb6f7a53cb0a32b2, type: 2}
-    SAMinValue: 0
-    SAMaxValue: 100
+    BGMinValue: 0
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: f7e5bfc2783cfa14f9b6268f3be77311, type: 2}
-    SAMinValue: 0
-    SAMaxValue: 100
+    BGMinValue: 0
+    BGMaxValue: 100
   isAI: 1
   AITargetPreference:
   - {fileID: 11400000, guid: c36aeb7f592c6ba4e825598470be8f58, type: 2}

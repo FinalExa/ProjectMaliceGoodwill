@@ -5,17 +5,15 @@ using UnityEngine;
 public class CharacterStats
 {
     public string characterName;
-    public float SAStartPoint;
-    [HideInInspector] public float SACurrentValue;
-    public float maxStamina;
-    [HideInInspector] public float currentStamina;
-    public float maxMental;
-    [HideInInspector] public float currentMental;
+    public Color characterColor;
+    public float BGStartPoint;
+    [HideInInspector] public float BGCurrentValue;
+    public float maxHP;
+    [HideInInspector] public float currentHP;
 
     public void SetStatsStartup()
     {
-        SACurrentValue = SAStartPoint;
-        currentStamina = maxStamina;
-        currentMental = maxMental;
+        BGCurrentValue = BGStartPoint;
+        currentHP = maxHP;
     }
 }

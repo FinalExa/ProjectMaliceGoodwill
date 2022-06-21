@@ -43,7 +43,7 @@ public class Character : MonoBehaviour
 
     private void PerditionStopCheck()
     {
-        if (perdition && characterData.characterStats.SACurrentValue > 0)
+        if (perdition && characterData.characterStats.BGCurrentValue > 0)
         {
             perdition = false;
         }
@@ -57,8 +57,7 @@ public class Character : MonoBehaviour
 
     public void UpdateAllBars()
     {
-        characterUI.UpdateBar(characterUI.MGBar, characterData.characterStats.SACurrentValue, turn.gameData.SAMaxValue);
-        characterUI.UpdateBar(characterUI.staminaBar, characterData.characterStats.currentStamina, characterData.characterStats.maxStamina);
-        characterUI.UpdateBar(characterUI.mentalBar, characterData.characterStats.currentMental, characterData.characterStats.maxMental);
+        characterUI.UpdateBar(characterUI.BGBar, characterData.characterStats.BGCurrentValue);
+        characterUI.UpdateBar(characterUI.HPBar, characterData.characterStats.currentHP);
     }
 }

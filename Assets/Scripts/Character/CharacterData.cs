@@ -10,8 +10,8 @@ public class CharacterData : ScriptableObject
     public struct CharacterActions
     {
         public Action action;
-        public int SAMinValue;
-        public int SAMaxValue;
+        public int BGMinValue;
+        public int BGMaxValue;
     }
     public CharacterActions[] characterActions;
     [Header("AI Section")]

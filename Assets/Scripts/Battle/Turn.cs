@@ -13,6 +13,7 @@ public class Turn : MonoBehaviour
     [HideInInspector] public bool stop;
     [HideInInspector] public TurnOrder turnOrder;
     [HideInInspector] public PopulateDropdowns populateDropdowns;
+    [HideInInspector] public BattleText battleText;
     private ActionEffect actionEffect;
     private AITurn aiTurn;
     private PerditionTurn perditionTurn;
@@ -27,11 +28,12 @@ public class Turn : MonoBehaviour
         aiTurn = this.gameObject.GetComponent<AITurn>();
         perditionTurn = this.gameObject.GetComponent<PerditionTurn>();
         endBattleConditions = this.gameObject.GetComponent<EndBattleConditions>();
+        battleText = this.gameObject.GetComponent<BattleText>();
     }
 
     private void Update()
     {
-        if (currentCharacter != null && !currentCharacter.isLocked && !fightIsOver) TurnOperations();
+        if (currentCharacter != null && !currentCharacter.isLocked && !fightIsOver && !stop) TurnOperations();
     }
 
     private void TurnOperations()
@@ -40,7 +42,7 @@ public class Turn : MonoBehaviour
         {
             if (!currentCharacter.perdition)
             {
-                if (!currentCharacter.characterData.isAI && !stop) PlayableCharacterTurn();
+                if (!currentCharacter.characterData.isAI) PlayableCharacterTurn();
                 else if (currentCharacter.characterData.isAI) aiTurn.AIStartup(currentCharacter);
             }
             else
@@ -56,7 +58,7 @@ public class Turn : MonoBehaviour
     {
         populateDropdowns.ActionPopulate();
         stop = true;
-        print(currentCharacter.characterData.characterStats.characterName + "'s turn.");
+        battleText.UpdateBattleText(currentCharacter.characterData.characterStats.characterName + "'s turn.");
     }
 
     public void ActionDoneOnTarget()
@@ -68,6 +70,7 @@ public class Turn : MonoBehaviour
 
     public void PassTurn()
     {
+        stop = false;
         endBattleConditions.CheckForVictoryConditions();
         currentCharacter.isLocked = true;
         currentCharacter.passageDone = false;
