@@ -17,5 +17,9 @@ MonoBehaviour:
     actionTypeCoefficient: -1
   - actionType: 1
     actionTypeCoefficient: 1
+  traits:
+  - characterTrait: 0
+    traitActions:
+    - {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
   BGMinValue: 0
   BGMaxValue: 100

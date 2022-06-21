@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameData : ScriptableObject
 {
     public GameTypes[] gameTypes;
+    public Trait[] traits;
     public int BGMinValue;
     public int BGMaxValue;
 }
