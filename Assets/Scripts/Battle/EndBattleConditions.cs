@@ -91,7 +91,7 @@ public class EndBattleConditions : MonoBehaviour
         int count = 0;
         foreach (Character enemy in turnOrder.enemyCharacters)
         {
-            if (enemy.fullGoodwillAI) count++;
+            if (enemy.fullGoodAI) count++;
         }
         if (count == turnOrder.enemyCharacters.Length) enemiesGoodwillCondition = true;
     }

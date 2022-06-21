@@ -17,7 +17,6 @@ public class CharacterData : ScriptableObject
     public CharacterActions[] characterActions;
     [Header("AI Section")]
     public bool isAI;
-    public CharacterData[] AITargetPreference;
     public AIActionSequences[] actionSequences;
     [HideInInspector] public Character thisCharacter;
     [Header("Generate Character Moves")]

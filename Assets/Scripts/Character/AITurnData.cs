@@ -6,6 +6,5 @@ public class AITurnData
 {
     public string AIName;
     public int AIActionIndex;
-    public List<CharacterData> targetOrder;
     public AIActionSequences[] sequence;
 }

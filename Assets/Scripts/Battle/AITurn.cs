@@ -22,10 +22,8 @@ public class AITurn : MonoBehaviour
             AITurnData aiInfo = new AITurnData();
             aiInfo.AIName = enemy.characterData.characterStats.characterName;
             aiInfo.AIActionIndex = 0;
-            aiInfo.targetOrder = new List<CharacterData>();
             aiInfo.sequence = enemy.characterData.actionSequences;
             for (int i = 0; i < aiInfo.sequence.Length; i++) aiInfo.sequence[i].actionOrderIndex = 0;
-            foreach (CharacterData target in enemy.characterData.AITargetPreference) aiInfo.targetOrder.Add(target);
             aiTurnData.Add(aiInfo);
         }
     }
@@ -34,7 +32,7 @@ public class AITurn : MonoBehaviour
     {
         aiToControl = aiReceived;
         GoodwillCheck();
-        if (!aiToControl.fullGoodwillAI)
+        if (!aiToControl.fullGoodAI)
         {
             FindAIID();
             AssignActionIndex();
@@ -46,8 +44,8 @@ public class AITurn : MonoBehaviour
 
     private void GoodwillCheck()
     {
-        if (aiToControl.characterData.characterStats.BGCurrentValue == turn.gameData.BGMaxValue) aiToControl.fullGoodwillAI = true;
-        else aiToControl.fullGoodwillAI = false;
+        if (aiToControl.characterData.characterStats.BGCurrentValue == turn.gameData.BGMaxValue) aiToControl.fullGoodAI = true;
+        else aiToControl.fullGoodAI = false;
     }
 
     private void FindAIID()
@@ -84,20 +82,14 @@ public class AITurn : MonoBehaviour
 
     private void AssignTarget()
     {
-        if (aiTurnData[thisAIId].targetOrder[0].thisCharacter.incapacitated)
+        List<Character> availableTargetsList = new List<Character>();
+        availableTargetsList.Clear();
+        for (int i = 0; i < turn.turnOrder.playableCharacters.Length; i++)
         {
-            CharacterData tempCharacterData = aiTurnData[thisAIId].targetOrder[0];
-            aiTurnData[thisAIId].targetOrder.RemoveAt(0);
-            aiTurnData[thisAIId].targetOrder.Add(tempCharacterData);
+            if (!turn.turnOrder.playableCharacters[i].incapacitated) availableTargetsList.Add(turn.turnOrder.playableCharacters[i]);
         }
-        foreach (Character character in turn.turnOrder.playableCharacters)
-        {
-            if (character.characterData.characterStats.characterName == aiTurnData[thisAIId].targetOrder[0].characterStats.characterName)
-            {
-                turn.target = character;
-                break;
-            }
-        }
+        int rand = Random.Range(0, availableTargetsList.Count);
+        turn.target = availableTargetsList[rand];
     }
 
     private void ExecuteAction()
