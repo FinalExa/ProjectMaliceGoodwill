@@ -18,7 +18,7 @@ MonoBehaviour:
   severity: 4
   severitySpectator: 1
   hpValueChange: 0
-  canTargetEnemies: 0
-  canTargetAllies: 0
+  canTargetEnemies: 1
+  canTargetAllies: 1
   canTargetSelf: 1
   isSeen: 1

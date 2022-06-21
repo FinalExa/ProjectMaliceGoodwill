@@ -23,7 +23,7 @@ public class ActionEffect : MonoBehaviour
         }
         else if (chosenAction.isSeen) UpdateCharacterValues(target, coeff, chosenAction.severitySpectator, 0f);
         if (targetInfo.maxHP <= 0) target.incapacitated = true;
-        if (targetInfo.BGCurrentValue == 0) target.perdition = true;
+        if (targetInfo.BGCurrentValue == 0) target.EnterPerdition();
     }
 
     private float CalculateCoeff(Character target, Type.ActionType actionType)

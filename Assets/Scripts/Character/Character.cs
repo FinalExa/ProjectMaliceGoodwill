@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
     [SerializeField] private CharacterUI characterUI;
     private Turn turn;
     public GameObject turnIndicator;
+    public GameObject perditionSymbol;
     public CharacterData characterData;
     [HideInInspector] public bool incapacitated;
     [HideInInspector] public bool perdition;
@@ -24,6 +25,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         turnIndicator.SetActive(false);
+        perditionSymbol.SetActive(false);
         characterData.characterStats.SetStatsStartup();
         UpdateAllBars();
     }
@@ -31,7 +33,12 @@ public class Character : MonoBehaviour
     private void Update()
     {
         TurnCheck();
-        PerditionStopCheck();
+    }
+
+    public void EnterPerdition()
+    {
+        perdition = true;
+        perditionSymbol.SetActive(true);
     }
 
     private void TurnCheck()
@@ -44,14 +51,6 @@ public class Character : MonoBehaviour
                 turn.ContinueTurn();
                 turn.PassTurn();
             }
-        }
-    }
-
-    private void PerditionStopCheck()
-    {
-        if (perdition && characterData.characterStats.BGCurrentValue > 0)
-        {
-            perdition = false;
         }
     }
 

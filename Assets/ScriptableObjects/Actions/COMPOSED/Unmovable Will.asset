@@ -10,19 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
-  m_Name: Swear
+  m_Name: Unmovable Will
   m_EditorClassIdentifier: 
-  actionName: Swear
+  actionName: Unmovable Will
   type:
-  - actionType: 0
-  severity: 8
-  severitySpectator: 4
-  staminaValueChange: 0
-  mentalValueChange: -10
-  mgMinRange: 0
-  mgMaxRange: 40
+    actionType: 1
+  severity: 15
+  severitySpectator: 7.5
+  hpValueChange: 0
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 0
+  canTargetSelf: 1
   isSeen: 1
-  isMagic: 0

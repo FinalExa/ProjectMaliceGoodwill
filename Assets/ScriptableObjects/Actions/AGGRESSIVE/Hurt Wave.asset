@@ -20,5 +20,5 @@ MonoBehaviour:
   hpValueChange: 0
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 0
+  canTargetSelf: 1
   isSeen: 1

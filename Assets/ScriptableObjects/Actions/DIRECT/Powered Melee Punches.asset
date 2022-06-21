@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
-  m_Name: Trap 2
+  m_Name: Powered Melee Punches
   m_EditorClassIdentifier: 
-  actionName: Trap 1
+  actionName: Action 1
   type:
     actionType: 0
-  severity: 15
-  severitySpectator: 7.5
+  severity: 0
+  severitySpectator: 0
   hpValueChange: 0
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 0
+  canTargetSelf: 1
   isSeen: 1
