@@ -104,6 +104,7 @@ public class Turn : MonoBehaviour
 
     public void PassTurn()
     {
+        currentCharacter.turnIndicator.SetActive(false);
         endBattleConditions.CheckForVictoryConditions();
         currentCharacter.isLocked = true;
         currentCharacter.passageDone = false;

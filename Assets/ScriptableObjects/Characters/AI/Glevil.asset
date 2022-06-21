@@ -19,11 +19,44 @@ MonoBehaviour:
     BGCurrentValue: 50
     maxHP: 150
     currentHP: 150
-  characterTraits: 00000000
+  characterTraits: 000000000500000006000000
   characterActions:
   - action: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
     BGMinValue: 0
-    BGMaxValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: f40f942697ce9564e80b18a18378cf6e, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: d37879bdef027844588a9bebbee6ae7c, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: c89033be57c909143893ca6b7478a2f9, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: fd36dd5a866be484c8b11801b06147b7, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: 78ba5a520b4e4424aa1f44c037ffcabf, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: cb8e152b8165a534baeac19a8cf1f912, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: 33cff0012f94cea459168de1fffca9b3, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: ec182ec727c1d9f43985c58b07fd1a07, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: 969a44d20f8c9e849a55a3cbbb1a019b, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: fa8ca7b8c786e3a4d9cdfa8cce7bfe34, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
   isAI: 1
   AITargetPreference:
   - {fileID: 11400000, guid: c36aeb7f592c6ba4e825598470be8f58, type: 2}

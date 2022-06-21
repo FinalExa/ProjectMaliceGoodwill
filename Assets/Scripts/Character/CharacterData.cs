@@ -40,6 +40,7 @@ public class CharacterData : ScriptableObject
                         {
                             CharacterActions characterActions = new CharacterActions();
                             characterActions.action = action;
+                            characterActions.BGMaxValue = gameData.BGMaxValue;
                             characterActionsList.Add(characterActions);
                         }
                         break;

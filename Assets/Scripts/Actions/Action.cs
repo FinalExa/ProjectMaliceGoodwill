@@ -10,8 +10,7 @@ public class Action : ScriptableObject
     public Type type;
     public float severity;
     public float severitySpectator;
-    public float staminaValueChange;
-    public float mentalValueChange;
+    public float hpValueChange;
     public bool canTargetEnemies;
     public bool canTargetAllies;
     public bool canTargetSelf;

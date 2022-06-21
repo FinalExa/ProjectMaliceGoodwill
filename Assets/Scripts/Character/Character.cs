@@ -6,8 +6,8 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField] private CharacterUI characterUI;
-    [SerializeField] private GameObject turnIndicator;
     private Turn turn;
+    public GameObject turnIndicator;
     public CharacterData characterData;
     [HideInInspector] public bool incapacitated;
     [HideInInspector] public bool perdition;
@@ -41,7 +41,6 @@ public class Character : MonoBehaviour
             if (!incapacitated) ThisCharacterTurn();
             else
             {
-                turnIndicator.SetActive(false);
                 turn.ContinueTurn();
                 turn.PassTurn();
             }

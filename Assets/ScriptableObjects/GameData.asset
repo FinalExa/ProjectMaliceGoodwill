@@ -21,5 +21,44 @@ MonoBehaviour:
   - characterTrait: 0
     traitActions:
     - {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
+    - {fileID: 11400000, guid: f40f942697ce9564e80b18a18378cf6e, type: 2}
+    - {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
+    - {fileID: 11400000, guid: d37879bdef027844588a9bebbee6ae7c, type: 2}
+  - characterTrait: 4
+    traitActions:
+    - {fileID: 11400000, guid: 46dd73a6da00b12468eabad59606a3bb, type: 2}
+    - {fileID: 11400000, guid: 019920b176ec55342bcfaae667da4554, type: 2}
+    - {fileID: 11400000, guid: d397e53a9e4ccbe4c9a7bc058c6bb5b7, type: 2}
+    - {fileID: 11400000, guid: 5a7de771a29aeb746a7c4891d963a160, type: 2}
+  - characterTrait: 2
+    traitActions:
+    - {fileID: 11400000, guid: 50d34d68d4907f84cb6f7a53cb0a32b2, type: 2}
+    - {fileID: 11400000, guid: f7e5bfc2783cfa14f9b6268f3be77311, type: 2}
+    - {fileID: 11400000, guid: a20d1a58621142b4f81f71750c42ff44, type: 2}
+    - {fileID: 11400000, guid: 9b1619315e845d54ab8cd13bf603ccc3, type: 2}
+  - characterTrait: 6
+    traitActions:
+    - {fileID: 11400000, guid: c89033be57c909143893ca6b7478a2f9, type: 2}
+    - {fileID: 11400000, guid: fd36dd5a866be484c8b11801b06147b7, type: 2}
+    - {fileID: 11400000, guid: 78ba5a520b4e4424aa1f44c037ffcabf, type: 2}
+    - {fileID: 11400000, guid: cb8e152b8165a534baeac19a8cf1f912, type: 2}
+  - characterTrait: 1
+    traitActions:
+    - {fileID: 11400000, guid: 2fbb54bb44df1b74da58de081681724b, type: 2}
+    - {fileID: 11400000, guid: 23b552949a2f7374d9754d1290de08a1, type: 2}
+    - {fileID: 11400000, guid: 60fa7e4881b07b846bcc1cf7a46a7929, type: 2}
+    - {fileID: 11400000, guid: 6462a776fa3e2ce4aa42b815db6c9376, type: 2}
+  - characterTrait: 5
+    traitActions:
+    - {fileID: 11400000, guid: 33cff0012f94cea459168de1fffca9b3, type: 2}
+    - {fileID: 11400000, guid: ec182ec727c1d9f43985c58b07fd1a07, type: 2}
+    - {fileID: 11400000, guid: 969a44d20f8c9e849a55a3cbbb1a019b, type: 2}
+    - {fileID: 11400000, guid: fa8ca7b8c786e3a4d9cdfa8cce7bfe34, type: 2}
+  - characterTrait: 3
+    traitActions:
+    - {fileID: 11400000, guid: 0e09cc39500a6284eb10230ba00bffc5, type: 2}
+    - {fileID: 11400000, guid: 0eaa05aeaf85303488b06e9a7a684e8a, type: 2}
+    - {fileID: 11400000, guid: a4af20a0203d1184488ddebaa3199e55, type: 2}
+    - {fileID: 11400000, guid: 777b13d0ef67fa14e94c523e26764b62, type: 2}
   BGMinValue: 0
   BGMaxValue: 100
