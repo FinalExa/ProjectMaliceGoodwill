@@ -19,6 +19,7 @@ public class ActionEffect : MonoBehaviour
         {
             UpdateCharacterValues(target, coeff, chosenAction.severity, chosenAction.staminaValueChange, chosenAction.mentalValueChange);
             turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + "!");
+            turn.StopTurn();
         }
         else if (chosenAction.isSeen) UpdateCharacterValues(target, coeff, chosenAction.severitySpectator, 0f, 0f);
         if (targetInfo.maxHP <= 0) target.incapacitated = true;

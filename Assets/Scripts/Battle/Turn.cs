@@ -14,6 +14,7 @@ public class Turn : MonoBehaviour
     [HideInInspector] public TurnOrder turnOrder;
     [HideInInspector] public PopulateDropdowns populateDropdowns;
     [HideInInspector] public BattleText battleText;
+    [SerializeField] private GameObject continueDialogueButton;
     private ActionEffect actionEffect;
     private AITurn aiTurn;
     private PerditionTurn perditionTurn;
@@ -31,9 +32,15 @@ public class Turn : MonoBehaviour
         battleText = this.gameObject.GetComponent<BattleText>();
     }
 
+    private void Start()
+    {
+        continueDialogueButton.SetActive(false);
+    }
+
     private void Update()
     {
         if (currentCharacter != null && !currentCharacter.isLocked && !fightIsOver && !stop) TurnOperations();
+        if (stop && Input.GetKeyDown(KeyCode.Return)) ContinueTurn();
     }
 
     private void TurnOperations()
@@ -68,9 +75,20 @@ public class Turn : MonoBehaviour
         ActionOnSpectators();
     }
 
-    public void PassTurn()
+    public void ContinueTurn()
     {
         stop = false;
+        continueDialogueButton.SetActive(false);
+    }
+
+    public void StopTurn()
+    {
+        stop = true;
+        continueDialogueButton.SetActive(true);
+    }
+
+    public void PassTurn()
+    {
         endBattleConditions.CheckForVictoryConditions();
         currentCharacter.isLocked = true;
         currentCharacter.passageDone = false;

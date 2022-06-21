@@ -722,6 +722,7 @@ MonoBehaviour:
   turnOrder: {fileID: -3920999559667313699}
   populateDropdowns: {fileID: 5141292673853435214}
   battleText: {fileID: 0}
+  continueDialogueButton: {fileID: 3122164329968787404}
   fightIsOver: 0
 --- !u!114 &-2500228207376901259
 MonoBehaviour:
@@ -735,9 +736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be011f5283e3e0844b7ab5e993ac0868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endBattleConditions: {fileID: -7457356380004830230}
-  negativeCoeff: -0.7
-  positiveCoeff: 0.7
 --- !u!114 &1712367215121605605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,7 +1193,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2827076356147682276}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6260356559489696910}
+        m_TargetAssemblyTypeName: Turn, Assembly-CSharp
+        m_MethodName: ContinueTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3141092825597283814
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,7 +37,11 @@ public class Character : MonoBehaviour
         if (!isLocked && !passageDone)
         {
             if (!incapacitated) ThisCharacterTurn();
-            else turn.PassTurn();
+            else
+            {
+                turn.ContinueTurn();
+                turn.PassTurn();
+            }
         }
     }
 
