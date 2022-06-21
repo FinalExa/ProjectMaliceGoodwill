@@ -15,10 +15,10 @@ MonoBehaviour:
   actionName: Energy Gift
   type:
     actionType: 0
-  severity: 0
-  severitySpectator: 0
-  hpValueChange: 0
+  severity: 5
+  severitySpectator: 2
+  hpValueChange: 10
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 1
+  canTargetSelf: 0
   isSeen: 1

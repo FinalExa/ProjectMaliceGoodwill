@@ -15,10 +15,10 @@ MonoBehaviour:
   actionName: Provoke
   type:
     actionType: 0
-  severity: 0
-  severitySpectator: 0
-  hpValueChange: 0
+  severity: 8
+  severitySpectator: 1
+  hpValueChange: -6
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 1
+  canTargetSelf: 0
   isSeen: 1

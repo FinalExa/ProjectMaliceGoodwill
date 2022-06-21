@@ -58,20 +58,41 @@ MonoBehaviour:
     BGMinValue: 0
     BGMaxValue: 100
   isAI: 1
-  AITargetPreference:
-  - {fileID: 11400000, guid: 70a2e22e084009948aea57f60675e89d, type: 2}
-  - {fileID: 11400000, guid: c36aeb7f592c6ba4e825598470be8f58, type: 2}
-  - {fileID: 11400000, guid: c96fad65aafe5b345b75483e847d8c2f, type: 2}
   actionSequences:
-  - MGMinRange: 0
-    MGMaxRange: 50
+  - MGMinRange: 1
+    MGMaxRange: 20
     actionOrderInThatRange:
-    - {fileID: 11400000, guid: 23b552949a2f7374d9754d1290de08a1, type: 2}
+    - {fileID: 11400000, guid: 0eaa05aeaf85303488b06e9a7a684e8a, type: 2}
+    - {fileID: 11400000, guid: 0eaa05aeaf85303488b06e9a7a684e8a, type: 2}
+    - {fileID: 11400000, guid: d37879bdef027844588a9bebbee6ae7c, type: 2}
     actionOrderIndex: 0
-  - MGMinRange: 51
+  - MGMinRange: 21
+    MGMaxRange: 40
+    actionOrderInThatRange:
+    - {fileID: 11400000, guid: 6462a776fa3e2ce4aa42b815db6c9376, type: 2}
+    - {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
+    - {fileID: 11400000, guid: d37879bdef027844588a9bebbee6ae7c, type: 2}
+    - {fileID: 11400000, guid: 6462a776fa3e2ce4aa42b815db6c9376, type: 2}
+    actionOrderIndex: 0
+  - MGMinRange: 41
+    MGMaxRange: 60
+    actionOrderInThatRange:
+    - {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
+    - {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
+    - {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
+    actionOrderIndex: 0
+  - MGMinRange: 61
+    MGMaxRange: 90
+    actionOrderInThatRange:
+    - {fileID: 11400000, guid: 60fa7e4881b07b846bcc1cf7a46a7929, type: 2}
+    - {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
+    - {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
+    - {fileID: 11400000, guid: f40f942697ce9564e80b18a18378cf6e, type: 2}
+    actionOrderIndex: 0
+  - MGMinRange: 91
     MGMaxRange: 100
     actionOrderInThatRange:
-    - {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
+    - {fileID: 11400000, guid: f40f942697ce9564e80b18a18378cf6e, type: 2}
     actionOrderIndex: 0
   thisCharacter: {fileID: 0}
   gameData: {fileID: 11400000, guid: 18c29b82a7e5f7e4b9576c862abf365d, type: 2}

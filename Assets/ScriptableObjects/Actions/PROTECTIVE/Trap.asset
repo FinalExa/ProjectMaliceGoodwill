@@ -15,10 +15,10 @@ MonoBehaviour:
   actionName: Trap
   type:
     actionType: 0
-  severity: 15
-  severitySpectator: 7.5
-  hpValueChange: 0
+  severity: 5
+  severitySpectator: 3
+  hpValueChange: -10
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 1
+  canTargetSelf: 0
   isSeen: 1

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Positive Influence
   type:
-    actionType: 0
-  severity: 0
-  severitySpectator: 0
+    actionType: 1
+  severity: 7
+  severitySpectator: 2
   hpValueChange: 0
   canTargetEnemies: 1
   canTargetAllies: 1

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
-  m_Name: Hug Energy
+  m_Name: Anger Hold
   m_EditorClassIdentifier: 
-  actionName: Action
+  actionName: Anger Hold
   type:
-    actionType: 0
-  severity: 0
-  severitySpectator: 0
-  hpValueChange: 0
-  canTargetEnemies: 1
-  canTargetAllies: 1
+    actionType: 1
+  severity: 6
+  severitySpectator: 1
+  hpValueChange: -20
+  canTargetEnemies: 0
+  canTargetAllies: 0
   canTargetSelf: 1
   isSeen: 1

@@ -15,10 +15,10 @@ MonoBehaviour:
   actionName: Cold Field
   type:
     actionType: 0
-  severity: 0
-  severitySpectator: 0
-  hpValueChange: 0
+  severity: 7
+  severitySpectator: 7
+  hpValueChange: -18
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 1
+  canTargetSelf: 0
   isSeen: 1

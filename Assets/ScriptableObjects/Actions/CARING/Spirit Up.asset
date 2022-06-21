@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Spirit Up
   type:
-    actionType: 0
-  severity: 0
-  severitySpectator: 0
-  hpValueChange: 0
-  canTargetEnemies: 1
-  canTargetAllies: 1
+    actionType: 1
+  severity: 9
+  severitySpectator: 1
+  hpValueChange: 6
+  canTargetEnemies: 0
+  canTargetAllies: 0
   canTargetSelf: 1
   isSeen: 1

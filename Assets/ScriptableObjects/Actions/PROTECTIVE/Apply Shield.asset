@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Apply Shield
   type:
-    actionType: 0
+    actionType: 1
   severity: 6
   severitySpectator: 3
   hpValueChange: 0
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 1
+  canTargetSelf: 0
   isSeen: 1

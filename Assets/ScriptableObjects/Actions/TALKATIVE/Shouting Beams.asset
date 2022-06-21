@@ -15,10 +15,10 @@ MonoBehaviour:
   actionName: Shouting Beams
   type:
     actionType: 0
-  severity: 0
-  severitySpectator: 0
-  hpValueChange: 0
+  severity: 6
+  severitySpectator: 6
+  hpValueChange: -16
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 1
+  canTargetSelf: 0
   isSeen: 1

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Life Link
   type:
-    actionType: 0
-  severity: 10
-  severitySpectator: 5
-  hpValueChange: 0
-  canTargetEnemies: 1
-  canTargetAllies: 1
+    actionType: 1
+  severity: 5
+  severitySpectator: 10
+  hpValueChange: -40
+  canTargetEnemies: 0
+  canTargetAllies: 0
   canTargetSelf: 1
   isSeen: 1

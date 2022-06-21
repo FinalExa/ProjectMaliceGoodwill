@@ -15,10 +15,10 @@ MonoBehaviour:
   actionName: Stillness Crush
   type:
     actionType: 0
-  severity: 8
-  severitySpectator: 4
-  hpValueChange: 0
+  severity: 10
+  severitySpectator: 6
+  hpValueChange: -30
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 1
+  canTargetSelf: 0
   isSeen: 1

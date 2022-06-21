@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: Bodyblock
   m_EditorClassIdentifier: 
-  actionName: Action 2
+  actionName: Bodyblock
   type:
-    actionType: 0
-  severity: 0
-  severitySpectator: 0
+    actionType: 1
+  severity: 5
+  severitySpectator: 3
   hpValueChange: 0
-  canTargetEnemies: 1
+  canTargetEnemies: 0
   canTargetAllies: 1
-  canTargetSelf: 1
+  canTargetSelf: 0
   isSeen: 1

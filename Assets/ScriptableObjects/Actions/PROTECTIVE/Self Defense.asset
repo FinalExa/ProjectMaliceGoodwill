@@ -15,10 +15,10 @@ MonoBehaviour:
   actionName: Self Defense
   type:
     actionType: 0
-  severity: 10
-  severitySpectator: 5
+  severity: 3
+  severitySpectator: 2
   hpValueChange: 0
-  canTargetEnemies: 1
-  canTargetAllies: 1
+  canTargetEnemies: 0
+  canTargetAllies: 0
   canTargetSelf: 1
   isSeen: 1

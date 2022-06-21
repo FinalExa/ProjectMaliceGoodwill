@@ -31,7 +31,7 @@ public class AITurn : MonoBehaviour
     public void AIStartup(Character aiReceived)
     {
         aiToControl = aiReceived;
-        GoodwillCheck();
+        GoodCheck();
         if (!aiToControl.fullGoodAI)
         {
             FindAIID();
@@ -42,7 +42,7 @@ public class AITurn : MonoBehaviour
         turn.PassTurn();
     }
 
-    private void GoodwillCheck()
+    private void GoodCheck()
     {
         if (aiToControl.characterData.characterStats.BGCurrentValue == turn.gameData.BGMaxValue) aiToControl.fullGoodAI = true;
         else aiToControl.fullGoodAI = false;

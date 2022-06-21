@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Compliment Beams
   type:
-    actionType: 0
-  severity: 0
-  severitySpectator: 0
+    actionType: 1
+  severity: 7
+  severitySpectator: 1
   hpValueChange: 0
   canTargetEnemies: 1
   canTargetAllies: 1
-  canTargetSelf: 1
+  canTargetSelf: 0
   isSeen: 1
