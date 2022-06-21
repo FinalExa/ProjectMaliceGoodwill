@@ -20,6 +20,8 @@ public class Turn : MonoBehaviour
     private PerditionTurn perditionTurn;
     private EndBattleConditions endBattleConditions;
     [HideInInspector] public bool fightIsOver;
+    private PerditionTurn perditionCharacterForContinuing;
+    private bool perditionContinueCheck;
 
     private void Awake()
     {
@@ -79,12 +81,25 @@ public class Turn : MonoBehaviour
     {
         stop = false;
         continueDialogueButton.SetActive(false);
+        if (perditionContinueCheck)
+        {
+            perditionCharacterForContinuing.PerditionContinueTurn();
+            perditionContinueCheck = false;
+        }
     }
 
     public void StopTurn()
     {
         stop = true;
         continueDialogueButton.SetActive(true);
+    }
+
+    public void StopTurn(PerditionTurn perditionCharacter)
+    {
+        stop = true;
+        continueDialogueButton.SetActive(true);
+        perditionCharacterForContinuing = perditionCharacter;
+        perditionContinueCheck = true;
     }
 
     public void PassTurn()

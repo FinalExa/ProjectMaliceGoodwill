@@ -18,7 +18,7 @@ public class ActionEffect : MonoBehaviour
         if (!isSpectator)
         {
             UpdateCharacterValues(target, coeff, chosenAction.severity, chosenAction.staminaValueChange, chosenAction.mentalValueChange);
-            turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + "!");
+            turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + " by " + turn.currentCharacter.characterData.characterStats.characterName + "!");
             turn.StopTurn();
         }
         else if (chosenAction.isSeen) UpdateCharacterValues(target, coeff, chosenAction.severitySpectator, 0f, 0f);

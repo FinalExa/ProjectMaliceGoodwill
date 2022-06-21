@@ -25,7 +25,11 @@ public class PerditionTurn : MonoBehaviour
     {
         curCharacter = thisCharacter;
         turn.battleText.UpdateBattleText(curCharacter.characterData.characterStats.characterName + " enters perdition!");
-        turn.StopTurn();
+        turn.StopTurn(this);
+    }
+
+    public void PerditionContinueTurn()
+    {
         GetPossibleActions();
         chosenAction = availableActions[RandomizeIndex(availableActions.Count)];
         GetPossibleTargets();
