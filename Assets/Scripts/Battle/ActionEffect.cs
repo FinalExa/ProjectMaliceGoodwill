@@ -11,13 +11,14 @@ public class ActionEffect : MonoBehaviour
         turn = this.gameObject.GetComponent<Turn>();
         gameData = turn.gameData;
     }
-    public void UpdateValues(Character target, Action chosenAction, bool isSpectator)
+    public void UpdateValues(Character target, Character sender, Action chosenAction, bool isSpectator)
     {
         CharacterStats targetInfo = target.characterData.characterStats;
         float coeff = CalculateCoeff(target, chosenAction.type.actionType);
         if (!isSpectator)
         {
             UpdateCharacterValues(target, coeff, chosenAction.severity, chosenAction.hpValueChange);
+            if (target != sender) UpdateCharacterValues(sender, coeff, chosenAction.severity, 0);
             turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + " by " + turn.currentCharacter.characterData.characterStats.characterName + "!");
             turn.StopTurn();
         }

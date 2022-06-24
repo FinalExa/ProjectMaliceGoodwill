@@ -75,7 +75,7 @@ public class EndBattleConditions : MonoBehaviour
                 count++;
             }
         }
-        if (count == turnOrder.playableCharacters.Length) allPlayableInPerditionCondition = true;
+        if (count == turnOrder.playableCharacters.Count) allPlayableInPerditionCondition = true;
     }
     private void AlliesPerditionCondition()
     {
@@ -99,7 +99,7 @@ public class EndBattleConditions : MonoBehaviour
         {
             if (enemy.fullGoodAI) count++;
         }
-        if (count == turnOrder.enemyCharacters.Length) enemiesGoodwillCondition = true;
+        if (count == turnOrder.enemyCharacters.Count) enemiesGoodwillCondition = true;
     }
 
     private void Victory()

@@ -59,7 +59,7 @@ public class PopulateDropdowns : MonoBehaviour
         }
         if (turn.chosenAction.canTargetAllies)
         {
-            for (int i = 0; i < turn.turnOrder.playableCharacters.Length; i++)
+            for (int i = 0; i < turn.turnOrder.playableCharacters.Count; i++)
             {
                 if (turn.turnOrder.playableCharacters[i] != turn.currentCharacter && !turn.turnOrder.playableCharacters[i].Dead)
                 {

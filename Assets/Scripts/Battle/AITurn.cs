@@ -84,7 +84,7 @@ public class AITurn : MonoBehaviour
     {
         List<Character> availableTargetsList = new List<Character>();
         availableTargetsList.Clear();
-        for (int i = 0; i < turn.turnOrder.playableCharacters.Length; i++)
+        for (int i = 0; i < turn.turnOrder.playableCharacters.Count; i++)
         {
             if (!turn.turnOrder.playableCharacters[i].Dead) availableTargetsList.Add(turn.turnOrder.playableCharacters[i]);
         }

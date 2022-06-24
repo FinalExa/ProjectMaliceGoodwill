@@ -72,7 +72,7 @@ public class Turn : MonoBehaviour
 
     public void ActionDoneOnTarget()
     {
-        actionEffect.UpdateValues(target, chosenAction, false);
+        actionEffect.UpdateValues(target, currentCharacter, chosenAction, false);
         target.UpdateAllBars();
         ActionOnSpectators();
     }
@@ -117,7 +117,7 @@ public class Turn : MonoBehaviour
         {
             if ((turnOrder.turnOrder[i] != this || turnOrder.turnOrder[i] != target) && !turnOrder.turnOrder[i].Dead)
             {
-                actionEffect.UpdateValues(turnOrder.turnOrder[i], chosenAction, true);
+                actionEffect.UpdateValues(turnOrder.turnOrder[i], currentCharacter, chosenAction, true);
                 turnOrder.turnOrder[i].UpdateAllBars();
             }
         }

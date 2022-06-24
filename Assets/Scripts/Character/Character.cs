@@ -46,17 +46,22 @@ public class Character : MonoBehaviour
     public void SetDead()
     {
         Dead = true;
-        perditionSymbol.SetActive(false);
         deathSymbol.SetActive(true);
         turn.turnOrder.turnOrder.Remove(this);
+        if (!characterData.isAI) turn.turnOrder.playableCharacters.Remove(this);
+        else turn.turnOrder.playableCharacters.Remove(this);
     }
 
     private void TurnCheck()
     {
-        if (characterData.characterStats.currentHP <= 0 && !Dead) SetDead();
+        if (Dead && perditionSymbol.activeSelf) perditionSymbol.SetActive(false);
         if (!isLocked && !passageDone)
         {
-            if (!Dead) ThisCharacterTurn();
+            if (!Dead)
+            {
+                if (characterData.characterStats.currentHP <= 0) SetDead();
+                else ThisCharacterTurn();
+            }
             else
             {
                 turn.ContinueTurn();

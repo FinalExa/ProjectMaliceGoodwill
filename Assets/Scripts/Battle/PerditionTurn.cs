@@ -21,6 +21,11 @@ public class PerditionTurn : MonoBehaviour
         availableTargets = new List<Character>();
     }
 
+    private void Update()
+    {
+        if (curCharacter != null && curCharacter.characterData.characterStats.currentHP <= 0) curCharacter.SetDead();
+    }
+
     public void PerditionStartup(Character thisCharacter)
     {
         curCharacter = thisCharacter;

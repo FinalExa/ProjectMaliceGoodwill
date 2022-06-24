@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TurnOrder : MonoBehaviour
 {
-    public Character[] playableCharacters;
-    public Character[] enemyCharacters;
+    public List<Character> playableCharacters;
+    public List<Character> enemyCharacters;
     [SerializeField] private bool enemyGoFirst;
     [HideInInspector] public List<Character> turnOrder;
     private int turnIndex;
@@ -42,9 +42,9 @@ public class TurnOrder : MonoBehaviour
         turnOrder[turnIndex].isLocked = false;
     }
 
-    private void ComposeList(Character[] arrayToAdd)
+    private void ComposeList(List<Character> arrayToAdd)
     {
-        for (int i = 0; i < arrayToAdd.Length; i++)
+        for (int i = 0; i < arrayToAdd.Count; i++)
         {
             arrayToAdd[i].isLocked = true;
             turnOrder.Add(arrayToAdd[i]);
