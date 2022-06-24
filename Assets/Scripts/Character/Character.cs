@@ -53,12 +53,12 @@ public class Character : MonoBehaviour
 
     private void TurnCheck()
     {
+        if (characterData.characterStats.currentHP <= 0 && !Dead) SetDead();
         if (!isLocked && !passageDone)
         {
             if (!Dead)
             {
-                if (characterData.characterStats.currentHP <= 0) SetDead();
-                else ThisCharacterTurn();
+                ThisCharacterTurn();
             }
             else
             {
