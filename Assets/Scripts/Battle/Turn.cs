@@ -47,7 +47,7 @@ public class Turn : MonoBehaviour
 
     private void TurnOperations()
     {
-        if (!currentCharacter.incapacitated)
+        if (!currentCharacter.Dead)
         {
             if (!currentCharacter.perdition)
             {
@@ -115,7 +115,7 @@ public class Turn : MonoBehaviour
     {
         for (int i = 0; i < turnOrder.turnOrder.Count; i++)
         {
-            if ((turnOrder.turnOrder[i] != this || turnOrder.turnOrder[i] != target) && !turnOrder.turnOrder[i].incapacitated)
+            if ((turnOrder.turnOrder[i] != this || turnOrder.turnOrder[i] != target) && !turnOrder.turnOrder[i].Dead)
             {
                 actionEffect.UpdateValues(turnOrder.turnOrder[i], chosenAction, true);
                 turnOrder.turnOrder[i].UpdateAllBars();

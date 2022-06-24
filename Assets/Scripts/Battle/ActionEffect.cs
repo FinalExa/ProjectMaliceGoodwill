@@ -22,7 +22,7 @@ public class ActionEffect : MonoBehaviour
             turn.StopTurn();
         }
         else if (chosenAction.isSeen) UpdateCharacterValues(target, coeff, chosenAction.severitySpectator, 0f);
-        if (targetInfo.maxHP <= 0) target.incapacitated = true;
+        if (targetInfo.currentHP <= 0) target.SetDead();
         if (targetInfo.BGCurrentValue == 0) target.EnterPerdition();
     }
 

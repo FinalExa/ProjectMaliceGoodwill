@@ -86,7 +86,7 @@ public class AITurn : MonoBehaviour
         availableTargetsList.Clear();
         for (int i = 0; i < turn.turnOrder.playableCharacters.Length; i++)
         {
-            if (!turn.turnOrder.playableCharacters[i].incapacitated) availableTargetsList.Add(turn.turnOrder.playableCharacters[i]);
+            if (!turn.turnOrder.playableCharacters[i].Dead) availableTargetsList.Add(turn.turnOrder.playableCharacters[i]);
         }
         int rand = Random.Range(0, availableTargetsList.Count);
         turn.target = availableTargetsList[rand];

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EndBattleConditions : MonoBehaviour
 {
-    [SerializeField] private Turn turn;
-    [SerializeField] private TurnOrder turnOrder;
+    private Turn turn;
+    private TurnOrder turnOrder;
     [HideInInspector] public bool perditionCheck;
     private bool stopThis;
     private bool enemiesDownCondition;
@@ -13,6 +13,12 @@ public class EndBattleConditions : MonoBehaviour
     private bool alliesDownCondition;
     private bool alliesPerditionCondition;
     private bool allPlayableInPerditionCondition;
+
+    private void Awake()
+    {
+        turn = this.gameObject.GetComponent<Turn>();
+        turnOrder = turn.turnOrder;
+    }
 
     private void Start()
     {
@@ -38,7 +44,7 @@ public class EndBattleConditions : MonoBehaviour
         bool enemiesDown = true;
         foreach (Character enemy in turnOrder.enemyCharacters)
         {
-            if (!enemy.incapacitated)
+            if (!enemy.Dead)
             {
                 enemiesDown = false;
                 break;
@@ -51,7 +57,7 @@ public class EndBattleConditions : MonoBehaviour
         bool alliesDown = true;
         foreach (Character pc in turnOrder.playableCharacters)
         {
-            if (!pc.incapacitated)
+            if (!pc.Dead)
             {
                 alliesDown = false;
                 break;
@@ -101,9 +107,8 @@ public class EndBattleConditions : MonoBehaviour
         turn.populateDropdowns.TurnAllOff();
         turn.fightIsOver = true;
         stopThis = true;
-        print("Victory!");
-        if (enemiesDownCondition) print("All enemies knocked out");
-        if (enemiesGoodwillCondition) print("All enemies altruism maxed out");
+        if (enemiesDownCondition) turn.battleText.UpdateBattleText("Victory! All enemies killed!");
+        if (enemiesGoodwillCondition) turn.battleText.UpdateBattleText("Victory! Enemies calmed!");
     }
 
     private void Defeat()
@@ -111,8 +116,7 @@ public class EndBattleConditions : MonoBehaviour
         turn.populateDropdowns.TurnAllOff();
         turn.fightIsOver = true;
         stopThis = true;
-        print("Defeat!");
-        if (alliesDownCondition) print("All playable characters down!");
-        if (allPlayableInPerditionCondition) print("All playable characters in perdition!");
+        if (alliesDownCondition) turn.battleText.UpdateBattleText("Defeat! Party is dead!");
+        if (allPlayableInPerditionCondition) turn.battleText.UpdateBattleText("Defeat! Party in perdition!");
     }
 }
