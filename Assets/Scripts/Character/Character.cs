@@ -56,10 +56,7 @@ public class Character : MonoBehaviour
         if (characterData.characterStats.currentHP <= 0 && !Dead) SetDead();
         if (!isLocked && !passageDone)
         {
-            if (!Dead)
-            {
-                ThisCharacterTurn();
-            }
+            if (!Dead) ThisCharacterTurn();
             else
             {
                 turn.ContinueTurn();
