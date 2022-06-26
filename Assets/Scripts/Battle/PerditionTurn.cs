@@ -66,16 +66,7 @@ public class PerditionTurn : MonoBehaviour
         foreach (Character character in turn.turnOrder.turnOrder)
         {
             if (character == curCharacter && chosenAction.canTargetSelf) availableTargets.Add(character);
-            if (!curCharacter.characterData.isAI)
-            {
-                if (character != curCharacter && !character.characterData.isAI && chosenAction.canTargetAllies) availableTargets.Add(character);
-                if (character != curCharacter && character.characterData.isAI && chosenAction.canTargetEnemies) availableTargets.Add(character);
-            }
-            else
-            {
-                if (character != curCharacter && character.characterData.isAI && chosenAction.canTargetAllies) availableTargets.Add(character);
-                if (character != curCharacter && !character.characterData.isAI && chosenAction.canTargetEnemies) availableTargets.Add(character);
-            }
+            if (character != curCharacter && chosenAction.canTargetOthers) availableTargets.Add(character);
         }
     }
 }

@@ -16,6 +16,9 @@ public class Character : MonoBehaviour
     [HideInInspector] public bool fullGoodAI;
     [HideInInspector] public bool passageDone;
     [HideInInspector] public bool isLocked;
+    [HideInInspector] public List<Character> thisCharacterAllies;
+    [HideInInspector] public List<Character> thisCharacterEnemies;
+    [HideInInspector] public List<Effect> appliedEffects;
 
     private void Awake()
     {
@@ -25,10 +28,9 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-        turnIndicator.SetActive(false);
-        perditionSymbol.SetActive(false);
-        deathSymbol.SetActive(false);
         characterData.characterStats.SetStatsStartup();
+        CharacterSymbolsOff();
+        CreateThisCharacterLists();
         UpdateAllBars();
     }
 
@@ -57,6 +59,7 @@ public class Character : MonoBehaviour
         if (Dead && perditionSymbol.activeSelf) perditionSymbol.SetActive(false);
         if (!isLocked && !passageDone)
         {
+            CharacterApplyEffects();
             if (!Dead)
             {
                 if (characterData.characterStats.currentHP <= 0) SetDead();
@@ -81,5 +84,44 @@ public class Character : MonoBehaviour
     {
         characterUI.UpdateBar(characterUI.BGBar, characterData.characterStats.BGCurrentValue);
         characterUI.UpdateBar(characterUI.HPBar, characterData.characterStats.currentHP);
+    }
+
+    private void CharacterSymbolsOff()
+    {
+        turnIndicator.SetActive(false);
+        perditionSymbol.SetActive(false);
+        deathSymbol.SetActive(false);
+    }
+
+    private void CreateThisCharacterLists()
+    {
+        thisCharacterAllies = new List<Character>();
+        thisCharacterAllies.Clear();
+        thisCharacterEnemies = new List<Character>();
+        thisCharacterEnemies.Clear();
+        if (!characterData.isAI)
+        {
+            foreach (Character ally in turn.turnOrder.playableCharacters) if (ally != this) thisCharacterAllies.Add(ally);
+            foreach (Character enemy in turn.turnOrder.enemyCharacters) thisCharacterAllies.Add(enemy);
+        }
+        else
+        {
+            foreach (Character ally in turn.turnOrder.enemyCharacters) if (ally != this) thisCharacterAllies.Add(ally);
+            foreach (Character enemy in turn.turnOrder.playableCharacters) thisCharacterAllies.Add(enemy);
+        }
+        appliedEffects = new List<Effect>();
+        appliedEffects.Clear();
+    }
+
+    private void CharacterApplyEffects()
+    {
+        if (!Dead)
+        {
+            foreach (Effect effect in appliedEffects)
+            {
+                effect.ExecuteEffect();
+                if (effect.canBeRemoved) appliedEffects.Remove(effect);
+            }
+        }
     }
 }

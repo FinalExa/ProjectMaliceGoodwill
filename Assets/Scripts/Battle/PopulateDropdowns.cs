@@ -46,25 +46,14 @@ public class PopulateDropdowns : MonoBehaviour
         targetsParent.SetActive(true);
         turn.possibleTargets.Clear();
         List<string> possibleTargetsNames = new List<string>();
-        if (turn.chosenAction.canTargetEnemies)
+        if (turn.chosenAction.canTargetOthers)
         {
-            foreach (Character enemy in turn.turnOrder.enemyCharacters)
+            foreach (Character other in turn.turnOrder.turnOrder)
             {
-                if (!enemy.Dead)
+                if (!other.Dead && other != turn.currentCharacter)
                 {
-                    turn.possibleTargets.Add(enemy);
-                    possibleTargetsNames.Add(enemy.characterData.characterStats.characterName);
-                }
-            }
-        }
-        if (turn.chosenAction.canTargetAllies)
-        {
-            for (int i = 0; i < turn.turnOrder.playableCharacters.Count; i++)
-            {
-                if (turn.turnOrder.playableCharacters[i] != turn.currentCharacter && !turn.turnOrder.playableCharacters[i].Dead)
-                {
-                    turn.possibleTargets.Add(turn.turnOrder.playableCharacters[i]);
-                    possibleTargetsNames.Add(turn.turnOrder.playableCharacters[i].characterData.characterStats.characterName);
+                    turn.possibleTargets.Add(other);
+                    possibleTargetsNames.Add(other.characterData.characterStats.characterName);
                 }
             }
         }

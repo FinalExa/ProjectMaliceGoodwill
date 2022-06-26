@@ -13,10 +13,17 @@ public class Action : ScriptableObject
     public float severitySpectator;
     public float hpValueChange;
     [Header("Targeting")]
-    public bool canTargetEnemies;
-    public bool canTargetAllies;
+    public bool canTargetOthers;
     public bool canTargetSelf;
+    public bool targetsGroups;
+    public bool hitsEnemyGroup;
+    public bool hitsAllyGroupSelfExcluded;
+    public bool hitsAllyGroupSelfIncluded;
+    public bool hitsAllOthers;
+    public bool hitsEveryone;
     public bool isSeen;
+    [Header("Effect")]
+    public EffectData actionEffect;
 
     private void OnValidate()
     {
