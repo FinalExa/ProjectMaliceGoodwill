@@ -20,4 +20,11 @@ MonoBehaviour:
   hpValueChange: -12
   canTargetOthers: 1
   canTargetSelf: 0
+  targetsGroups: 1
+  hitsEnemyGroup: 1
+  hitsAllyGroupSelfExcluded: 1
+  hitsAllyGroupSelfIncluded: 0
+  hitsAllOthers: 0
+  hitsEveryone: 0
   isSeen: 1
+  actionEffect: {fileID: 0}

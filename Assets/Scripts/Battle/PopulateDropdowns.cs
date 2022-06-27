@@ -45,7 +45,14 @@ public class PopulateDropdowns : MonoBehaviour
     {
         targetsParent.SetActive(true);
         turn.possibleTargets.Clear();
+        if (!turn.chosenAction.targetsGroups) SingleTargetList();
+        else MultiTargetList();
+    }
+
+    private void SingleTargetList()
+    {
         List<string> possibleTargetsNames = new List<string>();
+        possibleTargetsNames.Clear();
         if (turn.chosenAction.canTargetOthers)
         {
             foreach (Character other in turn.turnOrder.turnOrder)
@@ -62,13 +69,52 @@ public class PopulateDropdowns : MonoBehaviour
             turn.possibleTargets.Add(turn.currentCharacter);
             possibleTargetsNames.Add(turn.currentCharacter.characterData.characterStats.characterName);
         }
+        EndTargeting(possibleTargetsNames, false);
+    }
+
+    private void MultiTargetList()
+    {
+        List<string> groupNames = new List<string>();
+        groupNames.Clear();
+        if (turn.chosenAction.hitsEveryone)
+        {
+            groupNames.Add("Everyone");
+            EndTargeting(groupNames, true);
+            return;
+        }
+        if (turn.chosenAction.hitsAllOthers)
+        {
+            groupNames.Add("Others");
+            EndTargeting(groupNames, true);
+            return;
+        }
+        if (turn.chosenAction.hitsEnemyGroup) groupNames.Add("Enemies");
+        if (turn.chosenAction.hitsAllyGroupSelfExcluded)
+        {
+            groupNames.Add("Allies");
+            EndTargeting(groupNames, true);
+            return;
+        }
+        if (turn.chosenAction.hitsAllyGroupSelfIncluded)
+        {
+            groupNames.Add("Party");
+            EndTargeting(groupNames, true);
+            return;
+        }
+        EndTargeting(groupNames, true);
+    }
+
+    private void EndTargeting(List<string> targetsList, bool isMultiTargeting)
+    {
         targetsDropdown.ClearOptions();
-        targetsDropdown.AddOptions(possibleTargetsNames);
+        targetsDropdown.AddOptions(targetsList);
+        turn.multiTargeting = isMultiTargeting;
     }
 
     public void TargetConfirm()
     {
-        turn.target = turn.possibleTargets[targetsDropdown.value];
+        if (!turn.multiTargeting) turn.target = turn.possibleTargets[targetsDropdown.value];
+        else turn.multiTargetingOption = targetsDropdown.options[targetsDropdown.value].ToString();
         turn.ActionDoneOnTarget();
         targetsParent.SetActive(false);
         turn.PassTurn();
