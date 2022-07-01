@@ -10,7 +10,7 @@ public class Turn : MonoBehaviour
     [HideInInspector] public Character target;
     [HideInInspector] public bool multiTargeting;
     [HideInInspector] public bool senderIncluded;
-    [HideInInspector] public List<Character> targets;
+    public List<Character> targets;
     [HideInInspector] public string multiTargetingOption;
     [HideInInspector] public List<Character> possibleTargets = new List<Character>();
     [HideInInspector] public Action chosenAction;
@@ -128,6 +128,7 @@ public class Turn : MonoBehaviour
     private void CreateMultiTargetList()
     {
         targets.Clear();
+        print(multiTargetingOption);
         if (multiTargetingOption == "Enemies")
         {
             targets = currentCharacter.thisCharacterEnemies;

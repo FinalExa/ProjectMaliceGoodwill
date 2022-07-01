@@ -22,8 +22,8 @@ MonoBehaviour:
   canTargetSelf: 0
   targetsGroups: 1
   hitsEnemyGroup: 1
-  hitsAllyGroupSelfExcluded: 1
-  hitsAllyGroupSelfIncluded: 0
+  hitsAllyGroupSelfExcluded: 0
+  hitsAllyGroupSelfIncluded: 1
   hitsAllOthers: 0
   hitsEveryone: 0
   isSeen: 1

@@ -114,7 +114,7 @@ public class PopulateDropdowns : MonoBehaviour
     public void TargetConfirm()
     {
         if (!turn.multiTargeting) turn.target = turn.possibleTargets[targetsDropdown.value];
-        else turn.multiTargetingOption = targetsDropdown.options[targetsDropdown.value].ToString();
+        else turn.multiTargetingOption = targetsDropdown.options[targetsDropdown.value].text;
         turn.ActionDoneOnTarget();
         targetsParent.SetActive(false);
         turn.PassTurn();

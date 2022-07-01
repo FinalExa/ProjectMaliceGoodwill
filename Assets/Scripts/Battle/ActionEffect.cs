@@ -14,11 +14,11 @@ public class ActionEffect : MonoBehaviour
     public void UpdateValues(Character target, Character sender, Action chosenAction, bool isSpectator, bool senderIncluded)
     {
         CharacterStats targetInfo = target.characterData.characterStats;
-        float coeff = CalculateCoeff(target, chosenAction.type.actionType);
+        float coeff = CalculateCoeff(chosenAction.type.actionType);
         if (!isSpectator)
         {
-            UpdateCharacterValues(target, coeff, chosenAction.severity, chosenAction.hpValueChange, true);
-            if (!senderIncluded) UpdateCharacterValues(sender, coeff, chosenAction.severity, 0f, false);
+            if (!senderIncluded && target == sender) UpdateCharacterValues(sender, coeff, chosenAction.severity, 0f, false);
+            else if (target != sender || (senderIncluded && target == sender)) UpdateCharacterValues(target, coeff, chosenAction.severity, chosenAction.hpValueChange, true);
             turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + " by " + turn.currentCharacter.characterData.characterStats.characterName + "!");
             turn.StopTurn();
         }
@@ -28,7 +28,16 @@ public class ActionEffect : MonoBehaviour
         target.UpdateAllBars();
     }
 
-    private float CalculateCoeff(Character target, Type.ActionType actionType)
+    public void UpdateValueMultiTarget(List<Character> multiTarget, Character sender, Action chosenAction)
+    {
+        foreach (Character target in multiTarget)
+        {
+            CharacterStats targetInfo = target.characterData.characterStats;
+            float coeff = CalculateCoeff(chosenAction.type.actionType);
+        }
+    }
+
+    private float CalculateCoeff(Type.ActionType actionType)
     {
         float coeff = 0f;
         foreach (GameTypes gameTypes in gameData.gameTypes)

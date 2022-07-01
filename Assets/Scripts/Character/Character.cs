@@ -102,12 +102,12 @@ public class Character : MonoBehaviour
         if (!characterData.isAI)
         {
             foreach (Character ally in turn.turnOrder.playableCharacters) if (ally != this) thisCharacterAllies.Add(ally);
-            foreach (Character enemy in turn.turnOrder.enemyCharacters) thisCharacterAllies.Add(enemy);
+            foreach (Character enemy in turn.turnOrder.enemyCharacters) thisCharacterEnemies.Add(enemy);
         }
         else
         {
             foreach (Character ally in turn.turnOrder.enemyCharacters) if (ally != this) thisCharacterAllies.Add(ally);
-            foreach (Character enemy in turn.turnOrder.playableCharacters) thisCharacterAllies.Add(enemy);
+            foreach (Character enemy in turn.turnOrder.playableCharacters) thisCharacterEnemies.Add(enemy);
         }
         appliedEffects = new List<Effect>();
         appliedEffects.Clear();
