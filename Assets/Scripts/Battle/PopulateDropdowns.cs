@@ -69,7 +69,7 @@ public class PopulateDropdowns : MonoBehaviour
             turn.possibleTargets.Add(turn.currentCharacter);
             possibleTargetsNames.Add(turn.currentCharacter.characterData.characterStats.characterName);
         }
-        EndTargeting(possibleTargetsNames, false);
+        EndTargeting(possibleTargetsNames);
     }
 
     private void MultiTargetList()
@@ -79,41 +79,40 @@ public class PopulateDropdowns : MonoBehaviour
         if (turn.chosenAction.hitsEveryone)
         {
             groupNames.Add("Everyone");
-            EndTargeting(groupNames, true);
+            EndTargeting(groupNames);
             return;
         }
         if (turn.chosenAction.hitsAllOthers)
         {
             groupNames.Add("Others");
-            EndTargeting(groupNames, true);
+            EndTargeting(groupNames);
             return;
         }
         if (turn.chosenAction.hitsEnemyGroup) groupNames.Add("Enemies");
         if (turn.chosenAction.hitsAllyGroupSelfExcluded)
         {
             groupNames.Add("Allies");
-            EndTargeting(groupNames, true);
+            EndTargeting(groupNames);
             return;
         }
         if (turn.chosenAction.hitsAllyGroupSelfIncluded)
         {
             groupNames.Add("Party");
-            EndTargeting(groupNames, true);
+            EndTargeting(groupNames);
             return;
         }
-        EndTargeting(groupNames, true);
+        EndTargeting(groupNames);
     }
 
-    private void EndTargeting(List<string> targetsList, bool isMultiTargeting)
+    private void EndTargeting(List<string> targetsList)
     {
         targetsDropdown.ClearOptions();
         targetsDropdown.AddOptions(targetsList);
-        turn.multiTargeting = isMultiTargeting;
     }
 
     public void TargetConfirm()
     {
-        if (!turn.multiTargeting) turn.target = turn.possibleTargets[targetsDropdown.value];
+        if (!turn.chosenAction.targetsGroups) turn.target = turn.possibleTargets[targetsDropdown.value];
         else turn.multiTargetingOption = targetsDropdown.options[targetsDropdown.value].text;
         turn.ActionDoneOnTarget();
         targetsParent.SetActive(false);

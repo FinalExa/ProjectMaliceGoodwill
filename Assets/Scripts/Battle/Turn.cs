@@ -8,12 +8,11 @@ public class Turn : MonoBehaviour
     public GameData gameData;
     [HideInInspector] public Character currentCharacter;
     [HideInInspector] public Character target;
-    [HideInInspector] public bool multiTargeting;
     [HideInInspector] public bool senderIncluded;
-    public List<Character> targets;
+    [HideInInspector] public List<Character> targets;
     [HideInInspector] public string multiTargetingOption;
     [HideInInspector] public List<Character> possibleTargets = new List<Character>();
-    [HideInInspector] public Action chosenAction;
+    public Action chosenAction;
     [HideInInspector] public bool stop;
     [HideInInspector] public TurnOrder turnOrder;
     [HideInInspector] public PopulateDropdowns populateDropdowns;
@@ -77,7 +76,7 @@ public class Turn : MonoBehaviour
 
     public void ActionDoneOnTarget()
     {
-        if (!multiTargeting)
+        if (!chosenAction.targetsGroups)
         {
             if (target == currentCharacter) senderIncluded = true;
             else senderIncluded = false;
@@ -128,7 +127,6 @@ public class Turn : MonoBehaviour
 
     private void CreateMultiTargetList()
     {
-        print(multiTargetingOption);
         if (multiTargetingOption == "Enemies")
         {
             foreach (Character enemy in currentCharacter.thisCharacterEnemies) targets.Add(enemy);
@@ -151,12 +149,12 @@ public class Turn : MonoBehaviour
             foreach (Character ally in currentCharacter.thisCharacterAllies) targets.Add(ally);
             senderIncluded = false;
         }
-        else
+        else if (multiTargetingOption == "Everyone")
         {
             foreach (Character enemy in currentCharacter.thisCharacterEnemies) targets.Add(enemy);
             foreach (Character ally in currentCharacter.thisCharacterAllies) targets.Add(ally);
             targets.Add(currentCharacter);
-            senderIncluded = false;
+            senderIncluded = true;
         }
         foreach (Character target in targets) actionEffect.UpdateValues(target, currentCharacter, chosenAction, false, senderIncluded);
     }

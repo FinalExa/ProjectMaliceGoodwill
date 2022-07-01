@@ -7,6 +7,13 @@ public class AIActionSequences
 {
     public float MGMinRange;
     public float MGMaxRange;
-    public Action[] actionOrderInThatRange;
+    public ActionOrderRange[] actionOrderRange;
     [HideInInspector] public int actionOrderIndex;
+}
+[System.Serializable]
+public class ActionOrderRange
+{
+    public Action actionToDo;
+    public enum ActionGroupTargeted { None, Enemies, Allies, Party, Others, Everyone }
+    public ActionGroupTargeted actionGroupTargeted;
 }

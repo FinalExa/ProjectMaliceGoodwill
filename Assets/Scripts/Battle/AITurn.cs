@@ -78,9 +78,16 @@ public class AITurn : MonoBehaviour
             aiTurnData[thisAIId].AIActionIndex = index;
             aiTurnData[thisAIId].sequence[index].actionOrderIndex = 0;
         }
+        turn.chosenAction = actSeq[index].actionOrderRange[actSeq[index].actionOrderIndex].actionToDo;
     }
 
     private void AssignTarget()
+    {
+        if (!turn.chosenAction.targetsGroups) SingleTargeting();
+        else MultiTargeting();
+    }
+
+    private void SingleTargeting()
     {
         List<Character> availableTargetsList = new List<Character>();
         availableTargetsList.Clear();
@@ -92,12 +99,18 @@ public class AITurn : MonoBehaviour
         turn.target = availableTargetsList[rand];
     }
 
+    private void MultiTargeting()
+    {
+        AIActionSequences[] actSeq = aiTurnData[thisAIId].sequence;
+        int index = aiTurnData[thisAIId].AIActionIndex;
+        turn.multiTargetingOption = actSeq[index].actionOrderRange[actSeq[index].actionOrderIndex].actionGroupTargeted.ToString();
+    }
+
     private void ExecuteAction()
     {
         AIActionSequences[] actSeq = aiTurnData[thisAIId].sequence;
         int index = aiTurnData[thisAIId].AIActionIndex;
-        Action[] actionOrder = actSeq[index].actionOrderInThatRange;
-        turn.chosenAction = actSeq[index].actionOrderInThatRange[actSeq[index].actionOrderIndex];
+        ActionOrderRange[] actionOrder = actSeq[index].actionOrderRange;
         if (actSeq[index].actionOrderIndex + 1 >= actionOrder.Length) actSeq[index].actionOrderIndex = 0;
         else actSeq[index].actionOrderIndex++;
         turn.ActionDoneOnTarget();
