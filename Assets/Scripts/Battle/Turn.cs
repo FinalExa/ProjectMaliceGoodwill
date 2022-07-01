@@ -88,6 +88,7 @@ public class Turn : MonoBehaviour
         {
             CreateMultiTargetList();
             ActionOnSpectatorsMultiTargeting();
+            targets.Clear();
         }
     }
 
@@ -127,33 +128,32 @@ public class Turn : MonoBehaviour
 
     private void CreateMultiTargetList()
     {
-        targets.Clear();
         print(multiTargetingOption);
         if (multiTargetingOption == "Enemies")
         {
-            targets = currentCharacter.thisCharacterEnemies;
+            foreach (Character enemy in currentCharacter.thisCharacterEnemies) targets.Add(enemy);
             senderIncluded = false;
         }
         else if (multiTargetingOption == "Allies")
         {
-            targets = currentCharacter.thisCharacterAllies;
+            foreach (Character ally in currentCharacter.thisCharacterAllies) targets.Add(ally);
             senderIncluded = false;
         }
         else if (multiTargetingOption == "Party")
         {
-            targets = currentCharacter.thisCharacterAllies;
+            foreach (Character ally in currentCharacter.thisCharacterAllies) targets.Add(ally);
             targets.Add(currentCharacter);
             senderIncluded = true;
         }
         else if (multiTargetingOption == "Others")
         {
-            targets = currentCharacter.thisCharacterEnemies;
+            foreach (Character enemy in currentCharacter.thisCharacterEnemies) targets.Add(enemy);
             foreach (Character ally in currentCharacter.thisCharacterAllies) targets.Add(ally);
             senderIncluded = false;
         }
         else
         {
-            targets = currentCharacter.thisCharacterEnemies;
+            foreach (Character enemy in currentCharacter.thisCharacterEnemies) targets.Add(enemy);
             foreach (Character ally in currentCharacter.thisCharacterAllies) targets.Add(ally);
             targets.Add(currentCharacter);
             senderIncluded = false;

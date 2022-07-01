@@ -28,15 +28,6 @@ public class ActionEffect : MonoBehaviour
         target.UpdateAllBars();
     }
 
-    public void UpdateValueMultiTarget(List<Character> multiTarget, Character sender, Action chosenAction)
-    {
-        foreach (Character target in multiTarget)
-        {
-            CharacterStats targetInfo = target.characterData.characterStats;
-            float coeff = CalculateCoeff(chosenAction.type.actionType);
-        }
-    }
-
     private float CalculateCoeff(Type.ActionType actionType)
     {
         float coeff = 0f;
