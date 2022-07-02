@@ -12,7 +12,7 @@ public class Turn : MonoBehaviour
     [HideInInspector] public List<Character> targets;
     [HideInInspector] public string multiTargetingOption;
     [HideInInspector] public List<Character> possibleTargets = new List<Character>();
-    public Action chosenAction;
+    [HideInInspector] public Action chosenAction;
     [HideInInspector] public bool stop;
     [HideInInspector] public TurnOrder turnOrder;
     [HideInInspector] public PopulateDropdowns populateDropdowns;
@@ -156,6 +156,7 @@ public class Turn : MonoBehaviour
             targets.Add(currentCharacter);
             senderIncluded = true;
         }
+        actionEffect.groupAttackName = multiTargetingOption;
         foreach (Character target in targets) actionEffect.UpdateValues(target, currentCharacter, chosenAction, false, senderIncluded);
     }
 

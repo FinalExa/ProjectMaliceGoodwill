@@ -6,6 +6,7 @@ public class ActionEffect : MonoBehaviour
 {
     private Turn turn;
     private GameData gameData;
+    [HideInInspector] public string groupAttackName;
     private void Awake()
     {
         turn = this.gameObject.GetComponent<Turn>();
@@ -19,7 +20,8 @@ public class ActionEffect : MonoBehaviour
         {
             if (!senderIncluded && target == sender) UpdateCharacterValues(sender, coeff, chosenAction.severity, 0f, false);
             else if (target != sender || (senderIncluded && target == sender)) UpdateCharacterValues(target, coeff, chosenAction.severity, chosenAction.hpValueChange, true);
-            turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + " by " + turn.currentCharacter.characterData.characterStats.characterName + "!");
+            if (!chosenAction.targetsGroups) turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + " from " + turn.currentCharacter.characterData.characterStats.characterName + "!");
+            else turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " uses " + chosenAction.actionName + " on " + groupAttackName);
             turn.StopTurn();
         }
         else if (chosenAction.isSeen) UpdateCharacterValues(target, coeff, chosenAction.severitySpectator, 0f, false);

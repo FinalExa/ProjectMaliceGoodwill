@@ -10,6 +10,8 @@ public class PerditionTurn : MonoBehaviour
     private Action chosenAction;
     private List<Character> availableTargets;
     private Character chosenTarget;
+    private List<string> chosenTargets;
+    private string chosenGroupTarget;
 
     private void Awake()
     {
@@ -37,10 +39,19 @@ public class PerditionTurn : MonoBehaviour
     {
         GetPossibleActions();
         chosenAction = availableActions[RandomizeIndex(availableActions.Count)];
-        GetPossibleTargets();
-        chosenTarget = availableTargets[RandomizeIndex(availableTargets.Count)];
         turn.chosenAction = chosenAction;
-        turn.target = chosenTarget;
+        if (!chosenAction.targetsGroups)
+        {
+            GetPossibleTargets();
+            chosenTarget = availableTargets[RandomizeIndex(availableTargets.Count)];
+            turn.target = chosenTarget;
+        }
+        else
+        {
+            GetPossibleMultiTargets();
+            chosenGroupTarget = chosenTargets[RandomizeIndex(chosenTargets.Count)];
+            turn.multiTargetingOption = chosenGroupTarget;
+        }
         turn.ActionDoneOnTarget();
         turn.PassTurn();
     }
@@ -67,6 +78,31 @@ public class PerditionTurn : MonoBehaviour
         {
             if (character == curCharacter && chosenAction.canTargetSelf) availableTargets.Add(character);
             if (character != curCharacter && chosenAction.canTargetOthers) availableTargets.Add(character);
+        }
+    }
+    private void GetPossibleMultiTargets()
+    {
+        chosenTargets.Clear();
+        if (turn.chosenAction.hitsEveryone)
+        {
+            chosenTargets.Add("Everyone");
+            return;
+        }
+        if (turn.chosenAction.hitsAllOthers)
+        {
+            chosenTargets.Add("Others");
+            return;
+        }
+        if (turn.chosenAction.hitsEnemyGroup) chosenTargets.Add("Enemies");
+        if (turn.chosenAction.hitsAllyGroupSelfExcluded)
+        {
+            chosenTargets.Add("Allies");
+            return;
+        }
+        if (turn.chosenAction.hitsAllyGroupSelfIncluded)
+        {
+            chosenTargets.Add("Party");
+            return;
         }
     }
 }
