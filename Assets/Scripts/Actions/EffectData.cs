@@ -6,20 +6,23 @@ using UnityEngine;
 public class EffectData : ScriptableObject
 {
     public string effectName;
-    public bool effectTriggerChance;
+    public float effectTriggerChance;
     public bool instantaneousEffect;
     public bool effectOverTime;
-    public bool effectOverTimeTurns;
+    public float effectTurns;
+    public bool effectTimeDecreasesOnDamage;
+    public bool effectTimeDecreasesOnInteraction;
     [Header("Value change section")]
+    public bool changesValuesOnTarget;
     public float HPValueChange;
-    public float HPValueChangeSender;
-    public float HPValueChangeSensitivity;
     public float BGValueChange;
-    public float BGValueChangeSender;
+    public bool setsSensitivity;
+    public float HPValueChangeSensitivity;
     public float BGValueChangeSensitivity;
+    public bool changesValuesOnSender;
+    public float HPValueChangeSender;
+    public float BGValueChangeSender;
     [Header("Effect")]
-    public bool stuns;
-    public bool barrier;
-    public bool barrierHasHits;
-    public float barrierHits;
+    public bool inflictsStun;
+    public bool givesBarrier;
 }

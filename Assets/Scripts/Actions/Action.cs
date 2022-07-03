@@ -23,6 +23,7 @@ public class Action : ScriptableObject
     public bool hitsEveryone;
     public bool isSeen;
     [Header("Effect")]
+    public bool hasEffect;
     public EffectData actionEffect;
 
     private void OnValidate()

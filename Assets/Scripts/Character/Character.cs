@@ -19,6 +19,10 @@ public class Character : MonoBehaviour
     [HideInInspector] public List<Character> thisCharacterAllies;
     [HideInInspector] public List<Character> thisCharacterEnemies;
     [HideInInspector] public List<Effect> appliedEffects;
+    [HideInInspector] public bool hasToPassTurn;
+    [HideInInspector] public bool isShielded;
+    [HideInInspector] public float BGMultiplier;
+    [HideInInspector] public float HPMultiplier;
 
     private void Awake()
     {
@@ -60,24 +64,45 @@ public class Character : MonoBehaviour
         if (!isLocked && !passageDone)
         {
             CharacterApplyEffects();
-            if (!Dead)
-            {
-                if (characterData.characterStats.currentHP <= 0) SetDead();
-                else ThisCharacterTurn();
-            }
+            if (hasToPassTurn) CharacterEndTurn();
             else
             {
-                turn.ContinueTurn();
-                turn.PassTurn();
+                if (characterData.characterStats.currentHP <= 0) SetDead();
+                if (!Dead) ThisCharacterTurn();
+                else CharacterEndTurn();
             }
         }
     }
 
+    private void CharacterEndTurn()
+    {
+        hasToPassTurn = false;
+        turn.ContinueTurn();
+        turn.PassTurn();
+    }
+
     private void ThisCharacterTurn()
     {
+        ValueChangeSensitivity();
         turn.currentCharacter = this;
         passageDone = true;
         turnIndicator.SetActive(true);
+    }
+
+    private void ValueChangeSensitivity()
+    {
+        float hpMultiplier = 1f;
+        float bgMultiplier = 1f;
+        foreach (Effect effect in appliedEffects)
+        {
+            if (effect.effectData.setsSensitivity)
+            {
+                hpMultiplier *= effect.effectData.HPValueChangeSensitivity;
+                bgMultiplier *= effect.effectData.BGValueChangeSensitivity;
+            }
+        }
+        HPMultiplier = hpMultiplier;
+        BGMultiplier = bgMultiplier;
     }
 
     public void UpdateAllBars()
