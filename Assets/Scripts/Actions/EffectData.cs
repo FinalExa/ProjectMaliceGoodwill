@@ -24,5 +24,7 @@ public class EffectData : ScriptableObject
     public float BGValueChangeSender;
     [Header("Effect")]
     public bool inflictsStun;
-    public bool givesBarrier;
+    public bool givesDamageBarrier;
+    public bool givesGlobalBarrier;
+    public bool barrierProtectsFromBGChange;
 }

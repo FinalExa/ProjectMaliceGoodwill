@@ -20,7 +20,9 @@ public class Character : MonoBehaviour
     [HideInInspector] public List<Character> thisCharacterEnemies;
     [HideInInspector] public List<Effect> appliedEffects;
     [HideInInspector] public bool hasToPassTurn;
-    [HideInInspector] public bool isShielded;
+    [HideInInspector] public bool isShieldedFromDamage;
+    [HideInInspector] public bool isShieldedFromEverything;
+    [HideInInspector] public bool isShieldedFromSeverity;
     [HideInInspector] public float BGMultiplier;
     [HideInInspector] public float HPMultiplier;
 
