@@ -27,5 +27,5 @@ MonoBehaviour:
   hitsAllOthers: 0
   hitsEveryone: 0
   isSeen: 1
-  hasEffect: 0
+  hasEffect: 1
   actionEffect: {fileID: 11400000, guid: fbe601ff67adb3a4bb4678840fee4663, type: 2}
