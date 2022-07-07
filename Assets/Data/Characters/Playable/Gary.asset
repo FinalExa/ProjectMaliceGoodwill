@@ -22,41 +22,41 @@ MonoBehaviour:
   characterTraits: 040000000500000002000000
   characterActions:
   - action: {fileID: 11400000, guid: 46dd73a6da00b12468eabad59606a3bb, type: 2}
-    BGMinValue: 51
-    BGMaxValue: 100
-  - action: {fileID: 11400000, guid: 019920b176ec55342bcfaae667da4554, type: 2}
     BGMinValue: 41
     BGMaxValue: 100
-  - action: {fileID: 11400000, guid: d397e53a9e4ccbe4c9a7bc058c6bb5b7, type: 2}
+  - action: {fileID: 11400000, guid: 019920b176ec55342bcfaae667da4554, type: 2}
     BGMinValue: 61
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: d397e53a9e4ccbe4c9a7bc058c6bb5b7, type: 2}
+    BGMinValue: 31
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: 5a7de771a29aeb746a7c4891d963a160, type: 2}
     BGMinValue: 61
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: 50d34d68d4907f84cb6f7a53cb0a32b2, type: 2}
     BGMinValue: 31
-    BGMaxValue: 70
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: f7e5bfc2783cfa14f9b6268f3be77311, type: 2}
     BGMinValue: 0
-    BGMaxValue: 60
+    BGMaxValue: 40
   - action: {fileID: 11400000, guid: a20d1a58621142b4f81f71750c42ff44, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 100
-  - action: {fileID: 11400000, guid: 9b1619315e845d54ab8cd13bf603ccc3, type: 2}
-    BGMinValue: 21
+    BGMinValue: 11
     BGMaxValue: 60
+  - action: {fileID: 11400000, guid: 9b1619315e845d54ab8cd13bf603ccc3, type: 2}
+    BGMinValue: 31
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: 33cff0012f94cea459168de1fffca9b3, type: 2}
     BGMinValue: 0
-    BGMaxValue: 70
+    BGMaxValue: 60
   - action: {fileID: 11400000, guid: ec182ec727c1d9f43985c58b07fd1a07, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 80
+    BGMinValue: 21
+    BGMaxValue: 50
   - action: {fileID: 11400000, guid: 969a44d20f8c9e849a55a3cbbb1a019b, type: 2}
-    BGMinValue: 61
+    BGMinValue: 51
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: fa8ca7b8c786e3a4d9cdfa8cce7bfe34, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 40
+    BGMinValue: 21
+    BGMaxValue: 60
   isAI: 0
   actionSequences: []
   thisCharacter: {fileID: 0}

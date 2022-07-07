@@ -21,23 +21,23 @@ MonoBehaviour:
     currentHP: 138
   characterTraits: 030000000100000002000000
   characterActions:
-  - action: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
+  - action: {fileID: 11400000, guid: 50d34d68d4907f84cb6f7a53cb0a32b2, type: 2}
+    BGMinValue: 1
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: f7e5bfc2783cfa14f9b6268f3be77311, type: 2}
     BGMinValue: 0
     BGMaxValue: 100
-  - action: {fileID: 11400000, guid: f40f942697ce9564e80b18a18378cf6e, type: 2}
-    BGMinValue: 0
+  - action: {fileID: 11400000, guid: a20d1a58621142b4f81f71750c42ff44, type: 2}
+    BGMinValue: 1
     BGMaxValue: 100
-  - action: {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 100
-  - action: {fileID: 11400000, guid: d37879bdef027844588a9bebbee6ae7c, type: 2}
-    BGMinValue: 0
+  - action: {fileID: 11400000, guid: 9b1619315e845d54ab8cd13bf603ccc3, type: 2}
+    BGMinValue: 1
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: 2fbb54bb44df1b74da58de081681724b, type: 2}
-    BGMinValue: 0
+    BGMinValue: 1
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: 23b552949a2f7374d9754d1290de08a1, type: 2}
-    BGMinValue: 0
+    BGMinValue: 1
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: 60fa7e4881b07b846bcc1cf7a46a7929, type: 2}
     BGMinValue: 0
@@ -60,12 +60,24 @@ MonoBehaviour:
   isAI: 1
   actionSequences:
   - MGMinRange: 0
-    MGMaxRange: 50
+    MGMaxRange: 25
     actionOrderRange:
     - actionToDo: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
       actionGroupTargeted: 1
     actionOrderIndex: 0
+  - MGMinRange: 26
+    MGMaxRange: 50
+    actionOrderRange:
+    - actionToDo: {fileID: 11400000, guid: 46dd73a6da00b12468eabad59606a3bb, type: 2}
+      actionGroupTargeted: 5
+    actionOrderIndex: 0
   - MGMinRange: 51
+    MGMaxRange: 75
+    actionOrderRange:
+    - actionToDo: {fileID: 11400000, guid: 46dd73a6da00b12468eabad59606a3bb, type: 2}
+      actionGroupTargeted: 5
+    actionOrderIndex: 0
+  - MGMinRange: 76
     MGMaxRange: 100
     actionOrderRange:
     - actionToDo: {fileID: 11400000, guid: 46dd73a6da00b12468eabad59606a3bb, type: 2}

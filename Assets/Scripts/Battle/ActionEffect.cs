@@ -100,9 +100,9 @@ public class ActionEffect : MonoBehaviour
             }
         }
         UpdateCharacterValues(target, sender, chosenAction, coeff, BGValue, HPValue);
-        foreach (Effect effect in target.appliedEffects)
+        for (int i = 0; i < target.appliedEffects.Count; i++)
         {
-            if (effect.effectData.effectTimeDecreasesOnInteraction || (effect.effectData.effectTimeDecreasesOnDamage && damageTaken)) effect.DecreaseEffectTime();
+            if (target.appliedEffects[i].effectData.effectTimeDecreasesOnInteraction || (target.appliedEffects[i].effectData.effectTimeDecreasesOnDamage && damageTaken)) target.appliedEffects[i].DecreaseEffectTime();
         }
     }
 

@@ -158,10 +158,10 @@ public class Character : MonoBehaviour
     {
         if (!Dead)
         {
-            foreach (Effect effect in appliedEffects)
+            for (int i = 0; i < appliedEffects.Count; i++)
             {
-                effect.ExecuteEffect();
-                if (effect.canBeRemoved) appliedEffects.Remove(effect);
+                appliedEffects[i].ExecuteEffect();
+                if (appliedEffects[i].canBeRemoved) appliedEffects.Remove(appliedEffects[i]);
             }
         }
     }

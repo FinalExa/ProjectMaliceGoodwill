@@ -19,44 +19,44 @@ MonoBehaviour:
     BGCurrentValue: 50
     maxHP: 130
     currentHP: 100
-  characterTraits: 020000000500000003000000
+  characterTraits: 000000000500000003000000
   characterActions:
-  - action: {fileID: 11400000, guid: 50d34d68d4907f84cb6f7a53cb0a32b2, type: 2}
+  - action: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
     BGMinValue: 31
+    BGMaxValue: 70
+  - action: {fileID: 11400000, guid: f40f942697ce9564e80b18a18378cf6e, type: 2}
+    BGMinValue: 21
     BGMaxValue: 100
-  - action: {fileID: 11400000, guid: f7e5bfc2783cfa14f9b6268f3be77311, type: 2}
+  - action: {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 30
+  - action: {fileID: 11400000, guid: d37879bdef027844588a9bebbee6ae7c, type: 2}
     BGMinValue: 0
     BGMaxValue: 40
-  - action: {fileID: 11400000, guid: a20d1a58621142b4f81f71750c42ff44, type: 2}
-    BGMinValue: 21
-    BGMaxValue: 80
-  - action: {fileID: 11400000, guid: 9b1619315e845d54ab8cd13bf603ccc3, type: 2}
-    BGMinValue: 61
-    BGMaxValue: 100
   - action: {fileID: 11400000, guid: 33cff0012f94cea459168de1fffca9b3, type: 2}
     BGMinValue: 0
     BGMaxValue: 60
   - action: {fileID: 11400000, guid: ec182ec727c1d9f43985c58b07fd1a07, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 40
+    BGMinValue: 1
+    BGMaxValue: 60
   - action: {fileID: 11400000, guid: 969a44d20f8c9e849a55a3cbbb1a019b, type: 2}
-    BGMinValue: 61
+    BGMinValue: 41
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: fa8ca7b8c786e3a4d9cdfa8cce7bfe34, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 60
+    BGMinValue: 21
+    BGMaxValue: 80
   - action: {fileID: 11400000, guid: 0e09cc39500a6284eb10230ba00bffc5, type: 2}
     BGMinValue: 0
-    BGMaxValue: 31
+    BGMaxValue: 50
   - action: {fileID: 11400000, guid: 0eaa05aeaf85303488b06e9a7a684e8a, type: 2}
     BGMinValue: 0
-    BGMaxValue: 31
+    BGMaxValue: 30
   - action: {fileID: 11400000, guid: a4af20a0203d1184488ddebaa3199e55, type: 2}
     BGMinValue: 0
-    BGMaxValue: 60
+    BGMaxValue: 80
   - action: {fileID: 11400000, guid: 777b13d0ef67fa14e94c523e26764b62, type: 2}
     BGMinValue: 0
-    BGMaxValue: 80
+    BGMaxValue: 60
   isAI: 0
   actionSequences: []
   thisCharacter: {fileID: 0}

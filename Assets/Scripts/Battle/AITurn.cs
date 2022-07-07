@@ -90,10 +90,15 @@ public class AITurn : MonoBehaviour
     private void SingleTargeting()
     {
         List<Character> availableTargetsList = new List<Character>();
+        List<Character> listToCheck = new List<Character>();
         availableTargetsList.Clear();
-        for (int i = 0; i < turn.turnOrder.playableCharacters.Count; i++)
+        bool selfIncluded = false;
+        if (turn.chosenAction.canTargetSelf) selfIncluded = true;
+        if (turn.chosenAction.type.actionType == Type.ActionType.BAD) listToCheck = aiToControl.thisCharacterEnemies;
+        else listToCheck = aiToControl.thisCharacterAllies;
+        for (int i = 0; i < listToCheck.Count; i++)
         {
-            if (!turn.turnOrder.playableCharacters[i].Dead) availableTargetsList.Add(turn.turnOrder.playableCharacters[i]);
+            if (!listToCheck[i].Dead && (listToCheck[i] != aiToControl && !selfIncluded)) availableTargetsList.Add(listToCheck[i]);
         }
         int rand = Random.Range(0, availableTargetsList.Count);
         turn.target = availableTargetsList[rand];
