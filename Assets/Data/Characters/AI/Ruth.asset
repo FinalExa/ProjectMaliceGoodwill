@@ -19,7 +19,7 @@ MonoBehaviour:
     BGCurrentValue: 70
     maxHP: 150
     currentHP: 138
-  characterTraits: 030000000100000000000000
+  characterTraits: 030000000100000002000000
   characterActions:
   - action: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
     BGMinValue: 0
