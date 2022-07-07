@@ -62,25 +62,29 @@ MonoBehaviour:
   - MGMinRange: 0
     MGMaxRange: 25
     actionOrderRange:
-    - actionToDo: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
+    - actionToDo: {fileID: 11400000, guid: f7e5bfc2783cfa14f9b6268f3be77311, type: 2}
+      actionGroupTargeted: 1
+    - actionToDo: {fileID: 11400000, guid: 0e09cc39500a6284eb10230ba00bffc5, type: 2}
       actionGroupTargeted: 1
     actionOrderIndex: 0
   - MGMinRange: 26
     MGMaxRange: 50
     actionOrderRange:
-    - actionToDo: {fileID: 11400000, guid: 46dd73a6da00b12468eabad59606a3bb, type: 2}
+    - actionToDo: {fileID: 11400000, guid: 6462a776fa3e2ce4aa42b815db6c9376, type: 2}
+      actionGroupTargeted: 4
+    - actionToDo: {fileID: 11400000, guid: 2fbb54bb44df1b74da58de081681724b, type: 2}
       actionGroupTargeted: 5
     actionOrderIndex: 0
   - MGMinRange: 51
     MGMaxRange: 75
     actionOrderRange:
-    - actionToDo: {fileID: 11400000, guid: 46dd73a6da00b12468eabad59606a3bb, type: 2}
+    - actionToDo: {fileID: 11400000, guid: 777b13d0ef67fa14e94c523e26764b62, type: 2}
       actionGroupTargeted: 5
     actionOrderIndex: 0
   - MGMinRange: 76
     MGMaxRange: 100
     actionOrderRange:
-    - actionToDo: {fileID: 11400000, guid: 46dd73a6da00b12468eabad59606a3bb, type: 2}
+    - actionToDo: {fileID: 11400000, guid: 50d34d68d4907f84cb6f7a53cb0a32b2, type: 2}
       actionGroupTargeted: 5
     actionOrderIndex: 0
   thisCharacter: {fileID: 0}
