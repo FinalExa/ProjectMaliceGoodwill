@@ -99,14 +99,14 @@ public class ActionEffect : MonoBehaviour
                 break;
             }
         }
-        UpdateCharacterValues(target, sender, chosenAction, coeff, BGValue, HPValue);
+        UpdateCharacterValues(target, sender, chosenAction, coeff, BGValue, HPValue, false);
         for (int i = 0; i < target.appliedEffects.Count; i++)
         {
             if (target.appliedEffects[i].effectData.effectTimeDecreasesOnInteraction || (target.appliedEffects[i].effectData.effectTimeDecreasesOnDamage && damageTaken)) target.appliedEffects[i].DecreaseEffectTime();
         }
     }
 
-    public void UpdateCharacterValues(Character target, Character sender, Action chosenAction, float coeff, float BGValue, float HPValue)
+    public void UpdateCharacterValues(Character target, Character sender, Action chosenAction, float coeff, float BGValue, float HPValue, bool isEffect)
     {
         CharacterStats targetStats = target.characterData.characterStats;
         if (!target.perdition)
@@ -116,6 +116,6 @@ public class ActionEffect : MonoBehaviour
         }
         targetStats.currentHP += HPValue * target.HPMultiplier;
         targetStats.currentHP = Mathf.Clamp(targetStats.currentHP, 0, targetStats.maxHP);
-        if (chosenAction.hasEffect) TargetEffectRollAndAdd(target, sender, chosenAction);
+        if (chosenAction.hasEffect && !isEffect) TargetEffectRollAndAdd(target, sender, chosenAction);
     }
 }

@@ -33,12 +33,12 @@ public class Effect
         if (effectData.changesValuesOnTarget)
         {
             float coeff = actionEffect.CalculateCoeff(effectType);
-            actionEffect.UpdateCharacterValues(target, sender, origin, coeff, effectData.BGValueChange, effectData.HPValueChange);
+            actionEffect.UpdateCharacterValues(target, sender, origin, coeff, effectData.BGValueChange, effectData.HPValueChange, true);
         }
         if (effectData.changesValuesOnSender)
         {
             float coeff = actionEffect.CalculateCoeff(effectType);
-            actionEffect.UpdateCharacterValues(target, sender, origin, coeff, effectData.BGValueChangeSender, effectData.HPValueChangeSender);
+            actionEffect.UpdateCharacterValues(target, sender, origin, coeff, effectData.BGValueChangeSender, effectData.HPValueChangeSender, true);
         }
         if (effectData.effectOverTime && (!effectData.effectTimeDecreasesOnDamage && effectData.effectTimeDecreasesOnInteraction)) DecreaseEffectTime();
     }
