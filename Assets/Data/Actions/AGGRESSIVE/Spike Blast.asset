@@ -15,16 +15,17 @@ MonoBehaviour:
   actionName: Spike Blast
   type:
     actionType: 0
-  severity: 4
-  severitySpectator: 1
+  severity: 10
+  severitySpectator: 4
   hpValueChange: -12
   canTargetOthers: 1
   canTargetSelf: 0
-  targetsGroups: 1
-  hitsEnemyGroup: 1
+  targetsGroups: 0
+  hitsEnemyGroup: 0
   hitsAllyGroupSelfExcluded: 0
-  hitsAllyGroupSelfIncluded: 1
+  hitsAllyGroupSelfIncluded: 0
   hitsAllOthers: 0
   hitsEveryone: 0
   isSeen: 1
+  hasEffect: 0
   actionEffect: {fileID: 0}

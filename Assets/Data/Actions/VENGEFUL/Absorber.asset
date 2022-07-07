@@ -15,10 +15,17 @@ MonoBehaviour:
   actionName: Absorber
   type:
     actionType: 0
-  severity: 1
+  severity: 15
   severitySpectator: 5
-  hpValueChange: -10
-  canTargetEnemies: 0
-  canTargetAllies: 0
-  canTargetSelf: 1
+  hpValueChange: -15
+  canTargetOthers: 1
+  canTargetSelf: 0
+  targetsGroups: 0
+  hitsEnemyGroup: 0
+  hitsAllyGroupSelfExcluded: 0
+  hitsAllyGroupSelfIncluded: 0
+  hitsAllOthers: 0
+  hitsEveryone: 0
   isSeen: 1
+  hasEffect: 0
+  actionEffect: {fileID: 0}

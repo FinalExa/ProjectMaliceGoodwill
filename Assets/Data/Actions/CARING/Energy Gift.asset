@@ -14,10 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Energy Gift
   type:
-    actionType: 0
-  severity: 5
-  severitySpectator: 2
-  hpValueChange: 10
+    actionType: 1
+  severity: 10
+  severitySpectator: 4
+  hpValueChange: 30
   canTargetOthers: 1
   canTargetSelf: 0
+  targetsGroups: 0
+  hitsEnemyGroup: 0
+  hitsAllyGroupSelfExcluded: 0
+  hitsAllyGroupSelfIncluded: 0
+  hitsAllOthers: 0
+  hitsEveryone: 0
   isSeen: 1
+  hasEffect: 0
+  actionEffect: {fileID: 0}

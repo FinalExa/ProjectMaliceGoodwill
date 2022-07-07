@@ -12,12 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: Revenge Mark
   m_EditorClassIdentifier: 
-  actionName: Plotting Disappearance
+  actionName: Revenge Mark
   type:
     actionType: 0
-  severity: 3
-  severitySpectator: 1
+  severity: 10
+  severitySpectator: 4
   hpValueChange: 0
-  canTargetOthers: 0
-  canTargetSelf: 1
+  canTargetOthers: 1
+  canTargetSelf: 0
+  targetsGroups: 0
+  hitsEnemyGroup: 0
+  hitsAllyGroupSelfExcluded: 0
+  hitsAllyGroupSelfIncluded: 0
+  hitsAllOthers: 0
+  hitsEveryone: 0
   isSeen: 1
+  hasEffect: 0
+  actionEffect: {fileID: 0}

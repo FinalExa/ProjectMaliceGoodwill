@@ -15,10 +15,17 @@ MonoBehaviour:
   actionName: Life Link
   type:
     actionType: 1
-  severity: 5
-  severitySpectator: 10
-  hpValueChange: -40
-  canTargetEnemies: 0
-  canTargetAllies: 0
+  severity: 15
+  severitySpectator: 5
+  hpValueChange: 20
+  canTargetOthers: 0
   canTargetSelf: 1
+  targetsGroups: 1
+  hitsEnemyGroup: 1
+  hitsAllyGroupSelfExcluded: 1
+  hitsAllyGroupSelfIncluded: 0
+  hitsAllOthers: 0
+  hitsEveryone: 0
   isSeen: 1
+  hasEffect: 0
+  actionEffect: {fileID: 0}

@@ -16,14 +16,14 @@ MonoBehaviour:
   type:
     actionType: 0
   severity: 10
-  severitySpectator: 8
+  severitySpectator: 4
   hpValueChange: -26
-  canTargetOthers: 1
+  canTargetOthers: 0
   canTargetSelf: 0
-  targetsGroups: 0
-  hitsEnemyGroup: 0
+  targetsGroups: 1
+  hitsEnemyGroup: 1
   hitsAllyGroupSelfExcluded: 0
-  hitsAllyGroupSelfIncluded: 0
+  hitsAllyGroupSelfIncluded: 1
   hitsAllOthers: 0
   hitsEveryone: 0
   isSeen: 1

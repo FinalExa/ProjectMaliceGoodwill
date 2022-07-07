@@ -15,10 +15,17 @@ MonoBehaviour:
   actionName: Spirit Up
   type:
     actionType: 1
-  severity: 9
-  severitySpectator: 1
+  severity: 10
+  severitySpectator: 4
   hpValueChange: 6
-  canTargetEnemies: 0
-  canTargetAllies: 0
+  canTargetOthers: 0
   canTargetSelf: 1
+  targetsGroups: 0
+  hitsEnemyGroup: 0
+  hitsAllyGroupSelfExcluded: 0
+  hitsAllyGroupSelfIncluded: 0
+  hitsAllOthers: 0
+  hitsEveryone: 0
   isSeen: 1
+  hasEffect: 0
+  actionEffect: {fileID: 0}

@@ -15,9 +15,17 @@ MonoBehaviour:
   actionName: Hurt Wave
   type:
     actionType: 0
-  severity: 3
-  severitySpectator: 3
+  severity: 15
+  severitySpectator: 5
   hpValueChange: -15
   canTargetOthers: 1
   canTargetSelf: 0
+  targetsGroups: 1
+  hitsEnemyGroup: 1
+  hitsAllyGroupSelfExcluded: 1
+  hitsAllyGroupSelfIncluded: 0
+  hitsAllOthers: 0
+  hitsEveryone: 0
   isSeen: 1
+  hasEffect: 0
+  actionEffect: {fileID: 0}

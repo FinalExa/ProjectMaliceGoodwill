@@ -12,12 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: Shoutbeam
   m_EditorClassIdentifier: 
-  actionName: Shouting Beams
+  actionName: Shoutbeam
   type:
     actionType: 0
-  severity: 6
-  severitySpectator: 6
+  severity: 10
+  severitySpectator: 4
   hpValueChange: -16
-  canTargetOthers: 1
+  canTargetOthers: 0
   canTargetSelf: 0
+  targetsGroups: 1
+  hitsEnemyGroup: 1
+  hitsAllyGroupSelfExcluded: 1
+  hitsAllyGroupSelfIncluded: 0
+  hitsAllOthers: 0
+  hitsEveryone: 0
   isSeen: 1
+  hasEffect: 0
+  actionEffect: {fileID: 0}
