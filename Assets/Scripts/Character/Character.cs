@@ -99,8 +99,8 @@ public class Character : MonoBehaviour
         {
             if (effect.effectData.setsSensitivity)
             {
-                hpMultiplier *= effect.effectData.HPValueChangeSensitivity;
-                bgMultiplier *= effect.effectData.BGValueChangeSensitivity;
+                hpMultiplier *= effect.effectData.HPValueChangeSensitivity / 100f;
+                bgMultiplier *= effect.effectData.BGValueChangeSensitivity / 100f;
             }
         }
         HPMultiplier = hpMultiplier;

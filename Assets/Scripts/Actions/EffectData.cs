@@ -27,4 +27,9 @@ public class EffectData : ScriptableObject
     public bool givesDamageBarrier;
     public bool givesGlobalBarrier;
     public bool barrierProtectsFromBGChange;
+
+    private void OnValidate()
+    {
+        effectName = name;
+    }
 }
