@@ -80,8 +80,8 @@ public class ActionEffect : MonoBehaviour
 
     public void EffectsCheck(Character target, Character sender, Action chosenAction, float coeff, float BGValue, float HPValue)
     {
-        bool decreaseLater = false;
-        if (HPValue < 0f) decreaseLater = true;
+        bool damageTaken = false;
+        if (HPValue < 0f) damageTaken = true;
         foreach (Effect effect in target.appliedEffects)
         {
             if (!target.isShieldedFromDamage || !target.isShieldedFromEverything)
@@ -102,7 +102,7 @@ public class ActionEffect : MonoBehaviour
         UpdateCharacterValues(target, sender, chosenAction, coeff, BGValue, HPValue);
         foreach (Effect effect in target.appliedEffects)
         {
-            if (effect.effectData.effectTimeDecreasesOnInteraction) effect.DecreaseEffectTime();
+            if (effect.effectData.effectTimeDecreasesOnInteraction || (effect.effectData.effectTimeDecreasesOnDamage && damageTaken)) effect.DecreaseEffectTime();
         }
     }
 
