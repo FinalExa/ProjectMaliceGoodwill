@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
-  m_Name: Self Defense
+  m_Name: Ignoring Shield
   m_EditorClassIdentifier: 
   actionName: Self Defense
   type:
@@ -28,4 +28,4 @@ MonoBehaviour:
   hitsEveryone: 0
   isSeen: 1
   hasEffect: 0
-  actionEffect: {fileID: 0}
+  actionEffect: {fileID: 11400000, guid: 51b581a027123414f9fb6db3309ccf55, type: 2}

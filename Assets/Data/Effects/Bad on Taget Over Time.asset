@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aeb5c7255c0fc2479ea0fecbe7b355b, type: 3}
-  m_Name: EffectData
+  m_Name: Bad on Taget Over Time
   m_EditorClassIdentifier: 
-  effectName: 
-  effectTriggerChance: 0
+  effectName: Bad on Taget Over Time
+  effectTriggerChance: 90
   instantaneousEffect: 0
-  effectOverTime: 0
-  effectTurns: 0
+  effectOverTime: 1
+  effectTurns: 3
   effectTimeDecreasesOnDamage: 0
   effectTimeDecreasesOnInteraction: 0
-  changesValuesOnTarget: 0
+  changesValuesOnTarget: 1
   HPValueChange: 0
-  BGValueChange: 0
+  BGValueChange: 10
   setsSensitivity: 0
   HPValueChangeSensitivity: 0
   BGValueChangeSensitivity: 0

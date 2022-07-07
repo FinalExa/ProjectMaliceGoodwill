@@ -28,4 +28,4 @@ MonoBehaviour:
   hitsEveryone: 0
   isSeen: 1
   hasEffect: 0
-  actionEffect: {fileID: 0}
+  actionEffect: {fileID: 11400000, guid: 079689ae033eef84b91bb1e43caf107f, type: 2}

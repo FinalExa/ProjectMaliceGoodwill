@@ -40,7 +40,7 @@ public class Effect
             float coeff = actionEffect.CalculateCoeff(effectType);
             actionEffect.UpdateCharacterValues(target, sender, origin, coeff, effectData.BGValueChangeSender, effectData.HPValueChangeSender);
         }
-        if (effectData.effectOverTime) DecreaseEffectTime();
+        if (effectData.effectOverTime && (!effectData.effectTimeDecreasesOnDamage && effectData.effectTimeDecreasesOnInteraction)) DecreaseEffectTime();
     }
 
     public void DecreaseEffectTime()
@@ -62,9 +62,8 @@ public class Effect
 
     public void ShieldEnded()
     {
-        if (effectData.givesDamageBarrier)
-        {
-
-        }
+        if (effectData.givesDamageBarrier) target.isShieldedFromDamage = false;
+        else if (effectData.givesGlobalBarrier) target.isShieldedFromEverything = false;
+        if (effectData.barrierProtectsFromBGChange) target.isShieldedFromSeverity = false;
     }
 }

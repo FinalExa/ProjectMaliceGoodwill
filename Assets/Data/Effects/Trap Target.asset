@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aeb5c7255c0fc2479ea0fecbe7b355b, type: 3}
+  m_Name: Trap Target
+  m_EditorClassIdentifier: 
+  effectName: Trap Target
+  effectTriggerChance: 50
+  instantaneousEffect: 0
+  effectOverTime: 1
+  effectTurns: 2
+  effectTimeDecreasesOnDamage: 0
+  effectTimeDecreasesOnInteraction: 0
+  changesValuesOnTarget: 1
+  HPValueChange: -10
+  BGValueChange: 15
+  setsSensitivity: 0
+  HPValueChangeSensitivity: 0
+  BGValueChangeSensitivity: 0
+  changesValuesOnSender: 0
+  HPValueChangeSender: 0
+  BGValueChangeSender: 0
+  inflictsStun: 1
+  givesDamageBarrier: 0
+  givesGlobalBarrier: 1
+  barrierProtectsFromBGChange: 1

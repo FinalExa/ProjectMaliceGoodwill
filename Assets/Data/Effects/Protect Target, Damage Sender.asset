@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aeb5c7255c0fc2479ea0fecbe7b355b, type: 3}
+  m_Name: Protect Target, Damage Sender
+  m_EditorClassIdentifier: 
+  effectName: Protect Target, Damage Sender
+  effectTriggerChance: 100
+  instantaneousEffect: 0
+  effectOverTime: 1
+  effectTurns: 1
+  effectTimeDecreasesOnDamage: 1
+  effectTimeDecreasesOnInteraction: 0
+  changesValuesOnTarget: 0
+  HPValueChange: 0
+  BGValueChange: 0
+  setsSensitivity: 0
+  HPValueChangeSensitivity: 0
+  BGValueChangeSensitivity: 0
+  changesValuesOnSender: 1
+  HPValueChangeSender: -20
+  BGValueChangeSender: 0
+  inflictsStun: 0
+  givesDamageBarrier: 1
+  givesGlobalBarrier: 0
+  barrierProtectsFromBGChange: 0

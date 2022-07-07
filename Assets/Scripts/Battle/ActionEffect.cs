@@ -20,10 +20,7 @@ public class ActionEffect : MonoBehaviour
         if (!isSpectator)
         {
             if (!senderIncluded && target == sender) EffectsCheck(sender, sender, chosenAction, coeff, chosenAction.severity, 0f);
-            else if (target != sender || (senderIncluded && target == sender))
-            {
-                EffectsCheck(target, sender, chosenAction, coeff, chosenAction.severity, chosenAction.hpValueChange);
-            }
+            else if (target != sender || (senderIncluded && target == sender)) EffectsCheck(target, sender, chosenAction, coeff, chosenAction.severity, chosenAction.hpValueChange);
             if (!chosenAction.targetsGroups) turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + " from " + turn.currentCharacter.characterData.characterStats.characterName + "!");
             else turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " uses " + chosenAction.actionName + " on " + groupAttackName);
             turn.StopTurn();
@@ -43,7 +40,7 @@ public class ActionEffect : MonoBehaviour
         {
             foreach (Effect effect in target.appliedEffects)
             {
-                if (effect.effectData.givesDamageBarrier || effect.effectData.givesGlobalBarrier)
+                if ((effect.effectData.givesDamageBarrier || effect.effectData.givesGlobalBarrier) || effect.effectData == chosenAction.actionEffect)
                 {
                     check = true;
                     break;
@@ -83,7 +80,8 @@ public class ActionEffect : MonoBehaviour
 
     public void EffectsCheck(Character target, Character sender, Action chosenAction, float coeff, float BGValue, float HPValue)
     {
-
+        bool decreaseLater = false;
+        if (HPValue < 0f) decreaseLater = true;
         foreach (Effect effect in target.appliedEffects)
         {
             if (!target.isShieldedFromDamage || !target.isShieldedFromEverything)
