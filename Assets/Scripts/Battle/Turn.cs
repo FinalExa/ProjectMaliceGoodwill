@@ -162,24 +162,24 @@ public class Turn : MonoBehaviour
 
     private void ActionOnSpectators()
     {
-        for (int i = 0; i < turnOrder.turnOrder.Count; i++)
+        for (int i = 0; i < turnOrder.characterOrder.Count; i++)
         {
-            if ((turnOrder.turnOrder[i] != this || turnOrder.turnOrder[i] != target) && !turnOrder.turnOrder[i].Dead)
+            if ((turnOrder.characterOrder[i] != this || turnOrder.characterOrder[i] != target) && !turnOrder.characterOrder[i].Dead)
             {
-                actionEffect.UpdateValues(turnOrder.turnOrder[i], currentCharacter, chosenAction, true, senderIncluded);
-                turnOrder.turnOrder[i].UpdateAllBars();
+                actionEffect.UpdateValues(turnOrder.characterOrder[i], currentCharacter, chosenAction, true, senderIncluded);
+                turnOrder.characterOrder[i].UpdateAllBars();
             }
         }
     }
 
     private void ActionOnSpectatorsMultiTargeting()
     {
-        for (int i = 0; i < turnOrder.turnOrder.Count; i++)
+        for (int i = 0; i < turnOrder.characterOrder.Count; i++)
         {
             bool isATarget = false;
             for (int y = 0; y < targets.Count; y++)
             {
-                if (turnOrder.turnOrder[i] == targets[y])
+                if (turnOrder.characterOrder[i] == targets[y])
                 {
                     isATarget = true;
                     break;
@@ -187,7 +187,7 @@ public class Turn : MonoBehaviour
             }
             if (!isATarget)
             {
-                actionEffect.UpdateValues(turnOrder.turnOrder[i], currentCharacter, chosenAction, true, senderIncluded);
+                actionEffect.UpdateValues(turnOrder.characterOrder[i], currentCharacter, chosenAction, true, senderIncluded);
             }
         }
     }

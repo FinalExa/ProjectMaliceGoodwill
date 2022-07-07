@@ -6,6 +6,8 @@ public class EndBattleConditions : MonoBehaviour
 {
     private Turn turn;
     private TurnOrder turnOrder;
+    private List<Character> playables;
+    private List<Character> enemies;
     [HideInInspector] public bool perditionCheck;
     private bool stopThis;
     private bool enemiesDownCondition;
@@ -23,6 +25,8 @@ public class EndBattleConditions : MonoBehaviour
     private void Start()
     {
         perditionCheck = false;
+        playables = turnOrder.playableCharacters;
+        enemies = turnOrder.enemyCharacters;
     }
 
     private void Update()
@@ -42,7 +46,7 @@ public class EndBattleConditions : MonoBehaviour
     private void EnemiesDownCondition()
     {
         bool enemiesDown = true;
-        foreach (Character enemy in turnOrder.enemyCharacters)
+        foreach (Character enemy in enemies)
         {
             if (!enemy.Dead)
             {
@@ -55,7 +59,7 @@ public class EndBattleConditions : MonoBehaviour
     private void AlliesDownCondition()
     {
         bool alliesDown = true;
-        foreach (Character pc in turnOrder.playableCharacters)
+        foreach (Character pc in playables)
         {
             if (!pc.Dead)
             {
@@ -68,7 +72,7 @@ public class EndBattleConditions : MonoBehaviour
     private void AllPlayableInPerditionCondition()
     {
         int count = 0;
-        foreach (Character pc in turnOrder.playableCharacters)
+        foreach (Character pc in playables)
         {
             if (pc.perdition)
             {

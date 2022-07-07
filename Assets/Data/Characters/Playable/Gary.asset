@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd0141b398d4d2a4eae1b836a79a693a, type: 3}
-  m_Name: Neon
+  m_Name: Gary
   m_EditorClassIdentifier: 
   characterStats:
-    characterName: Neon
+    characterName: Gary
     characterColor: {r: 1, g: 1, b: 0, a: 1}
     BGStartPoint: 50
     BGCurrentValue: 49

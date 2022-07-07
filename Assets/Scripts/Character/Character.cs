@@ -10,8 +10,10 @@ public class Character : MonoBehaviour
     public GameObject turnIndicator;
     [SerializeField] private GameObject perditionSymbol;
     [SerializeField] private GameObject deathSymbol;
+    [SerializeField] private GameObject goodSymbol;
     public CharacterData characterData;
     [HideInInspector] public bool Dead { get; private set; }
+    [HideInInspector] public bool Good { get; private set; }
     [HideInInspector] public bool perdition;
     [HideInInspector] public bool fullGoodAI;
     [HideInInspector] public bool passageDone;
@@ -55,9 +57,20 @@ public class Character : MonoBehaviour
     {
         Dead = true;
         deathSymbol.SetActive(true);
-        turn.turnOrder.turnOrder.Remove(this);
+        turn.turnOrder.characterOrder.Remove(this);
         if (!characterData.isAI) turn.turnOrder.playableCharacters.Remove(this);
         else turn.turnOrder.playableCharacters.Remove(this);
+    }
+
+    public void CheckGood()
+    {
+        if (characterData.isAI)
+        {
+            Good = true;
+            goodSymbol.SetActive(true);
+            turn.turnOrder.characterOrder.Remove(this);
+            turn.turnOrder.enemyCharacters.Remove(this);
+        }
     }
 
     private void TurnCheck()
@@ -118,6 +131,7 @@ public class Character : MonoBehaviour
         turnIndicator.SetActive(false);
         perditionSymbol.SetActive(false);
         deathSymbol.SetActive(false);
+        goodSymbol.SetActive(false);
     }
 
     private void CreateThisCharacterLists()

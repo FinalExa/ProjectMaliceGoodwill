@@ -10,55 +10,67 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd0141b398d4d2a4eae1b836a79a693a, type: 3}
-  m_Name: Lele
+  m_Name: Grein
   m_EditorClassIdentifier: 
   characterStats:
-    characterName: Lele
-    characterColor: {r: 0, g: 0, b: 1, a: 1}
+    characterName: Glevil
+    characterColor: {r: 1, g: 0.5019608, b: 0, a: 1}
     BGStartPoint: 50
-    BGCurrentValue: 50
-    maxHP: 90
-    currentHP: 100
-  characterTraits: 010000000600000000000000
+    BGCurrentValue: 70
+    maxHP: 150
+    currentHP: 138
+  characterTraits: 000000000500000006000000
   characterActions:
   - action: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
     BGMinValue: 0
-    BGMaxValue: 60
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: f40f942697ce9564e80b18a18378cf6e, type: 2}
-    BGMinValue: 41
+    BGMinValue: 0
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
     BGMinValue: 0
-    BGMaxValue: 30
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: d37879bdef027844588a9bebbee6ae7c, type: 2}
     BGMinValue: 0
-    BGMaxValue: 40
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: c89033be57c909143893ca6b7478a2f9, type: 2}
     BGMinValue: 0
-    BGMaxValue: 50
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: fd36dd5a866be484c8b11801b06147b7, type: 2}
-    BGMinValue: 41
+    BGMinValue: 0
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: 78ba5a520b4e4424aa1f44c037ffcabf, type: 2}
     BGMinValue: 0
-    BGMaxValue: 40
+    BGMaxValue: 100
   - action: {fileID: 11400000, guid: cb8e152b8165a534baeac19a8cf1f912, type: 2}
-    BGMinValue: 61
-    BGMaxValue: 100
-  - action: {fileID: 11400000, guid: 2fbb54bb44df1b74da58de081681724b, type: 2}
-    BGMinValue: 51
-    BGMaxValue: 100
-  - action: {fileID: 11400000, guid: 23b552949a2f7374d9754d1290de08a1, type: 2}
-    BGMinValue: 41
-    BGMaxValue: 100
-  - action: {fileID: 11400000, guid: 60fa7e4881b07b846bcc1cf7a46a7929, type: 2}
     BGMinValue: 0
-    BGMaxValue: 60
-  - action: {fileID: 11400000, guid: 6462a776fa3e2ce4aa42b815db6c9376, type: 2}
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: 33cff0012f94cea459168de1fffca9b3, type: 2}
     BGMinValue: 0
-    BGMaxValue: 70
-  isAI: 0
-  actionSequences: []
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: ec182ec727c1d9f43985c58b07fd1a07, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: 969a44d20f8c9e849a55a3cbbb1a019b, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: fa8ca7b8c786e3a4d9cdfa8cce7bfe34, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
+  isAI: 1
+  actionSequences:
+  - MGMinRange: 0
+    MGMaxRange: 50
+    actionOrderRange:
+    - actionToDo: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
+      actionGroupTargeted: 1
+    actionOrderIndex: 0
+  - MGMinRange: 51
+    MGMaxRange: 100
+    actionOrderRange:
+    - actionToDo: {fileID: 11400000, guid: 46dd73a6da00b12468eabad59606a3bb, type: 2}
+      actionGroupTargeted: 5
+    actionOrderIndex: 0
   thisCharacter: {fileID: 0}
   gameData: {fileID: 11400000, guid: 18c29b82a7e5f7e4b9576c862abf365d, type: 2}
   generateCharacterActions: 0

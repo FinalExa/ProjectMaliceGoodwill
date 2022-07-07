@@ -74,7 +74,7 @@ public class PerditionTurn : MonoBehaviour
     private void GetPossibleTargets()
     {
         availableTargets.Clear();
-        foreach (Character character in turn.turnOrder.turnOrder)
+        foreach (Character character in turn.turnOrder.characterOrder)
         {
             if (character == curCharacter && chosenAction.canTargetSelf) availableTargets.Add(character);
             if (character != curCharacter && chosenAction.canTargetOthers) availableTargets.Add(character);

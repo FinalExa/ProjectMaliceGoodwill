@@ -25,6 +25,7 @@ public class CharacterData : ScriptableObject
 
     private void OnValidate()
     {
+        characterStats.characterName = name;
         if (generateCharacterActions)
         {
             List<CharacterActions> characterActionsList = new List<CharacterActions>();

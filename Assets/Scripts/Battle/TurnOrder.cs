@@ -7,7 +7,7 @@ public class TurnOrder : MonoBehaviour
     public List<Character> playableCharacters;
     public List<Character> enemyCharacters;
     [SerializeField] private bool enemyGoFirst;
-    [HideInInspector] public List<Character> turnOrder;
+    [HideInInspector] public List<Character> characterOrder;
     private int turnIndex;
 
     [SerializeField] private float turnWaitTimer;
@@ -27,7 +27,7 @@ public class TurnOrder : MonoBehaviour
 
     private void CreateTurnOrder()
     {
-        turnOrder = new List<Character>();
+        characterOrder = new List<Character>();
         if (!enemyGoFirst)
         {
             ComposeList(playableCharacters);
@@ -39,7 +39,7 @@ public class TurnOrder : MonoBehaviour
             ComposeList(playableCharacters);
         }
         turnIndex = 0;
-        turnOrder[turnIndex].isLocked = false;
+        characterOrder[turnIndex].isLocked = false;
     }
 
     private void ComposeList(List<Character> arrayToAdd)
@@ -47,7 +47,7 @@ public class TurnOrder : MonoBehaviour
         for (int i = 0; i < arrayToAdd.Count; i++)
         {
             arrayToAdd[i].isLocked = true;
-            turnOrder.Add(arrayToAdd[i]);
+            characterOrder.Add(arrayToAdd[i]);
         }
     }
 
@@ -56,9 +56,9 @@ public class TurnOrder : MonoBehaviour
         if (turnWaitTime > 0) turnWaitTime -= Time.deltaTime;
         else
         {
-            if (turnIndex + 1 < turnOrder.Count) turnIndex++;
+            if (turnIndex + 1 < characterOrder.Count) turnIndex++;
             else turnIndex = 0;
-            turnOrder[turnIndex].isLocked = false;
+            characterOrder[turnIndex].isLocked = false;
             turnWaitTime = turnWaitTimer;
             turnWait = false;
         }

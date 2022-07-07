@@ -31,6 +31,7 @@ public class ActionEffect : MonoBehaviour
         else if (chosenAction.isSeen) EffectsCheck(target, sender, chosenAction, coeff, chosenAction.severitySpectator, 0f);
         if (targetInfo.currentHP <= 0) target.SetDead();
         if (targetInfo.BGCurrentValue == 0) target.EnterPerdition();
+        else if (targetInfo.BGCurrentValue == gameData.BGMaxValue) target.CheckGood();
         target.UpdateAllBars();
     }
 

@@ -55,7 +55,7 @@ public class PopulateDropdowns : MonoBehaviour
         possibleTargetsNames.Clear();
         if (turn.chosenAction.canTargetOthers)
         {
-            foreach (Character other in turn.turnOrder.turnOrder)
+            foreach (Character other in turn.turnOrder.characterOrder)
             {
                 if (!other.Dead && other != turn.currentCharacter)
                 {
