@@ -16,9 +16,9 @@ MonoBehaviour:
     characterName: Nolan
     characterColor: {r: 0, g: 1, b: 0, a: 1}
     BGStartPoint: 50
-    BGCurrentValue: 50
-    maxHP: 130
-    currentHP: 100
+    BGCurrentValue: 49.5
+    maxHP: 10
+    currentHP: 130
   characterTraits: 000000000500000003000000
   characterActions:
   - action: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}

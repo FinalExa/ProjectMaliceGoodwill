@@ -21,7 +21,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public List<Character> thisCharacterAllies;
     [HideInInspector] public List<Character> thisCharacterEnemies;
     public List<Effect> appliedEffects;
-    [HideInInspector] public bool hasToPassTurn;
+    public bool hasToPassTurn;
     [HideInInspector] public bool isShieldedFromDamage;
     [HideInInspector] public bool isShieldedFromEverything;
     [HideInInspector] public bool isShieldedFromSeverity;
@@ -87,7 +87,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void CharacterEndTurn()
+    private void CharacterEndTurn()
     {
         hasToPassTurn = false;
         turn.ContinueTurn();
