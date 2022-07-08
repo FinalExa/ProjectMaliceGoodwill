@@ -8,7 +8,7 @@ public class AITurn : MonoBehaviour
     private Character aiToControl;
     private List<AITurnData> aiTurnData;
     private int thisAIId;
-    private bool doOnce;
+    private bool failedToExecuteAction;
 
     private void Start()
     {
@@ -32,6 +32,7 @@ public class AITurn : MonoBehaviour
     public void AIStartup(Character aiReceived)
     {
         aiToControl = aiReceived;
+        failedToExecuteAction = false;
         GoodCheck();
         if (!aiToControl.fullGoodAI)
         {
@@ -101,8 +102,12 @@ public class AITurn : MonoBehaviour
         {
             if (!listToCheck[i].Dead && (listToCheck[i] != aiToControl && !selfIncluded)) availableTargetsList.Add(listToCheck[i]);
         }
-        int rand = Random.Range(0, availableTargetsList.Count);
-        turn.target = availableTargetsList[rand];
+        if (availableTargetsList.Count >= 1)
+        {
+            int rand = Random.Range(0, availableTargetsList.Count);
+            turn.target = availableTargetsList[rand];
+        }
+        else failedToExecuteAction = true;
     }
 
     private void MultiTargeting()
@@ -114,11 +119,21 @@ public class AITurn : MonoBehaviour
 
     private void ExecuteAction()
     {
+        AdvanceActionOrderIndex();
+        if (!failedToExecuteAction) turn.ActionDoneOnTarget();
+        else
+        {
+            turn.battleText.UpdateBattleText(aiToControl.characterData.characterStats.characterName + " failed to perform " + turn.chosenAction.actionName + "!");
+            turn.PassTurn();
+        }
+    }
+
+    private void AdvanceActionOrderIndex()
+    {
         AIActionSequences[] actSeq = aiTurnData[thisAIId].sequence;
         int index = aiTurnData[thisAIId].AIActionIndex;
         ActionOrderRange[] actionOrder = actSeq[index].actionOrderRange;
         if (actSeq[index].actionOrderIndex + 1 >= actionOrder.Length) actSeq[index].actionOrderIndex = 0;
         else actSeq[index].actionOrderIndex++;
-        turn.ActionDoneOnTarget();
     }
 }
