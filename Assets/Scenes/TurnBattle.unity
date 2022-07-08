@@ -649,6 +649,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -3920999559667313699, guid: 028f78b117524554285f01087aaacdca, type: 3}
+      propertyPath: turnWaitTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3920999559667313699, guid: 028f78b117524554285f01087aaacdca, type: 3}
       propertyPath: enemyCharacters.Array.data[0]
       value: 
       objectReference: {fileID: 1444687694}

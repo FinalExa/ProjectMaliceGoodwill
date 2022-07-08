@@ -7,9 +7,9 @@ public class TurnOrder : MonoBehaviour
     public List<Character> playableCharacters;
     public List<Character> enemyCharacters;
     [SerializeField] private bool enemyGoFirst;
-    [HideInInspector] public List<Character> characterOrder;
-    private int turnIndex;
-
+    public List<Character> characterOrder;
+    [SerializeField] private int turnIndex;
+    public Character currentCharacter;
     [SerializeField] private float turnWaitTimer;
     private float turnWaitTime;
     public bool turnWait;
@@ -39,7 +39,13 @@ public class TurnOrder : MonoBehaviour
             ComposeList(playableCharacters);
         }
         turnIndex = 0;
-        characterOrder[turnIndex].isLocked = false;
+        SetCurrentCharacter();
+    }
+
+    private void SetCurrentCharacter()
+    {
+        currentCharacter = characterOrder[turnIndex];
+        currentCharacter.isLocked = false;
     }
 
     private void ComposeList(List<Character> arrayToAdd)
@@ -58,7 +64,7 @@ public class TurnOrder : MonoBehaviour
         {
             if (turnIndex + 1 < characterOrder.Count) turnIndex++;
             else turnIndex = 0;
-            characterOrder[turnIndex].isLocked = false;
+            SetCurrentCharacter();
             turnWaitTime = turnWaitTimer;
             turnWait = false;
         }

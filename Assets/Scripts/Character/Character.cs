@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public bool isLocked;
     [HideInInspector] public List<Character> thisCharacterAllies;
     [HideInInspector] public List<Character> thisCharacterEnemies;
-    [HideInInspector] public List<Effect> appliedEffects;
+    public List<Effect> appliedEffects;
     [HideInInspector] public bool hasToPassTurn;
     [HideInInspector] public bool isShieldedFromDamage;
     [HideInInspector] public bool isShieldedFromEverything;
@@ -59,7 +59,7 @@ public class Character : MonoBehaviour
         deathSymbol.SetActive(true);
         turn.turnOrder.characterOrder.Remove(this);
         if (!characterData.isAI) turn.turnOrder.playableCharacters.Remove(this);
-        else turn.turnOrder.playableCharacters.Remove(this);
+        else turn.turnOrder.enemyCharacters.Remove(this);
     }
 
     public void CheckGood()
@@ -78,18 +78,16 @@ public class Character : MonoBehaviour
         if (Dead && perditionSymbol.activeSelf) perditionSymbol.SetActive(false);
         if (!isLocked && !passageDone)
         {
-            CharacterApplyEffects();
+            ThisCharacterTurn();
             if (hasToPassTurn) CharacterEndTurn();
             else
             {
                 if (characterData.characterStats.currentHP <= 0) SetDead();
-                if (!Dead) ThisCharacterTurn();
-                else CharacterEndTurn();
             }
         }
     }
 
-    private void CharacterEndTurn()
+    public void CharacterEndTurn()
     {
         hasToPassTurn = false;
         turn.ContinueTurn();
@@ -99,7 +97,6 @@ public class Character : MonoBehaviour
     private void ThisCharacterTurn()
     {
         ValueChangeSensitivity();
-        turn.currentCharacter = this;
         passageDone = true;
         turnIndicator.SetActive(true);
     }
@@ -154,7 +151,7 @@ public class Character : MonoBehaviour
         appliedEffects.Clear();
     }
 
-    private void CharacterApplyEffects()
+    public void CharacterApplyEffects()
     {
         if (!Dead)
         {

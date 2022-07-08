@@ -45,24 +45,30 @@ public class Turn : MonoBehaviour
 
     private void Update()
     {
-        if (currentCharacter != null && !currentCharacter.isLocked && !fightIsOver && !stop) TurnOperations();
+        SetCurrentCharacter();
+        if (!fightIsOver && !stop) TurnOperations();
         if (stop && Input.GetKeyDown(KeyCode.Return)) ContinueTurn();
+    }
+
+    private void SetCurrentCharacter()
+    {
+        if (currentCharacter != turnOrder.currentCharacter) currentCharacter = turnOrder.currentCharacter;
     }
 
     private void TurnOperations()
     {
         if (!currentCharacter.Dead)
         {
+            currentCharacter.CharacterApplyEffects();
             if (!currentCharacter.perdition)
             {
                 if (!currentCharacter.characterData.isAI) PlayableCharacterTurn();
-                else if (currentCharacter.characterData.isAI) aiTurn.AIStartup(currentCharacter);
+                else
+                {
+                    aiTurn.AIStartup(currentCharacter);
+                }
             }
-            else
-            {
-                if (!endBattleConditions.perditionCheck) endBattleConditions.perditionCheck = true;
-                perditionTurn.PerditionStartup(currentCharacter);
-            }
+            else perditionTurn.PerditionStartup(currentCharacter);
         }
         else PassTurn();
     }
@@ -70,7 +76,6 @@ public class Turn : MonoBehaviour
     private void PlayableCharacterTurn()
     {
         populateDropdowns.ActionPopulate();
-        stop = true;
         battleText.UpdateBattleText(currentCharacter.characterData.characterStats.characterName + "'s turn.");
     }
 
@@ -167,7 +172,6 @@ public class Turn : MonoBehaviour
             if ((turnOrder.characterOrder[i] != this || turnOrder.characterOrder[i] != target) && !turnOrder.characterOrder[i].Dead)
             {
                 actionEffect.UpdateValues(turnOrder.characterOrder[i], currentCharacter, chosenAction, true, senderIncluded);
-                turnOrder.characterOrder[i].UpdateAllBars();
             }
         }
     }

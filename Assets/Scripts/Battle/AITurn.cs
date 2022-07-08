@@ -8,6 +8,7 @@ public class AITurn : MonoBehaviour
     private Character aiToControl;
     private List<AITurnData> aiTurnData;
     private int thisAIId;
+    private bool doOnce;
 
     private void Start()
     {

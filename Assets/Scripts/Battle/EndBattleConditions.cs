@@ -8,7 +8,6 @@ public class EndBattleConditions : MonoBehaviour
     private TurnOrder turnOrder;
     private List<Character> playables;
     private List<Character> enemies;
-    [HideInInspector] public bool perditionCheck;
     private bool stopThis;
     private bool enemiesDownCondition;
     private bool enemiesGoodwillCondition;
@@ -24,7 +23,6 @@ public class EndBattleConditions : MonoBehaviour
 
     private void Start()
     {
-        perditionCheck = false;
         playables = turnOrder.playableCharacters;
         enemies = turnOrder.enemyCharacters;
     }
@@ -38,7 +36,7 @@ public class EndBattleConditions : MonoBehaviour
     public void CheckForVictoryConditions()
     {
         EnemiesDownCondition();
-        EnemiesAltruismCondition();
+        EnemiesGoodCondition();
         AlliesPerditionCondition();
         AlliesDownCondition();
         AllPlayableInPerditionCondition();
@@ -84,7 +82,7 @@ public class EndBattleConditions : MonoBehaviour
     private void AlliesPerditionCondition()
     {
         bool alliesPerdition = false;
-        foreach (Character pc in turnOrder.playableCharacters)
+        foreach (Character pc in playables)
         {
             if (pc.perdition)
             {
@@ -95,11 +93,10 @@ public class EndBattleConditions : MonoBehaviour
         if (alliesPerdition) alliesPerditionCondition = true;
         else alliesPerditionCondition = false;
     }
-    private void EnemiesAltruismCondition()
+    private void EnemiesGoodCondition()
     {
-        if (perditionCheck) return;
         int count = 0;
-        foreach (Character enemy in turnOrder.enemyCharacters)
+        foreach (Character enemy in enemies)
         {
             if (enemy.fullGoodAI) count++;
         }
