@@ -22,7 +22,6 @@ public class PerditionTurn : MonoBehaviour
         availableActions = new List<Action>();
         availableTargets = new List<Character>();
         chosenTargets = new List<string>();
-        chosenTargets.Clear();
     }
 
     private void Update()

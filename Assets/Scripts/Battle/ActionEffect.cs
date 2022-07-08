@@ -19,13 +19,17 @@ public class ActionEffect : MonoBehaviour
         float coeff = CalculateCoeff(chosenAction.type.actionType);
         if (!isSpectator)
         {
-            if (!senderIncluded && target == sender) EffectsCheck(sender, sender, chosenAction, coeff, chosenAction.severity, 0f);
+            if (!senderIncluded && target == sender)
+            {
+                print("there");
+                EffectsCheck(sender, sender, chosenAction, coeff, chosenAction.severity, 0f);
+            }
             else if (target != sender || (senderIncluded && target == sender)) EffectsCheck(target, sender, chosenAction, coeff, chosenAction.severity, chosenAction.hpValueChange);
             if (!chosenAction.targetsGroups) turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + " from " + turn.currentCharacter.characterData.characterStats.characterName + "!");
             else turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " uses " + chosenAction.actionName + " on " + groupAttackName);
             turn.StopTurn();
         }
-        else if (chosenAction.isSeen) EffectsCheck(target, sender, chosenAction, coeff, chosenAction.severitySpectator, 0f);
+        else if (chosenAction.isSeen && isSpectator) EffectsCheck(target, sender, chosenAction, coeff, chosenAction.severitySpectator, 0f);
         if (targetInfo.currentHP <= 0) target.SetDead();
         if (targetInfo.BGCurrentValue == 0) target.EnterPerdition();
         else if (targetInfo.BGCurrentValue == gameData.BGMaxValue) target.CheckGood();
@@ -114,7 +118,7 @@ public class ActionEffect : MonoBehaviour
             targetStats.BGCurrentValue += BGValue * coeff;
             targetStats.BGCurrentValue = Mathf.Clamp(targetStats.BGCurrentValue, gameData.BGMinValue, gameData.BGMaxValue);
         }
-        targetStats.currentHP += HPValue * target.HPMultiplier;
+        targetStats.currentHP += HPValue;
         targetStats.currentHP = Mathf.Clamp(targetStats.currentHP, 0, targetStats.maxHP);
         if (chosenAction.hasEffect && !isEffect) TargetEffectRollAndAdd(target, sender, chosenAction);
     }
