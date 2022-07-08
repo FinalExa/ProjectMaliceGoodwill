@@ -84,7 +84,7 @@ public class ActionEffect : MonoBehaviour
         if (HPValue < 0f) damageTaken = true;
         foreach (Effect effect in target.appliedEffects)
         {
-            if (!target.isShieldedFromDamage || !target.isShieldedFromEverything)
+            if (effect.effectData.givesDamageBarrier || effect.effectData.givesGlobalBarrier)
             {
                 if (effect.effectData.givesDamageBarrier)
                 {
@@ -111,7 +111,7 @@ public class ActionEffect : MonoBehaviour
         CharacterStats targetStats = target.characterData.characterStats;
         if (!target.perdition)
         {
-            targetStats.BGCurrentValue += BGValue * coeff * target.BGMultiplier;
+            targetStats.BGCurrentValue += BGValue * coeff;
             targetStats.BGCurrentValue = Mathf.Clamp(targetStats.BGCurrentValue, gameData.BGMinValue, gameData.BGMaxValue);
         }
         targetStats.currentHP += HPValue * target.HPMultiplier;
