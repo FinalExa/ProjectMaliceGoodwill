@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Effect
 {
-    public Effect(ActionEffect actionEffectReference, EffectData data, Character effectTarget, Character effectSender, bool instantaneous, bool overTime, float duration, Type.ActionType actionType, Action actionOrigin)
+    public Effect(ActionEffect actionEffectReference, EffectData data, Character effectTarget, Character effectSender, bool overTime, float duration, Type.ActionType actionType, Action actionOrigin)
     {
         actionEffect = actionEffectReference;
         effectData = data;
@@ -13,21 +13,20 @@ public class Effect
         sender = effectSender;
         effectType = actionType;
         origin = actionOrigin;
-        if (instantaneous) ExecuteEffect();
         if (data.givesDamageBarrier) target.isShieldedFromDamage = true;
         else if (data.givesGlobalBarrier) target.isShieldedFromEverything = true;
         if (data.barrierProtectsFromBGChange) target.isShieldedFromSeverity = true;
         if (overTime) timeLeft = duration;
-        else RemoveEffect();
+        else timeLeft = 0;
     }
     public EffectData effectData;
     public bool canBeRemoved;
     public float timeLeft;
     public Type.ActionType effectType;
-    private ActionEffect actionEffect;
-    private Character target;
-    private Character sender;
-    private Action origin;
+    public ActionEffect actionEffect;
+    public Character target;
+    public Character sender;
+    public Action origin;
     public void ExecuteEffect()
     {
         if (effectData.inflictsStun) target.hasToPassTurn = true;
@@ -39,9 +38,9 @@ public class Effect
         if (effectData.changesValuesOnSender)
         {
             float coeff = actionEffect.CalculateCoeff(effectType);
-            actionEffect.UpdateCharacterValues(target, sender, origin, coeff, effectData.BGValueChangeSender, effectData.HPValueChangeSender, true);
+            actionEffect.UpdateCharacterValues(sender, sender, origin, coeff, effectData.BGValueChangeSender, effectData.HPValueChangeSender, true);
         }
-        if (effectData.effectOverTime && (!effectData.effectTimeDecreasesOnDamage && effectData.effectTimeDecreasesOnInteraction)) DecreaseEffectTime();
+        if ((effectData.effectOverTime && (!effectData.effectTimeDecreasesOnDamage && !effectData.effectTimeDecreasesOnInteraction)) || effectData.instantaneousEffect) DecreaseEffectTime();
     }
 
     public void DecreaseEffectTime()

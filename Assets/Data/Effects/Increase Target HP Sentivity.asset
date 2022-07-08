@@ -24,7 +24,7 @@ MonoBehaviour:
   BGValueChange: 0
   setsSensitivity: 1
   HPValueChangeSensitivity: 150
-  BGValueChangeSensitivity: 0
+  BGValueChangeSensitivity: 100
   changesValuesOnSender: 0
   HPValueChangeSender: 0
   BGValueChangeSender: 0

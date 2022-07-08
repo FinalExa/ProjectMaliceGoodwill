@@ -22,14 +22,14 @@ public class ActionEffect : MonoBehaviour
             if (!senderIncluded && target == sender)
             {
                 print("there");
-                EffectsCheck(sender, sender, chosenAction, coeff, chosenAction.severity, 0f);
+                EffectsCheck(sender, sender, chosenAction, coeff, chosenAction.severity, 0f, isSpectator);
             }
-            else if (target != sender || (senderIncluded && target == sender)) EffectsCheck(target, sender, chosenAction, coeff, chosenAction.severity, chosenAction.hpValueChange);
+            else if (target != sender || (senderIncluded && target == sender)) EffectsCheck(target, sender, chosenAction, coeff, chosenAction.severity, chosenAction.hpValueChange, isSpectator);
             if (!chosenAction.targetsGroups) turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " receives " + chosenAction.actionName + " from " + turn.currentCharacter.characterData.characterStats.characterName + "!");
             else turn.battleText.UpdateBattleText(target.characterData.characterStats.characterName + " uses " + chosenAction.actionName + " on " + groupAttackName);
             turn.StopTurn();
         }
-        else if (chosenAction.isSeen && isSpectator) EffectsCheck(target, sender, chosenAction, coeff, chosenAction.severitySpectator, 0f);
+        else if (chosenAction.isSeen && isSpectator) EffectsCheck(target, sender, chosenAction, coeff, chosenAction.severitySpectator, 0f, isSpectator);
         if (targetInfo.currentHP <= 0) target.SetDead();
         if (targetInfo.BGCurrentValue == 0) target.EnterPerdition();
         else if (targetInfo.BGCurrentValue == gameData.BGMaxValue) target.CheckGood();
@@ -63,8 +63,9 @@ public class ActionEffect : MonoBehaviour
                     turns = true;
                     duration = data.effectTurns;
                 }
-                Effect effectToAdd = new Effect(this, data, target, sender, data.instantaneousEffect, turns, duration, chosenAction.type.actionType, chosenAction);
+                Effect effectToAdd = new Effect(this, data, target, sender, turns, duration, chosenAction.type.actionType, chosenAction);
                 target.appliedEffects.Add(effectToAdd);
+                if (effectToAdd.effectData.instantaneousEffect) effectToAdd.ExecuteEffect();
             }
         }
     }
@@ -82,7 +83,7 @@ public class ActionEffect : MonoBehaviour
         return coeff;
     }
 
-    public void EffectsCheck(Character target, Character sender, Action chosenAction, float coeff, float BGValue, float HPValue)
+    public void EffectsCheck(Character target, Character sender, Action chosenAction, float coeff, float BGValue, float HPValue, bool spectator)
     {
         bool damageTaken = false;
         if (HPValue < 0f) damageTaken = true;
@@ -103,24 +104,30 @@ public class ActionEffect : MonoBehaviour
                 break;
             }
         }
-        UpdateCharacterValues(target, sender, chosenAction, coeff, BGValue, HPValue, false);
+        UpdateCharacterValues(target, sender, chosenAction, coeff, BGValue, HPValue, spectator);
         for (int i = 0; i < target.appliedEffects.Count; i++)
         {
             if (target.appliedEffects[i].effectData.effectTimeDecreasesOnInteraction || (target.appliedEffects[i].effectData.effectTimeDecreasesOnDamage && damageTaken)) target.appliedEffects[i].DecreaseEffectTime();
         }
     }
 
-    public void UpdateCharacterValues(Character target, Character sender, Action chosenAction, float coeff, float BGValue, float HPValue, bool isEffect)
+    public void UpdateCharacterValues(Character target, Character sender, Action chosenAction, float coeff, float BGValue, float HPValue, bool dontRollEffect)
     {
         CharacterStats targetStats = target.characterData.characterStats;
+        target.ValueChangeSensitivity();
         if (!target.perdition)
         {
-            targetStats.BGCurrentValue += BGValue * coeff;
+            targetStats.BGCurrentValue += BGValue * coeff * target.BGMultiplier;
             targetStats.BGCurrentValue = Mathf.Clamp(targetStats.BGCurrentValue, gameData.BGMinValue, gameData.BGMaxValue);
         }
-        targetStats.currentHP += HPValue;
+        targetStats.currentHP += HPValue * target.HPMultiplier;
         targetStats.currentHP = Mathf.Clamp(targetStats.currentHP, 0, targetStats.maxHP);
-        if (chosenAction.hasEffect && chosenAction.actionEffect != null && !isEffect) TargetEffectRollAndAdd(target, sender, chosenAction);
+        if (chosenAction.hasEffect && chosenAction.actionEffect != null && !dontRollEffect) TargetEffectRollAndAdd(target, sender, chosenAction);
         target.UpdateAllBars();
+    }
+
+    public void RemoveEffect(Effect effect, Character target)
+    {
+        target.appliedEffects.Remove(effect);
     }
 }

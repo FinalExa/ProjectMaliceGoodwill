@@ -96,12 +96,11 @@ public class Character : MonoBehaviour
 
     private void ThisCharacterTurn()
     {
-        ValueChangeSensitivity();
         passageDone = true;
         turnIndicator.SetActive(true);
     }
 
-    private void ValueChangeSensitivity()
+    public void ValueChangeSensitivity()
     {
         float hpMultiplier = 1f;
         float bgMultiplier = 1f;
