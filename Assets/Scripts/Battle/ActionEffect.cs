@@ -120,7 +120,7 @@ public class ActionEffect : MonoBehaviour
         }
         targetStats.currentHP += HPValue;
         targetStats.currentHP = Mathf.Clamp(targetStats.currentHP, 0, targetStats.maxHP);
-        if (chosenAction.hasEffect && !isEffect) TargetEffectRollAndAdd(target, sender, chosenAction);
+        if (chosenAction.hasEffect && chosenAction.actionEffect != null && !isEffect) TargetEffectRollAndAdd(target, sender, chosenAction);
         target.UpdateAllBars();
     }
 }

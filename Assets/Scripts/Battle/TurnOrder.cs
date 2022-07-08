@@ -46,6 +46,7 @@ public class TurnOrder : MonoBehaviour
     {
         currentCharacter = characterOrder[turnIndex];
         currentCharacter.isLocked = false;
+        currentCharacter.passageDone = false;
     }
 
     private void ComposeList(List<Character> arrayToAdd)
@@ -62,6 +63,7 @@ public class TurnOrder : MonoBehaviour
         if (turnWaitTime > 0) turnWaitTime -= Time.deltaTime;
         else
         {
+            currentCharacter.isLocked = true;
             if (turnIndex + 1 < characterOrder.Count) turnIndex++;
             else turnIndex = 0;
             SetCurrentCharacter();

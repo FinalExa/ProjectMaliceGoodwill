@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Effect
 {
     public Effect(ActionEffect actionEffectReference, EffectData data, Character effectTarget, Character effectSender, bool instantaneous, bool overTime, float duration, Type.ActionType actionType, Action actionOrigin)

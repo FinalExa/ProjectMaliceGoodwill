@@ -40,6 +40,7 @@ public class Turn : MonoBehaviour
     private void Start()
     {
         continueDialogueButton.SetActive(false);
+        battleText.UpdateBattleText("Battle Start");
         targets = new List<Character>();
     }
 
@@ -52,7 +53,11 @@ public class Turn : MonoBehaviour
 
     private void SetCurrentCharacter()
     {
-        if (currentCharacter != turnOrder.currentCharacter) currentCharacter = turnOrder.currentCharacter;
+        if (currentCharacter != turnOrder.currentCharacter)
+        {
+            currentCharacter = turnOrder.currentCharacter;
+            StopTurn();
+        }
     }
 
     private void TurnOperations()
@@ -69,6 +74,7 @@ public class Turn : MonoBehaviour
                 }
             }
             else perditionTurn.PerditionStartup(currentCharacter);
+            stop = true;
         }
         else PassTurn();
     }
@@ -125,8 +131,7 @@ public class Turn : MonoBehaviour
     {
         currentCharacter.turnIndicator.SetActive(false);
         endBattleConditions.CheckForVictoryConditions();
-        currentCharacter.isLocked = true;
-        currentCharacter.passageDone = false;
+        populateDropdowns.TurnAllOff();
         turnOrder.turnWait = true;
     }
 
