@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Good on Target Over Time
   m_EditorClassIdentifier: 
   effectName: Good on Target Over Time
+  effectDescription: Increments B/G bar for the specified amount of turns.
   effectTriggerChance: 90
   instantaneousEffect: 0
   effectOverTime: 1

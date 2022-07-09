@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Increase Target both sensitivities
   m_EditorClassIdentifier: 
   effectName: Increase Target both sensitivities
+  effectDescription: Increases damage and B/G sensitivity.
   effectTriggerChance: 70
   instantaneousEffect: 0
   effectOverTime: 1

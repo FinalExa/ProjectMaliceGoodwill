@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Increase Target HP Sentivity
   m_EditorClassIdentifier: 
   effectName: Increase Target HP Sentivity
+  effectDescription: Increases target HP sensitivity.
   effectTriggerChance: 80
   instantaneousEffect: 0
   effectOverTime: 1

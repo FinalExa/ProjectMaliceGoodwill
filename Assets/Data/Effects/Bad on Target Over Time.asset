@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aeb5c7255c0fc2479ea0fecbe7b355b, type: 3}
-  m_Name: Bad on Taget Over Time
+  m_Name: Bad on Target Over Time
   m_EditorClassIdentifier: 
-  effectName: Bad on Taget Over Time
+  effectName: Bad on Target Over Time
+  effectDescription: Lowers B/G bar for the specified amount of turns.
   effectTriggerChance: 90
   instantaneousEffect: 0
   effectOverTime: 1

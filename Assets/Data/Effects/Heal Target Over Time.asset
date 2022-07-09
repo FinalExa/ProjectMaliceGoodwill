@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Heal Target Over Time
   m_EditorClassIdentifier: 
   effectName: Heal Target Over Time
+  effectDescription: Heals Target HP over the duration.
   effectTriggerChance: 100
   instantaneousEffect: 0
   effectOverTime: 1

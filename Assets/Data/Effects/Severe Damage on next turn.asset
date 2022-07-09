@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Severe Damage on next turn
   m_EditorClassIdentifier: 
   effectName: Severe Damage on next turn
+  effectDescription: This character is going to receive severe damage when its turn
+    comes.
   effectTriggerChance: 90
   instantaneousEffect: 0
   effectOverTime: 1

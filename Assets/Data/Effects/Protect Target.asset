@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Protect Target
   m_EditorClassIdentifier: 
   effectName: Protect Target
-  effectDescription: 
+  effectDescription: The user is protected of physical damage, this effect will expire
+    after receiving two instances of attempted damage on this character.
   effectTriggerChance: 100
   instantaneousEffect: 0
   effectOverTime: 1

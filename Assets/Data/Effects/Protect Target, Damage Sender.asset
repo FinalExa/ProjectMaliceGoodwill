@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Protect Target, Damage Sender
   m_EditorClassIdentifier: 
   effectName: Protect Target, Damage Sender
+  effectDescription: Each time the character affected by this is damaged, the one
+    who used the Action is damaged by a fixed amount.
   effectTriggerChance: 100
   instantaneousEffect: 0
   effectOverTime: 1

@@ -781,10 +781,6 @@ PrefabInstance:
       propertyPath: characterData
       value: 
       objectReference: {fileID: 11400000, guid: c36aeb7f592c6ba4e825598470be8f58, type: 2}
-    - target: {fileID: 2574888675900521737, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
-      propertyPath: characterStats.characterName
-      value: Fred
-      objectReference: {fileID: 0}
     - target: {fileID: 2862970230696333839, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -792,18 +788,6 @@ PrefabInstance:
     - target: {fileID: 3747713815329126650, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
       propertyPath: m_Name
       value: Nolan
-      objectReference: {fileID: 0}
-    - target: {fileID: 8688756775159860800, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8688756775159860800, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8688756775159860800, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
-      propertyPath: m_Color.r
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9212782253358223253, guid: 97944777ff8d6a94395ca7e5c58c90a5, type: 3}
       propertyPath: m_AnchorMax.y

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField] private CharacterUI characterUI;
+    [SerializeField] private EffectFeedback effectFeedback;
     private Turn turn;
     public GameObject turnIndicator;
     [SerializeField] private GameObject perditionSymbol;
@@ -37,6 +38,7 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
+        effectFeedback.gameObject.SetActive(false);
         characterData.characterStats.SetStatsStartup();
         CharacterSymbolsOff();
         CreateThisCharacterLists();
@@ -76,6 +78,16 @@ public class Character : MonoBehaviour
 
     private void TurnCheck()
     {
+        if (overTimeEffect.effectData != null)
+        {
+            effectFeedback.effect = overTimeEffect;
+            effectFeedback.gameObject.SetActive(true);
+        }
+        else
+        {
+            effectFeedback.effect = null;
+            effectFeedback.gameObject.SetActive(false);
+        }
         if (overTimeEffect.effectData != null && overTimeEffect.canBeRemoved) overTimeEffect.effectData = null;
         if (isLocked && hasToPassTurn) hasToPassTurn = false;
         if (isLocked && effectDoneForThisTurn) effectDoneForThisTurn = false;

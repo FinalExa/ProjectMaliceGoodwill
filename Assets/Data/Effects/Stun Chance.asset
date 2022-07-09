@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Stun Chance
   m_EditorClassIdentifier: 
   effectName: Stun Chance
-  effectDescription: 
+  effectDescription: This character is stunned, for the indicated amount of time
+    it will simply skip its turns.
   effectTriggerChance: 30
   instantaneousEffect: 0
   effectOverTime: 1
