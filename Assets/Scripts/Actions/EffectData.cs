@@ -6,6 +6,7 @@ using UnityEngine;
 public class EffectData : ScriptableObject
 {
     public string effectName;
+    public string effectDescription;
     public float effectTriggerChance;
     public bool instantaneousEffect;
     public bool effectOverTime;

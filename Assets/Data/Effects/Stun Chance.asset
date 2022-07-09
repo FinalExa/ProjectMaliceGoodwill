@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stun Chance
   m_EditorClassIdentifier: 
   effectName: Stun Chance
-  effectTriggerChance: 30
+  effectTriggerChance: 100
   instantaneousEffect: 0
   effectOverTime: 1
   effectTurns: 2

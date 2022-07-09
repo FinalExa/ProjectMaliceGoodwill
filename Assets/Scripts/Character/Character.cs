@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public bool isLocked;
     [HideInInspector] public List<Character> thisCharacterAllies;
     [HideInInspector] public List<Character> thisCharacterEnemies;
-    public List<Effect> appliedEffects;
+    public Effect overTimeEffect;
     public bool hasToPassTurn;
     [HideInInspector] public bool isShieldedFromDamage;
     [HideInInspector] public bool isShieldedFromEverything;
@@ -104,13 +104,10 @@ public class Character : MonoBehaviour
     {
         float hpMultiplier = 1f;
         float bgMultiplier = 1f;
-        foreach (Effect effect in appliedEffects)
+        if (overTimeEffect.effectData != null && overTimeEffect.effectData.setsSensitivity)
         {
-            if (effect.effectData.setsSensitivity)
-            {
-                hpMultiplier *= effect.effectData.HPValueChangeSensitivity / 100f;
-                bgMultiplier *= effect.effectData.BGValueChangeSensitivity / 100f;
-            }
+            hpMultiplier *= overTimeEffect.effectData.HPValueChangeSensitivity / 100f;
+            bgMultiplier *= overTimeEffect.effectData.BGValueChangeSensitivity / 100f;
         }
         HPMultiplier = hpMultiplier;
         BGMultiplier = bgMultiplier;
@@ -146,19 +143,14 @@ public class Character : MonoBehaviour
             foreach (Character ally in turn.turnOrder.enemyCharacters) if (ally != this) thisCharacterAllies.Add(ally);
             foreach (Character enemy in turn.turnOrder.playableCharacters) thisCharacterEnemies.Add(enemy);
         }
-        appliedEffects = new List<Effect>();
-        appliedEffects.Clear();
     }
 
     public void CharacterApplyEffects()
     {
-        if (!Dead)
+        if (!Dead && overTimeEffect != null)
         {
-            for (int i = 0; i < appliedEffects.Count; i++)
-            {
-                appliedEffects[i].ExecuteEffect();
-                if (appliedEffects[i].canBeRemoved) appliedEffects.Remove(appliedEffects[i]);
-            }
+            overTimeEffect.ExecuteEffect();
+            if (overTimeEffect.canBeRemoved) overTimeEffect.effectData = null;
         }
     }
 }

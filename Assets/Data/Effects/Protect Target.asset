@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Protect Target
   m_EditorClassIdentifier: 
   effectName: Protect Target
+  effectDescription: 
   effectTriggerChance: 100
   instantaneousEffect: 0
   effectOverTime: 1

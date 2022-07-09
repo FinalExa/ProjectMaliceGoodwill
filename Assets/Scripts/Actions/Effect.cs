@@ -5,13 +5,13 @@ using UnityEngine;
 [System.Serializable]
 public class Effect
 {
-    public Effect(ActionEffect actionEffectReference, EffectData data, Character effectTarget, Character effectSender, bool overTime, float duration, Type.ActionType actionType, Action actionOrigin)
+    public Effect(ActionEffect actionEffectReference, EffectData data, Character effectTarget, Character effectSender, bool overTime, float duration, Action actionOrigin)
     {
         actionEffect = actionEffectReference;
         effectData = data;
         target = effectTarget;
         sender = effectSender;
-        effectType = actionType;
+        effectType = actionOrigin.type.actionType;
         origin = actionOrigin;
         if (data.givesDamageBarrier) target.isShieldedFromDamage = true;
         else if (data.givesGlobalBarrier) target.isShieldedFromEverything = true;
@@ -29,18 +29,21 @@ public class Effect
     public Action origin;
     public void ExecuteEffect()
     {
-        if (effectData.inflictsStun) target.hasToPassTurn = true;
-        if (effectData.changesValuesOnTarget)
+        if (effectData != null)
         {
-            float coeff = actionEffect.CalculateCoeff(effectType);
-            actionEffect.UpdateCharacterValues(target, sender, origin, coeff, effectData.BGValueChange, effectData.HPValueChange, true);
+            if (effectData.inflictsStun) target.hasToPassTurn = true;
+            if (effectData.changesValuesOnTarget)
+            {
+                float coeff = actionEffect.CalculateCoeff(effectType);
+                actionEffect.UpdateCharacterValues(target, sender, origin, coeff, effectData.BGValueChange, effectData.HPValueChange, true);
+            }
+            if (effectData.changesValuesOnSender)
+            {
+                float coeff = actionEffect.CalculateCoeff(effectType);
+                actionEffect.UpdateCharacterValues(sender, sender, origin, coeff, effectData.BGValueChangeSender, effectData.HPValueChangeSender, true);
+            }
+            if ((effectData.effectOverTime && (!effectData.effectTimeDecreasesOnDamage && !effectData.effectTimeDecreasesOnInteraction)) || effectData.instantaneousEffect) DecreaseEffectTime();
         }
-        if (effectData.changesValuesOnSender)
-        {
-            float coeff = actionEffect.CalculateCoeff(effectType);
-            actionEffect.UpdateCharacterValues(sender, sender, origin, coeff, effectData.BGValueChangeSender, effectData.HPValueChangeSender, true);
-        }
-        if ((effectData.effectOverTime && (!effectData.effectTimeDecreasesOnDamage && !effectData.effectTimeDecreasesOnInteraction)) || effectData.instantaneousEffect) DecreaseEffectTime();
     }
 
     public void DecreaseEffectTime()
@@ -55,9 +58,7 @@ public class Effect
 
     private void RemoveEffect()
     {
-        if (effectData.givesDamageBarrier) target.isShieldedFromDamage = false;
-        if (effectData.givesGlobalBarrier) target.isShieldedFromEverything = false;
-        target.appliedEffects.Remove(this);
+        if (effectData.effectOverTime) canBeRemoved = true;
     }
 
     public void ShieldEnded()

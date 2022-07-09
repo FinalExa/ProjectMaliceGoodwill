@@ -62,9 +62,14 @@ public class Turn : MonoBehaviour
 
     private void TurnOperations()
     {
+        currentCharacter.CharacterApplyEffects();
+        if (currentCharacter.hasToPassTurn)
+        {
+            PassTurn();
+            return;
+        }
         if (!currentCharacter.Dead)
         {
-            currentCharacter.CharacterApplyEffects();
             if (!currentCharacter.perdition)
             {
                 if (!currentCharacter.characterData.isAI) PlayableCharacterTurn();

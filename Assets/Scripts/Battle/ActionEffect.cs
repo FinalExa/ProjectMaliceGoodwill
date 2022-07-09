@@ -40,18 +40,8 @@ public class ActionEffect : MonoBehaviour
     {
         EffectData data = chosenAction.actionEffect;
         bool check = false;
-        if (data.givesDamageBarrier || data.givesGlobalBarrier)
-        {
-            foreach (Effect effect in target.appliedEffects)
-            {
-                if ((effect.effectData.givesDamageBarrier || effect.effectData.givesGlobalBarrier) || effect.effectData == chosenAction.actionEffect)
-                {
-                    check = true;
-                    break;
-                }
-            }
-        }
-        if (!check)
+        if ((data.effectOverTime && target.overTimeEffect.effectData == null) || (data.instantaneousEffect)) check = true;
+        if (check)
         {
             float roll = Random.Range(1f, 100f);
             if (roll <= data.effectTriggerChance)
@@ -63,8 +53,8 @@ public class ActionEffect : MonoBehaviour
                     turns = true;
                     duration = data.effectTurns;
                 }
-                Effect effectToAdd = new Effect(this, data, target, sender, turns, duration, chosenAction.type.actionType, chosenAction);
-                target.appliedEffects.Add(effectToAdd);
+                Effect effectToAdd = new Effect(this, data, target, sender, turns, duration, chosenAction);
+                if (data.effectOverTime) target.overTimeEffect = effectToAdd;
                 if (effectToAdd.effectData.instantaneousEffect) effectToAdd.ExecuteEffect();
             }
         }
@@ -87,27 +77,29 @@ public class ActionEffect : MonoBehaviour
     {
         bool damageTaken = false;
         if (HPValue < 0f) damageTaken = true;
-        foreach (Effect effect in target.appliedEffects)
+        Effect effectToCheck = target.overTimeEffect;
+        if (effectToCheck.effectData != null)
         {
-            if (effect.effectData.givesDamageBarrier || effect.effectData.givesGlobalBarrier)
+            if (effectToCheck.effectData.givesDamageBarrier || effectToCheck.effectData.givesGlobalBarrier)
             {
-                if (effect.effectData.givesDamageBarrier)
+                if (effectToCheck.effectData.givesDamageBarrier)
                 {
                     if (HPValue < 0) HPValue = 0f;
                     if (target.isShieldedFromSeverity && coeff < 0) BGValue = 0f;
                 }
-                else if (effect.effectData.givesGlobalBarrier)
+                else if (effectToCheck.effectData.givesGlobalBarrier)
                 {
                     HPValue = 0f;
                     if (target.isShieldedFromSeverity) BGValue = 0f;
                 }
-                break;
             }
         }
         UpdateCharacterValues(target, sender, chosenAction, coeff, BGValue, HPValue, spectator);
-        for (int i = 0; i < target.appliedEffects.Count; i++)
+        if (effectToCheck.effectData != null &&
+            (target.overTimeEffect.effectData.effectTimeDecreasesOnInteraction ||
+            (target.overTimeEffect.effectData.effectTimeDecreasesOnDamage && damageTaken)))
         {
-            if (target.appliedEffects[i].effectData.effectTimeDecreasesOnInteraction || (target.appliedEffects[i].effectData.effectTimeDecreasesOnDamage && damageTaken)) target.appliedEffects[i].DecreaseEffectTime();
+            target.overTimeEffect.DecreaseEffectTime();
         }
     }
 
@@ -124,10 +116,5 @@ public class ActionEffect : MonoBehaviour
         targetStats.currentHP = Mathf.Clamp(targetStats.currentHP, 0, targetStats.maxHP);
         if (chosenAction.hasEffect && chosenAction.actionEffect != null && !dontRollEffect) TargetEffectRollAndAdd(target, sender, chosenAction);
         target.UpdateAllBars();
-    }
-
-    public void RemoveEffect(Effect effect, Character target)
-    {
-        target.appliedEffects.Remove(effect);
     }
 }
