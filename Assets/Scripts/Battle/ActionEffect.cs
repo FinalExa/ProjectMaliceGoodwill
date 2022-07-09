@@ -95,10 +95,11 @@ public class ActionEffect : MonoBehaviour
             }
         }
         UpdateCharacterValues(target, sender, chosenAction, coeff, BGValue, HPValue, spectator);
-        if (effectToCheck.effectData != null &&
+        if (effectToCheck.effectData != null && !spectator &&
             (target.overTimeEffect.effectData.effectTimeDecreasesOnInteraction ||
             (target.overTimeEffect.effectData.effectTimeDecreasesOnDamage && damageTaken)))
         {
+            target.overTimeEffect.ExecuteEffect();
             target.overTimeEffect.DecreaseEffectTime();
         }
     }

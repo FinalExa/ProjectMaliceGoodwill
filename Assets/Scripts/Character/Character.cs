@@ -22,6 +22,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public List<Character> thisCharacterEnemies;
     public Effect overTimeEffect;
     public bool hasToPassTurn;
+    public bool effectDoneForThisTurn;
     [HideInInspector] public bool isShieldedFromDamage;
     [HideInInspector] public bool isShieldedFromEverything;
     [HideInInspector] public bool isShieldedFromSeverity;
@@ -75,23 +76,15 @@ public class Character : MonoBehaviour
 
     private void TurnCheck()
     {
+        if (overTimeEffect.effectData != null && overTimeEffect.canBeRemoved) overTimeEffect.effectData = null;
+        if (isLocked && hasToPassTurn) hasToPassTurn = false;
+        if (isLocked && effectDoneForThisTurn) effectDoneForThisTurn = false;
         if (Dead && perditionSymbol.activeSelf) perditionSymbol.SetActive(false);
         if (!isLocked && !passageDone)
         {
             ThisCharacterTurn();
-            if (hasToPassTurn) CharacterEndTurn();
-            else
-            {
-                if (characterData.characterStats.currentHP <= 0) SetDead();
-            }
+            if (characterData.characterStats.currentHP <= 0) SetDead();
         }
-    }
-
-    private void CharacterEndTurn()
-    {
-        hasToPassTurn = false;
-        turn.ContinueTurn();
-        turn.PassTurn();
     }
 
     private void ThisCharacterTurn()
@@ -147,10 +140,14 @@ public class Character : MonoBehaviour
 
     public void CharacterApplyEffects()
     {
-        if (!Dead && overTimeEffect != null)
+        if ((overTimeEffect.effectData.effectOverTime && !overTimeEffect.effectData.effectTimeDecreasesOnDamage && !overTimeEffect.effectData.effectTimeDecreasesOnInteraction))
         {
             overTimeEffect.ExecuteEffect();
-            if (overTimeEffect.canBeRemoved) overTimeEffect.effectData = null;
+            if (overTimeEffect.canBeRemoved)
+            {
+                overTimeEffect.effectData = null;
+                overTimeEffect.canBeRemoved = false;
+            }
         }
     }
 }

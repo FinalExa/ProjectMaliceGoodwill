@@ -62,7 +62,11 @@ public class Turn : MonoBehaviour
 
     private void TurnOperations()
     {
-        currentCharacter.CharacterApplyEffects();
+        if (!currentCharacter.effectDoneForThisTurn && !currentCharacter.Dead && currentCharacter.overTimeEffect.effectData != null)
+        {
+            currentCharacter.CharacterApplyEffects();
+            currentCharacter.effectDoneForThisTurn = true;
+        }
         if (currentCharacter.hasToPassTurn)
         {
             PassTurn();
@@ -73,10 +77,7 @@ public class Turn : MonoBehaviour
             if (!currentCharacter.perdition)
             {
                 if (!currentCharacter.characterData.isAI) PlayableCharacterTurn();
-                else
-                {
-                    aiTurn.AIStartup(currentCharacter);
-                }
+                else aiTurn.AIStartup(currentCharacter);
             }
             else perditionTurn.PerditionStartup(currentCharacter);
             stop = true;

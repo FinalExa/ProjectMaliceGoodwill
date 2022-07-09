@@ -18,7 +18,7 @@ MonoBehaviour:
     BGStartPoint: 50
     BGCurrentValue: 50
     maxHP: 90
-    currentHP: 100
+    currentHP: 90
   characterTraits: 010000000600000000000000
   characterActions:
   - action: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
@@ -57,6 +57,9 @@ MonoBehaviour:
   - action: {fileID: 11400000, guid: 6462a776fa3e2ce4aa42b815db6c9376, type: 2}
     BGMinValue: 0
     BGMaxValue: 40
+  - action: {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 100
   isAI: 0
   actionSequences: []
   thisCharacter: {fileID: 0}

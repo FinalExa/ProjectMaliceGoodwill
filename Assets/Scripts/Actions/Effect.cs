@@ -7,6 +7,7 @@ public class Effect
 {
     public Effect(ActionEffect actionEffectReference, EffectData data, Character effectTarget, Character effectSender, bool overTime, float duration, Action actionOrigin)
     {
+        canBeRemoved = false;
         actionEffect = actionEffectReference;
         effectData = data;
         target = effectTarget;
@@ -29,21 +30,18 @@ public class Effect
     public Action origin;
     public void ExecuteEffect()
     {
-        if (effectData != null)
+        if (effectData.inflictsStun) target.hasToPassTurn = true;
+        if (effectData.changesValuesOnTarget)
         {
-            if (effectData.inflictsStun) target.hasToPassTurn = true;
-            if (effectData.changesValuesOnTarget)
-            {
-                float coeff = actionEffect.CalculateCoeff(effectType);
-                actionEffect.UpdateCharacterValues(target, sender, origin, coeff, effectData.BGValueChange, effectData.HPValueChange, true);
-            }
-            if (effectData.changesValuesOnSender)
-            {
-                float coeff = actionEffect.CalculateCoeff(effectType);
-                actionEffect.UpdateCharacterValues(sender, sender, origin, coeff, effectData.BGValueChangeSender, effectData.HPValueChangeSender, true);
-            }
-            if ((effectData.effectOverTime && (!effectData.effectTimeDecreasesOnDamage && !effectData.effectTimeDecreasesOnInteraction)) || effectData.instantaneousEffect) DecreaseEffectTime();
+            float coeff = actionEffect.CalculateCoeff(effectType);
+            actionEffect.UpdateCharacterValues(target, sender, origin, coeff, effectData.BGValueChange, effectData.HPValueChange, true);
         }
+        if (effectData.changesValuesOnSender)
+        {
+            float coeff = actionEffect.CalculateCoeff(effectType);
+            actionEffect.UpdateCharacterValues(sender, sender, origin, coeff, effectData.BGValueChangeSender, effectData.HPValueChangeSender, true);
+        }
+        if ((effectData.effectOverTime && (!effectData.effectTimeDecreasesOnDamage && !effectData.effectTimeDecreasesOnInteraction)) || effectData.instantaneousEffect) DecreaseEffectTime();
     }
 
     public void DecreaseEffectTime()
