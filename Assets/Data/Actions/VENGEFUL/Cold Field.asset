@@ -15,8 +15,8 @@ MonoBehaviour:
   actionName: Cold Field
   type:
     actionType: 0
-  severity: 10
-  severitySpectator: 4
+  severity: 5
+  severitySpectator: 3
   hpValueChange: -18
   canTargetOthers: 0
   canTargetSelf: 0

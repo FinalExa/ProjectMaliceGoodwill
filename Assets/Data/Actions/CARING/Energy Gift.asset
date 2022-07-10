@@ -15,8 +15,8 @@ MonoBehaviour:
   actionName: Energy Gift
   type:
     actionType: 1
-  severity: 10
-  severitySpectator: 4
+  severity: 5
+  severitySpectator: 3
   hpValueChange: 30
   canTargetOthers: 1
   canTargetSelf: 0

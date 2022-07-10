@@ -17,7 +17,7 @@ MonoBehaviour:
     characterColor: {r: 0, g: 0, b: 1, a: 1}
     BGStartPoint: 50
     BGCurrentValue: 50
-    maxHP: 90
+    maxHP: 80
     currentHP: 90
   characterTraits: 010000000600000000000000
   characterActions:

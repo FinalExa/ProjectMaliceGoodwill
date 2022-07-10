@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
-  m_Name: Spirit Up
+  m_Name: Mass Positivity
   m_EditorClassIdentifier: 
-  actionName: Spirit Up
+  actionName: Mass Positive Influence
   type:
     actionType: 1
   severity: 10
   severitySpectator: 4
-  hpValueChange: 6
+  hpValueChange: 0
   canTargetOthers: 0
-  canTargetSelf: 1
-  targetsGroups: 0
+  canTargetSelf: 0
+  targetsGroups: 1
   hitsEnemyGroup: 0
   hitsAllyGroupSelfExcluded: 0
   hitsAllyGroupSelfIncluded: 0
-  hitsAllOthers: 0
+  hitsAllOthers: 1
   hitsEveryone: 0
   isSeen: 1
   hasEffect: 0

@@ -15,8 +15,8 @@ MonoBehaviour:
   actionName: Powered Punch Series
   type:
     actionType: 0
-  severity: 20
-  severitySpectator: 8
+  severity: 15
+  severitySpectator: 5
   hpValueChange: -34
   canTargetOthers: 1
   canTargetSelf: 0

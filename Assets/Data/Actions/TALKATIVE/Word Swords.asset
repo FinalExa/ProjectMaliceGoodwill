@@ -15,8 +15,8 @@ MonoBehaviour:
   actionName: Word Swords
   type:
     actionType: 0
-  severity: 10
-  severitySpectator: 4
+  severity: 5
+  severitySpectator: 3
   hpValueChange: -24
   canTargetOthers: 1
   canTargetSelf: 0

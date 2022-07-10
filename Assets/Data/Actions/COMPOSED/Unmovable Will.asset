@@ -15,8 +15,8 @@ MonoBehaviour:
   actionName: Unmovable Will
   type:
     actionType: 1
-  severity: 15
-  severitySpectator: 5
+  severity: 10
+  severitySpectator: 4
   hpValueChange: 0
   canTargetOthers: 0
   canTargetSelf: 1
