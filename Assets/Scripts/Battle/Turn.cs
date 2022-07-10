@@ -173,7 +173,16 @@ public class Turn : MonoBehaviour
             senderIncluded = true;
         }
         actionEffect.groupAttackName = multiTargetingOption;
-        foreach (Character target in targets) actionEffect.UpdateValues(target, currentCharacter, chosenAction, false, senderIncluded);
+        bool checkIfExisting = false;
+        foreach (Character target in targets)
+        {
+            if (turnOrder.characterOrder.Contains(target))
+            {
+                actionEffect.UpdateValues(target, currentCharacter, chosenAction, false, senderIncluded);
+                checkIfExisting = true;
+            }
+        }
+        if (!checkIfExisting) battleText.UpdateBattleText(currentCharacter.characterData.characterStats.characterName + " failed to execute " + chosenAction.actionName + " on " + multiTargetingOption);
     }
 
     private void ActionOnSpectators()
@@ -191,19 +200,12 @@ public class Turn : MonoBehaviour
     {
         for (int i = 0; i < turnOrder.characterOrder.Count; i++)
         {
-            bool isATarget = false;
-            for (int y = 0; y < targets.Count; y++)
-            {
-                if (turnOrder.characterOrder[i] == targets[y])
-                {
-                    isATarget = true;
-                    break;
-                }
-            }
-            if (!isATarget)
+            if (!targets.Contains(turnOrder.characterOrder[i]))
             {
                 actionEffect.UpdateValues(turnOrder.characterOrder[i], currentCharacter, chosenAction, true, senderIncluded);
+                break;
             }
         }
     }
 }
+
