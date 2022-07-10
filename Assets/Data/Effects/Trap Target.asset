@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Trap Target
   m_EditorClassIdentifier: 
   effectName: Trap Target
-  effectDescription: The character affected by this is protected by any kind of damage
-    (HP or B/G), but it's stunned and receives damage every time its turn starts.
+  effectDescription: The character affected by this is protected from damage (HP
+    or B/G), but it's stunned and receives damage every time its turn starts.
   effectTriggerChance: 50
   instantaneousEffect: 0
   effectOverTime: 1

@@ -16,9 +16,9 @@ MonoBehaviour:
     characterName: Ruth
     characterColor: {r: 1, g: 0, b: 0, a: 1}
     BGStartPoint: 50
-    BGCurrentValue: 45
+    BGCurrentValue: 51.5
     maxHP: 120
-    currentHP: 0
+    currentHP: 120
   characterTraits: 030000000100000002000000
   characterActions:
   - action: {fileID: 11400000, guid: 50d34d68d4907f84cb6f7a53cb0a32b2, type: 2}
@@ -63,29 +63,35 @@ MonoBehaviour:
     MGMaxRange: 25
     actionOrderRange:
     - actionToDo: {fileID: 11400000, guid: f7e5bfc2783cfa14f9b6268f3be77311, type: 2}
-      actionGroupTargeted: 1
+      actionGroupTargeted: 4
     - actionToDo: {fileID: 11400000, guid: 0e09cc39500a6284eb10230ba00bffc5, type: 2}
-      actionGroupTargeted: 1
+      actionGroupTargeted: 0
     actionOrderIndex: 0
   - MGMinRange: 26
     MGMaxRange: 50
     actionOrderRange:
     - actionToDo: {fileID: 11400000, guid: 6462a776fa3e2ce4aa42b815db6c9376, type: 2}
-      actionGroupTargeted: 4
-    - actionToDo: {fileID: 11400000, guid: 2fbb54bb44df1b74da58de081681724b, type: 2}
-      actionGroupTargeted: 5
+      actionGroupTargeted: 0
+    - actionToDo: {fileID: 11400000, guid: 60fa7e4881b07b846bcc1cf7a46a7929, type: 2}
+      actionGroupTargeted: 0
     actionOrderIndex: 0
   - MGMinRange: 51
     MGMaxRange: 75
     actionOrderRange:
     - actionToDo: {fileID: 11400000, guid: 777b13d0ef67fa14e94c523e26764b62, type: 2}
-      actionGroupTargeted: 5
+      actionGroupTargeted: 0
+    - actionToDo: {fileID: 11400000, guid: 777b13d0ef67fa14e94c523e26764b62, type: 2}
+      actionGroupTargeted: 0
+    - actionToDo: {fileID: 11400000, guid: 9b1619315e845d54ab8cd13bf603ccc3, type: 2}
+      actionGroupTargeted: 0
     actionOrderIndex: 0
   - MGMinRange: 76
     MGMaxRange: 100
     actionOrderRange:
+    - actionToDo: {fileID: 11400000, guid: 9b1619315e845d54ab8cd13bf603ccc3, type: 2}
+      actionGroupTargeted: 0
     - actionToDo: {fileID: 11400000, guid: 50d34d68d4907f84cb6f7a53cb0a32b2, type: 2}
-      actionGroupTargeted: 5
+      actionGroupTargeted: 0
     actionOrderIndex: 0
   thisCharacter: {fileID: 0}
   gameData: {fileID: 11400000, guid: 18c29b82a7e5f7e4b9576c862abf365d, type: 2}

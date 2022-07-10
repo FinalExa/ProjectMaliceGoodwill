@@ -17,7 +17,7 @@ MonoBehaviour:
     actionType: 1
   severity: 5
   severitySpectator: 3
-  hpValueChange: 10
+  hpValueChange: 20
   canTargetOthers: 1
   canTargetSelf: 0
   targetsGroups: 0

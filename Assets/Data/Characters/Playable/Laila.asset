@@ -16,9 +16,9 @@ MonoBehaviour:
     characterName: Laila
     characterColor: {r: 0, g: 0, b: 1, a: 1}
     BGStartPoint: 50
-    BGCurrentValue: 50
+    BGCurrentValue: 54
     maxHP: 80
-    currentHP: 90
+    currentHP: 80
   characterTraits: 010000000600000000000000
   characterActions:
   - action: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}

@@ -16,9 +16,9 @@ MonoBehaviour:
     characterName: Grein
     characterColor: {r: 1, g: 0.5019608, b: 0, a: 1}
     BGStartPoint: 50
-    BGCurrentValue: 70
+    BGCurrentValue: 50
     maxHP: 90
-    currentHP: 138
+    currentHP: 90
   characterTraits: 000000000500000006000000
   characterActions:
   - action: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
@@ -74,7 +74,7 @@ MonoBehaviour:
     actionOrderRange:
     - actionToDo: {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
       actionGroupTargeted: 0
-    - actionToDo: {fileID: 11400000, guid: fd36dd5a866be484c8b11801b06147b7, type: 2}
+    - actionToDo: {fileID: 11400000, guid: fa8ca7b8c786e3a4d9cdfa8cce7bfe34, type: 2}
       actionGroupTargeted: 0
     - actionToDo: {fileID: 11400000, guid: 33cff0012f94cea459168de1fffca9b3, type: 2}
       actionGroupTargeted: 0
@@ -83,8 +83,6 @@ MonoBehaviour:
     MGMaxRange: 100
     actionOrderRange:
     - actionToDo: {fileID: 11400000, guid: 969a44d20f8c9e849a55a3cbbb1a019b, type: 2}
-      actionGroupTargeted: 5
-    - actionToDo: {fileID: 11400000, guid: cb8e152b8165a534baeac19a8cf1f912, type: 2}
       actionGroupTargeted: 5
     - actionToDo: {fileID: 11400000, guid: cb8e152b8165a534baeac19a8cf1f912, type: 2}
       actionGroupTargeted: 5

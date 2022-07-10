@@ -23,7 +23,7 @@ MonoBehaviour:
   effectTimeDecreasesOnInteraction: 0
   changesValuesOnTarget: 1
   HPValueChange: -40
-  BGValueChange: 0
+  BGValueChange: 10
   setsSensitivity: 0
   HPValueChangeSensitivity: 100
   BGValueChangeSensitivity: 100
