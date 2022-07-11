@@ -3,29 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PopulateDropdowns : MonoBehaviour
+public class ActionTargetButtons : MonoBehaviour
 {
     [SerializeField] private Turn turn;
     [SerializeField] private GameObject targetsParent;
-    [SerializeField] private Dropdown targetsDropdown;
     [SerializeField] private ActionButton actionButtonRef;
+    [SerializeField] private TargetButton targetButtonRef;
     private List<ActionButton> actionButtons;
-    private GameObject actionsButtonParentCanvas;
-    [SerializeField] private string actionsButtonParentCanvasTag;
-    [SerializeField] private Vector3 actionButtonStartPos;
-    [SerializeField] private Vector3 actionButtonOffsetToAdd;
-    private Vector3 actionButtonCurrentPos;
-    public Action selectedAction;
+    private List<TargetButton> targetButtons;
+    private GameObject buttonParentCanvas;
+    [SerializeField] private string buttonParentCanvasTag;
+    [SerializeField] private Vector3 buttonStartPos;
+    [SerializeField] private Vector3 buttonOffsetToAdd;
+    private Vector3 buttonCurrentPos;
+    [HideInInspector] public Action selectedAction;
+    [HideInInspector] public Character selectedTarget;
+    [HideInInspector] public string selectedMultiTarget;
+    private List<string> groupNames;
 
     private void Start()
     {
-        actionsButtonParentCanvas = GameObject.FindGameObjectWithTag(actionsButtonParentCanvasTag);
+        groupNames = new List<string>();
+        buttonParentCanvas = GameObject.FindGameObjectWithTag(buttonParentCanvasTag);
         actionButtons = new List<ActionButton>();
+        targetButtons = new List<TargetButton>();
     }
 
     public void ActionPopulate()
     {
-        actionButtonCurrentPos = actionButtonStartPos;
+        buttonCurrentPos = buttonStartPos;
         actionButtons.Clear();
         List<Action> actionsList = new List<Action>();
         Character curCharacter = turn.currentCharacter;
@@ -37,11 +43,11 @@ public class PopulateDropdowns : MonoBehaviour
         }
         foreach (Action action in actionsList)
         {
-            ActionButton actionButton = Instantiate(actionButtonRef, actionsButtonParentCanvas.transform);
-            actionButton.GetComponent<RectTransform>().position = actionButtonCurrentPos;
-            actionButton.actionToActivate = action;
+            ActionButton actionButton = Instantiate(actionButtonRef, buttonParentCanvas.transform);
+            actionButton.GetComponent<RectTransform>().position = buttonCurrentPos;
+            actionButton.actionToSelect = action;
             actionButtons.Add(actionButton);
-            actionButtonCurrentPos += actionButtonOffsetToAdd;
+            buttonCurrentPos += buttonOffsetToAdd;
         }
     }
 
@@ -58,15 +64,21 @@ public class PopulateDropdowns : MonoBehaviour
 
     private void TargetPopulate()
     {
+        buttonCurrentPos = buttonStartPos;
+        targetButtons.Clear();
         targetsParent.SetActive(true);
         turn.possibleTargets.Clear();
         if (!turn.chosenAction.targetsGroups) SingleTargetList();
-        else MultiTargetList();
+        else
+        {
+            MultiTargetList();
+            MultiTargetButtons();
+        }
     }
 
     private void SingleTargetList()
     {
-        List<string> possibleTargetsNames = new List<string>();
+        List<Character> possibleTargetsNames = new List<Character>();
         possibleTargetsNames.Clear();
         if (turn.chosenAction.canTargetOthers)
         {
@@ -75,63 +87,73 @@ public class PopulateDropdowns : MonoBehaviour
                 if (!other.Dead && other != turn.currentCharacter)
                 {
                     turn.possibleTargets.Add(other);
-                    possibleTargetsNames.Add(other.characterData.characterStats.characterName);
                 }
             }
         }
-        if (turn.chosenAction.canTargetSelf)
+        if (turn.chosenAction.canTargetSelf) turn.possibleTargets.Add(turn.currentCharacter);
+        foreach (Character character in turn.possibleTargets)
         {
-            turn.possibleTargets.Add(turn.currentCharacter);
-            possibleTargetsNames.Add(turn.currentCharacter.characterData.characterStats.characterName);
+            TargetButton targetButton = Instantiate(targetButtonRef, buttonParentCanvas.transform);
+            targetButton.GetComponent<RectTransform>().position = buttonCurrentPos;
+            targetButton.targetToSelect = character;
+            targetButtons.Add(targetButton);
+            buttonCurrentPos += buttonOffsetToAdd;
         }
-        EndTargeting(possibleTargetsNames);
     }
 
     private void MultiTargetList()
     {
-        List<string> groupNames = new List<string>();
         groupNames.Clear();
         if (turn.chosenAction.hitsEveryone)
         {
             groupNames.Add("Everyone");
-            EndTargeting(groupNames);
             return;
         }
         if (turn.chosenAction.hitsAllOthers)
         {
             groupNames.Add("Others");
-            EndTargeting(groupNames);
             return;
         }
         if (turn.chosenAction.hitsEnemyGroup) groupNames.Add("Enemies");
         if (turn.chosenAction.hitsAllyGroupSelfExcluded)
         {
             groupNames.Add("Allies");
-            EndTargeting(groupNames);
             return;
         }
         if (turn.chosenAction.hitsAllyGroupSelfIncluded)
         {
             groupNames.Add("Party");
-            EndTargeting(groupNames);
             return;
         }
-        EndTargeting(groupNames);
     }
 
-    private void EndTargeting(List<string> targetsList)
+    private void MultiTargetButtons()
     {
-        targetsDropdown.ClearOptions();
-        targetsDropdown.AddOptions(targetsList);
+        foreach (string name in groupNames)
+        {
+            TargetButton targetButton = Instantiate(targetButtonRef, buttonParentCanvas.transform);
+            targetButton.GetComponent<RectTransform>().position = buttonCurrentPos;
+            targetButton.multiTargetToSelect = name;
+            targetButton.isMultiTarget = true;
+            targetButtons.Add(targetButton);
+            buttonCurrentPos += buttonOffsetToAdd;
+        }
     }
 
     public void TargetConfirm()
     {
-        if (!turn.chosenAction.targetsGroups) turn.target = turn.possibleTargets[targetsDropdown.value];
-        else turn.multiTargetingOption = targetsDropdown.options[targetsDropdown.value].text;
+        if (!turn.chosenAction.targetsGroups) { turn.target = selectedTarget; }
+        else turn.multiTargetingOption = selectedMultiTarget;
+        RemoveTargetButtons();
+        targetButtons.Clear();
         turn.ActionDoneOnTarget();
         targetsParent.SetActive(false);
         turn.PassTurn();
+    }
+
+    public void RemoveTargetButtons()
+    {
+        foreach (TargetButton targetButton in targetButtons) GameObject.Destroy(targetButton.gameObject);
     }
 
     public void TurnAllOff()
@@ -141,7 +163,8 @@ public class PopulateDropdowns : MonoBehaviour
 
     public void BackToAction()
     {
-        targetsParent.SetActive(false);
+        TurnAllOff();
+        RemoveTargetButtons();
         ActionPopulate();
     }
 }

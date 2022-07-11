@@ -15,7 +15,7 @@ public class Turn : MonoBehaviour
     [HideInInspector] public Action chosenAction;
     [HideInInspector] public bool stop;
     [HideInInspector] public TurnOrder turnOrder;
-    [HideInInspector] public PopulateDropdowns populateDropdowns;
+    [HideInInspector] public ActionTargetButtons actionTargetButtons;
     [HideInInspector] public BattleText battleText;
     [SerializeField] private GameObject continueDialogueButton;
     private ActionEffect actionEffect;
@@ -29,7 +29,7 @@ public class Turn : MonoBehaviour
     private void Awake()
     {
         turnOrder = this.gameObject.GetComponent<TurnOrder>();
-        populateDropdowns = this.gameObject.GetComponent<PopulateDropdowns>();
+        actionTargetButtons = this.gameObject.GetComponent<ActionTargetButtons>();
         actionEffect = this.gameObject.GetComponent<ActionEffect>();
         aiTurn = this.gameObject.GetComponent<AITurn>();
         perditionTurn = this.gameObject.GetComponent<PerditionTurn>();
@@ -87,7 +87,7 @@ public class Turn : MonoBehaviour
 
     private void PlayableCharacterTurn()
     {
-        populateDropdowns.ActionPopulate();
+        actionTargetButtons.ActionPopulate();
         battleText.UpdateBattleText(currentCharacter.characterData.characterStats.characterName + "'s turn.");
     }
 
@@ -137,7 +137,7 @@ public class Turn : MonoBehaviour
     {
         currentCharacter.turnIndicator.SetActive(false);
         endBattleConditions.CheckForVictoryConditions();
-        populateDropdowns.TurnAllOff();
+        actionTargetButtons.TurnAllOff();
         turnOrder.turnWait = true;
     }
 

@@ -105,7 +105,7 @@ public class EndBattleConditions : MonoBehaviour
 
     private void Victory()
     {
-        turn.populateDropdowns.TurnAllOff();
+        turn.actionTargetButtons.TurnAllOff();
         turn.fightIsOver = true;
         stopThis = true;
         if (enemiesDownCondition || enemiesGoodwillCondition) turn.battleText.UpdateBattleText("Victory!");
@@ -113,7 +113,7 @@ public class EndBattleConditions : MonoBehaviour
 
     private void Defeat()
     {
-        turn.populateDropdowns.TurnAllOff();
+        turn.actionTargetButtons.TurnAllOff();
         turn.fightIsOver = true;
         stopThis = true;
         if (alliesDownCondition || allPlayableInPerditionCondition) turn.battleText.UpdateBattleText("Defeat!");

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ActionButton : MonoBehaviour
 {
-    private PopulateDropdowns populateDropdowns;
-    public Action actionToActivate;
+    private ActionTargetButtons actionTargetButtons;
+    public Action actionToSelect;
     private Image thisImage;
     [SerializeField] private Text thisText;
     [SerializeField] private Text thisDescriptionText;
@@ -16,7 +16,7 @@ public class ActionButton : MonoBehaviour
 
     private void Awake()
     {
-        populateDropdowns = FindObjectOfType<PopulateDropdowns>();
+        actionTargetButtons = FindObjectOfType<ActionTargetButtons>();
         thisImage = this.gameObject.GetComponent<Image>();
     }
 
@@ -32,19 +32,19 @@ public class ActionButton : MonoBehaviour
 
     private void SetActionFeedback()
     {
-        if (actionToActivate != null)
+        if (actionToSelect != null)
         {
-            thisText.text = actionToActivate.actionName;
-            thisDescriptionText.text = actionToActivate.actionDescription;
-            if (actionToActivate.type.actionType == Type.ActionType.GOOD && thisImage.color != goodColor) thisImage.color = goodColor;
-            if (actionToActivate.type.actionType == Type.ActionType.BAD && thisImage.color != badColor) thisImage.color = badColor;
+            thisText.text = actionToSelect.actionName;
+            thisDescriptionText.text = actionToSelect.actionDescription;
+            if (actionToSelect.type.actionType == Type.ActionType.GOOD && thisImage.color != goodColor) thisImage.color = goodColor;
+            if (actionToSelect.type.actionType == Type.ActionType.BAD && thisImage.color != badColor) thisImage.color = badColor;
         }
     }
 
     public void SetSelfClicked()
     {
-        populateDropdowns.selectedAction = actionToActivate;
-        populateDropdowns.ActionConfirm();
+        actionTargetButtons.selectedAction = actionToSelect;
+        actionTargetButtons.ActionConfirm();
     }
 
     public void ActionDescriptionSet(bool setActive)
