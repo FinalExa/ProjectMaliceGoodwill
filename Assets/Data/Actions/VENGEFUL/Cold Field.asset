@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Cold Field
   m_EditorClassIdentifier: 
   actionName: Cold Field
+  actionDescription: Damages everyone, including the sender, reduces B/G. Has an
+    80% chance to inflict a status that increases HP damage/healing received.
   type:
     actionType: 0
   severity: 5

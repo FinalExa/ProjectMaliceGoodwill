@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Friendly Beam
   m_EditorClassIdentifier: 
   actionName: Friendly Beam
+  actionDescription: Increases B/G on target.
   type:
     actionType: 1
   severity: 10

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134523add20f5da41a33b29185fa4aee, type: 3}
   m_Name: Mass Positivity
   m_EditorClassIdentifier: 
-  actionName: Mass Positive Influence
+  actionName: Mass Positivity
+  actionDescription: Everyone besides the character increases their B/G.
   type:
     actionType: 1
   severity: 10

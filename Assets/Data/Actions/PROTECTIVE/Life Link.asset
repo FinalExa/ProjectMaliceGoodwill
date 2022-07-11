@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Life Link
   m_EditorClassIdentifier: 
   actionName: Life Link
+  actionDescription: Can heal either the ally group (self excluded) or the enemy
+    group, by greatly reducing the user's life. Increases B/G.
   type:
     actionType: 1
-  severity: 10
-  severitySpectator: 4
+  severity: 15
+  severitySpectator: 5
   hpValueChange: 20
   canTargetOthers: 0
   canTargetSelf: 1

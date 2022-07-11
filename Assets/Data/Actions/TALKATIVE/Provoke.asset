@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Provoke
   m_EditorClassIdentifier: 
   actionName: Provoke
+  actionDescription: Decreases target's B/G. Had a 90% chance to apply a status that
+    decreases B/G over time.
   type:
     actionType: 0
   severity: 5

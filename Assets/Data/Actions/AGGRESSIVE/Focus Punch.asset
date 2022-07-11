@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Focus Punch
   m_EditorClassIdentifier: 
   actionName: Focus Punch
+  actionDescription: A punch that inflicts damage, reduces B/G, and has a 30% to
+    stun the target.
   type:
     actionType: 0
   severity: 10

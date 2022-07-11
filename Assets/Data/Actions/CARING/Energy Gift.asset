@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Energy Gift
   m_EditorClassIdentifier: 
   actionName: Energy Gift
+  actionDescription: Greatly heals the target reducing your life, increases B/G.
   type:
     actionType: 1
-  severity: 5
-  severitySpectator: 3
+  severity: 15
+  severitySpectator: 5
   hpValueChange: 30
   canTargetOthers: 1
   canTargetSelf: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Meditation
   m_EditorClassIdentifier: 
   actionName: Meditation
+  actionDescription: Inflicts a status on the target that increases B/G over time.
   type:
     actionType: 1
   severity: 5

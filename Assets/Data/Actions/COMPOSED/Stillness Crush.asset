@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Stillness Crush
   m_EditorClassIdentifier: 
   actionName: Stillness Crush
+  actionDescription: Heavily damages everyone except the user of the move.
   type:
     actionType: 0
   severity: 10

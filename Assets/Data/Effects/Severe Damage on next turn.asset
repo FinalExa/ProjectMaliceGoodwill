@@ -15,7 +15,7 @@ MonoBehaviour:
   effectName: Severe Damage on next turn
   effectDescription: This character is going to receive severe damage when its turn
     comes.
-  effectTriggerChance: 90
+  effectTriggerChance: 70
   instantaneousEffect: 0
   effectOverTime: 1
   effectTurns: 1

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Bombardment
   m_EditorClassIdentifier: 
   actionName: Bombardment
+  actionDescription: Damages either the player character group (including self) or
+    the enemy group. Reduces B/G.
   type:
     actionType: 0
   severity: 5

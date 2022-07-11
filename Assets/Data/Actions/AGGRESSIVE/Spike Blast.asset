@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Spike Blast
   m_EditorClassIdentifier: 
   actionName: Spike Blast
+  actionDescription: An attack that damages a single target, reduces B/G.
   type:
     actionType: 0
   severity: 5

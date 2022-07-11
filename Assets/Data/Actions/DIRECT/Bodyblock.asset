@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Bodyblock
   m_EditorClassIdentifier: 
   actionName: Bodyblock
+  actionDescription: Protects the target, when the target receives ANY damage the
+    user is damaged instead by a fixed amount. Increases B/G.
   type:
     actionType: 1
   severity: 5

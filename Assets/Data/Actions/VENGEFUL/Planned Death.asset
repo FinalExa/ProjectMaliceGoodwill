@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Planned Death
   m_EditorClassIdentifier: 
   actionName: Planned Death
+  actionDescription: Does no damage or B/G damage. Has a 70% chance to cast a status
+    that inflicts severe damage on the target on the next turn.
   type:
     actionType: 0
   severity: 0

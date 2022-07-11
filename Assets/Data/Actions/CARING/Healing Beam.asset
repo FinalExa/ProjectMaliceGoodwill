@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Healing Beam
   m_EditorClassIdentifier: 
   actionName: Healing Beam
+  actionDescription: Heals the target. Increases B/G.
   type:
     actionType: 1
   severity: 5
   severitySpectator: 3
-  hpValueChange: 20
+  hpValueChange: 15
   canTargetOthers: 1
   canTargetSelf: 0
   targetsGroups: 0

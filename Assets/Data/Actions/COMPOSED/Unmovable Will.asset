@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Unmovable Will
   m_EditorClassIdentifier: 
   actionName: Unmovable Will
+  actionDescription: Increases B/G.
   type:
     actionType: 1
   severity: 10

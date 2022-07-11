@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Soothing Words
   m_EditorClassIdentifier: 
   actionName: Soothing Words
+  actionDescription: Increases target's B/G and restores a bit of health. Applied
+    a heal over time effect.
   type:
     actionType: 1
   severity: 5

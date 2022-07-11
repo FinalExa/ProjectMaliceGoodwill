@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Absorber
   m_EditorClassIdentifier: 
   actionName: Absorber
+  actionDescription: Damages the target and increases B/G. Recovers health for the
+    move user.
   type:
     actionType: 0
   severity: 10

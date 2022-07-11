@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Hurt Wave
   m_EditorClassIdentifier: 
   actionName: Hurt Wave
+  actionDescription: A damaging move that can hit either the player character group
+    (user excluded) or the enemy group. Reduces B/G.
   type:
     actionType: 0
   severity: 10

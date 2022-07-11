@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Spirit Restore
   m_EditorClassIdentifier: 
   actionName: Spirit Restore
+  actionDescription: Heals the target and restores a bit of B/G.
   type:
     actionType: 1
   severity: 5

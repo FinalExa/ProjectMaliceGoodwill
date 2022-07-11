@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Powered Punch Series
   m_EditorClassIdentifier: 
   actionName: Powered Punch Series
+  actionDescription: Does heavy damage on target and greatly decreases B/G.
   type:
     actionType: 0
   severity: 15

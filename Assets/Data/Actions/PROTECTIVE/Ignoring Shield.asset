@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Ignoring Shield
   m_EditorClassIdentifier: 
   actionName: Ignoring Shield
+  actionDescription: Applies a barrier on self, reduces B/G.
   type:
     actionType: 0
   severity: 5

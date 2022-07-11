@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Apply Shield
   m_EditorClassIdentifier: 
   actionName: Apply Shield
+  actionDescription: Applies a barrier on the target, increases B/G.
   type:
     actionType: 1
   severity: 5

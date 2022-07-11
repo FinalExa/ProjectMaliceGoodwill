@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Shoutbeam
   m_EditorClassIdentifier: 
   actionName: Shoutbeam
+  actionDescription: Damages either the ally group (self excluded) or the enemy group.
+    Reduces B/G. Has a 30% chance to stun the target.
   type:
     actionType: 0
   severity: 5
@@ -27,5 +29,5 @@ MonoBehaviour:
   hitsAllOthers: 0
   hitsEveryone: 0
   isSeen: 1
-  hasEffect: 0
-  actionEffect: {fileID: 0}
+  hasEffect: 1
+  actionEffect: {fileID: 11400000, guid: 1e880e27895564747bae8733bb034ae9, type: 2}

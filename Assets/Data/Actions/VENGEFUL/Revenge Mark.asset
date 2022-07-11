@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Revenge Mark
   m_EditorClassIdentifier: 
   actionName: Revenge Mark
+  actionDescription: Decreases B/G. Has a 70% chance to inflict an effect that increases
+    the B/G and HP received %.
   type:
     actionType: 0
   severity: 5

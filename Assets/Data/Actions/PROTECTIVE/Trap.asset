@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Trap
   m_EditorClassIdentifier: 
   actionName: Trap
+  actionDescription: Traps the target inside a barrier, making it immune to external
+    damage. The target becomes stunned and takes damage every time its turn should
+    start. 50% chance to apply effect. Decreases B/G.
   type:
     actionType: 0
   severity: 5

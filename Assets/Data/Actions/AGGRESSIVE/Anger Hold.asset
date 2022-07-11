@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Anger Hold
   m_EditorClassIdentifier: 
   actionName: Anger Hold
+  actionDescription: Damages yourself but increases B/G.
   type:
     actionType: 1
-  severity: 5
-  severitySpectator: 3
+  severity: 10
+  severitySpectator: 4
   hpValueChange: -20
   canTargetOthers: 0
   canTargetSelf: 1
