@@ -19,44 +19,32 @@ MonoBehaviour:
     BGCurrentValue: 54
     maxHP: 80
     currentHP: 80
-  characterTraits: 010000000600000000000000
+  characterTraits: 0300000006000000
   characterActions:
-  - action: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
-    BGMinValue: 21
-    BGMaxValue: 60
-  - action: {fileID: 11400000, guid: f40f942697ce9564e80b18a18378cf6e, type: 2}
-    BGMinValue: 51
-    BGMaxValue: 100
-  - action: {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 40
-  - action: {fileID: 11400000, guid: d37879bdef027844588a9bebbee6ae7c, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 35
   - action: {fileID: 11400000, guid: c89033be57c909143893ca6b7478a2f9, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 30
+    BGMinValue: 26
+    BGMaxValue: 50
   - action: {fileID: 11400000, guid: fd36dd5a866be484c8b11801b06147b7, type: 2}
-    BGMinValue: 41
+    BGMinValue: 51
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: 78ba5a520b4e4424aa1f44c037ffcabf, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 40
+    BGMinValue: 26
+    BGMaxValue: 50
   - action: {fileID: 11400000, guid: cb8e152b8165a534baeac19a8cf1f912, type: 2}
+    BGMinValue: 76
+    BGMaxValue: 100
+  - action: {fileID: 11400000, guid: 0e09cc39500a6284eb10230ba00bffc5, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 25
+  - action: {fileID: 11400000, guid: 0eaa05aeaf85303488b06e9a7a684e8a, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 25
+  - action: {fileID: 11400000, guid: a4af20a0203d1184488ddebaa3199e55, type: 2}
+    BGMinValue: 0
+    BGMaxValue: 50
+  - action: {fileID: 11400000, guid: 777b13d0ef67fa14e94c523e26764b62, type: 2}
     BGMinValue: 51
-    BGMaxValue: 100
-  - action: {fileID: 11400000, guid: 2fbb54bb44df1b74da58de081681724b, type: 2}
-    BGMinValue: 41
-    BGMaxValue: 100
-  - action: {fileID: 11400000, guid: 23b552949a2f7374d9754d1290de08a1, type: 2}
-    BGMinValue: 61
-    BGMaxValue: 100
-  - action: {fileID: 11400000, guid: 60fa7e4881b07b846bcc1cf7a46a7929, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 100
-  - action: {fileID: 11400000, guid: 6462a776fa3e2ce4aa42b815db6c9376, type: 2}
-    BGMinValue: 0
-    BGMaxValue: 40
+    BGMaxValue: 75
   isAI: 0
   actionSequences: []
   thisCharacter: {fileID: 0}

@@ -806,7 +806,7 @@ PrefabInstance:
     - target: {fileID: -3920999559667313699, guid: 028f78b117524554285f01087aaacdca, type: 3}
       propertyPath: playableCharacters.Array.data[0]
       value: 
-      objectReference: {fileID: 1520196157}
+      objectReference: {fileID: 2082693910}
     - target: {fileID: -3920999559667313699, guid: 028f78b117524554285f01087aaacdca, type: 3}
       propertyPath: playableCharacters.Array.data[1]
       value: 
@@ -814,7 +814,7 @@ PrefabInstance:
     - target: {fileID: -3920999559667313699, guid: 028f78b117524554285f01087aaacdca, type: 3}
       propertyPath: playableCharacters.Array.data[2]
       value: 
-      objectReference: {fileID: 2082693910}
+      objectReference: {fileID: 1520196157}
     - target: {fileID: 2016859038119486068, guid: 028f78b117524554285f01087aaacdca, type: 3}
       propertyPath: m_Name
       value: BattleManager
