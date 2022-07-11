@@ -108,8 +108,7 @@ public class EndBattleConditions : MonoBehaviour
         turn.populateDropdowns.TurnAllOff();
         turn.fightIsOver = true;
         stopThis = true;
-        if (enemiesDownCondition) turn.battleText.UpdateBattleText("Victory! All enemies killed!");
-        if (enemiesGoodwillCondition) turn.battleText.UpdateBattleText("Victory! Enemies calmed!");
+        if (enemiesDownCondition || enemiesGoodwillCondition) turn.battleText.UpdateBattleText("Victory!");
     }
 
     private void Defeat()
@@ -117,7 +116,6 @@ public class EndBattleConditions : MonoBehaviour
         turn.populateDropdowns.TurnAllOff();
         turn.fightIsOver = true;
         stopThis = true;
-        if (alliesDownCondition) turn.battleText.UpdateBattleText("Defeat! Party is dead!");
-        if (allPlayableInPerditionCondition) turn.battleText.UpdateBattleText("Defeat! Party in perdition!");
+        if (alliesDownCondition || allPlayableInPerditionCondition) turn.battleText.UpdateBattleText("Defeat!");
     }
 }
