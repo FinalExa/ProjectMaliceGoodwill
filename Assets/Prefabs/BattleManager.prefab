@@ -698,7 +698,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   enemyGoFirst: 0
-  turnOrder: []
+  characterOrder: []
+  characterOrderMemory: []
+  turnIndex: 0
+  currentCharacter: {fileID: 0}
+  nextCharacter: {fileID: 0}
   turnWaitTimer: 0.05
   turnWait: 0
 --- !u!114 &-6260356559489696910
@@ -716,6 +720,9 @@ MonoBehaviour:
   gameData: {fileID: 11400000, guid: 18c29b82a7e5f7e4b9576c862abf365d, type: 2}
   currentCharacter: {fileID: 0}
   target: {fileID: 0}
+  senderIncluded: 0
+  targets: []
+  multiTargetingOption: 
   possibleTargets: []
   chosenAction: {fileID: 0}
   stop: 0
@@ -736,6 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be011f5283e3e0844b7ab5e993ac0868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groupAttackName: 
 --- !u!114 &1712367215121605605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,6 +756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec5588a179685f4d9d26e496c0801ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inDialogue: 0
   battleText: {fileID: 6727797990337827303}
 --- !u!114 &5141292673853435214
 MonoBehaviour:
@@ -766,6 +775,10 @@ MonoBehaviour:
   actionsDropdown: {fileID: 6858196972186021604}
   targetsParent: {fileID: 2808319981767094480}
   targetsDropdown: {fileID: 3977595946840597849}
+  actionButtonRef: {fileID: 7388947015117148185, guid: 6fff831b3e9495d4993f33d856595257, type: 3}
+  actionsButtonParentCanvasTag: MovesCanvas
+  actionButtonStartPos: {x: 7, y: 4, z: 0}
+  actionButtonOffsetToAdd: {x: 0, y: -2, z: 0}
 --- !u!114 &-7457356380004830230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,9 +791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d25eca29c4a714ba7021222ee720d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turn: {fileID: -6260356559489696910}
-  turnOrder: {fileID: -3920999559667313699}
-  perditionCheck: 0
 --- !u!114 &-7157956694862326779
 MonoBehaviour:
   m_ObjectHideFlags: 0

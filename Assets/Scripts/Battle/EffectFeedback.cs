@@ -20,13 +20,8 @@ public class EffectFeedback : MonoBehaviour
         else textToShow.text = string.Empty;
     }
 
-    public void ActivateContainer()
+    public void EffectDescriptionSet(bool setActive)
     {
-        container.SetActive(true);
-    }
-
-    public void DeactivateContainer()
-    {
-        container.SetActive(false);
+        container.SetActive(setActive);
     }
 }

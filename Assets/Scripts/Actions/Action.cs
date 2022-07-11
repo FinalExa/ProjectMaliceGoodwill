@@ -7,6 +7,7 @@ using UnityEngine;
 public class Action : ScriptableObject
 {
     public string actionName;
+    public string actionDescription;
     public Type type;
     [Header("Values Change")]
     public float severity;

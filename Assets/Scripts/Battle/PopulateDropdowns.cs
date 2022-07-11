@@ -6,38 +6,53 @@ using UnityEngine.UI;
 public class PopulateDropdowns : MonoBehaviour
 {
     [SerializeField] private Turn turn;
-    [SerializeField] private GameObject actionsParent;
-    [SerializeField] private Dropdown actionsDropdown;
     [SerializeField] private GameObject targetsParent;
     [SerializeField] private Dropdown targetsDropdown;
+    [SerializeField] private ActionButton actionButtonRef;
+    private List<ActionButton> actionButtons;
+    private GameObject actionsButtonParentCanvas;
+    [SerializeField] private string actionsButtonParentCanvasTag;
+    [SerializeField] private Vector3 actionButtonStartPos;
+    [SerializeField] private Vector3 actionButtonOffsetToAdd;
+    private Vector3 actionButtonCurrentPos;
+    public Action selectedAction;
+
+    private void Start()
+    {
+        actionsButtonParentCanvas = GameObject.FindGameObjectWithTag(actionsButtonParentCanvasTag);
+        actionButtons = new List<ActionButton>();
+    }
 
     public void ActionPopulate()
     {
-        actionsParent.SetActive(true);
-        List<string> actionsList = new List<string>();
+        actionButtonCurrentPos = actionButtonStartPos;
+        actionButtons.Clear();
+        List<Action> actionsList = new List<Action>();
         Character curCharacter = turn.currentCharacter;
         float MG = curCharacter.characterData.characterStats.BGCurrentValue;
         foreach (CharacterData.CharacterActions characterAction in curCharacter.characterData.characterActions)
         {
             Action action = characterAction.action;
-            if (MG >= characterAction.BGMinValue && MG <= characterAction.BGMaxValue) actionsList.Add(action.actionName);
+            if (MG >= characterAction.BGMinValue && MG <= characterAction.BGMaxValue) actionsList.Add(action);
         }
-        actionsDropdown.ClearOptions();
-        actionsDropdown.AddOptions(actionsList);
+        foreach (Action action in actionsList)
+        {
+            ActionButton actionButton = Instantiate(actionButtonRef, actionsButtonParentCanvas.transform);
+            actionButton.GetComponent<RectTransform>().position = actionButtonCurrentPos;
+            actionButton.actionToActivate = action;
+            actionButtons.Add(actionButton);
+            actionButtonCurrentPos += actionButtonOffsetToAdd;
+        }
     }
 
     public void ActionConfirm()
     {
-        foreach (CharacterData.CharacterActions characterAction in turn.currentCharacter.characterData.characterActions)
+        turn.chosenAction = selectedAction;
+        foreach (ActionButton actionButton in actionButtons)
         {
-            Action action = characterAction.action;
-            if (action.actionName == actionsDropdown.options[actionsDropdown.value].text)
-            {
-                turn.chosenAction = action;
-                break;
-            }
+            GameObject.Destroy(actionButton.gameObject);
         }
-        actionsParent.SetActive(false);
+        actionButtons.Clear();
         TargetPopulate();
     }
 
@@ -121,7 +136,6 @@ public class PopulateDropdowns : MonoBehaviour
 
     public void TurnAllOff()
     {
-        actionsParent.SetActive(false);
         targetsParent.SetActive(false);
     }
 
