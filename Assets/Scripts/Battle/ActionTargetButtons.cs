@@ -39,7 +39,7 @@ public class ActionTargetButtons : MonoBehaviour
         foreach (CharacterData.CharacterActions characterAction in curCharacter.characterData.characterActions)
         {
             Action action = characterAction.action;
-            if (MG >= characterAction.BGMinValue && MG <= characterAction.BGMaxValue) actionsList.Add(action);
+            if (MG > characterAction.BGMinValue && MG <= characterAction.BGMaxValue) actionsList.Add(action);
         }
         foreach (Action action in actionsList)
         {

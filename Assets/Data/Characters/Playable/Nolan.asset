@@ -22,13 +22,13 @@ MonoBehaviour:
   characterTraits: 0100000005000000
   characterActions:
   - action: {fileID: 11400000, guid: 2fbb54bb44df1b74da58de081681724b, type: 2}
-    BGMinValue: 26
+    BGMinValue: 25
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: 23b552949a2f7374d9754d1290de08a1, type: 2}
-    BGMinValue: 76
+    BGMinValue: 25
     BGMaxValue: 100
   - action: {fileID: 11400000, guid: 60fa7e4881b07b846bcc1cf7a46a7929, type: 2}
-    BGMinValue: 51
+    BGMinValue: 50
     BGMaxValue: 75
   - action: {fileID: 11400000, guid: 6462a776fa3e2ce4aa42b815db6c9376, type: 2}
     BGMinValue: 0
@@ -40,10 +40,10 @@ MonoBehaviour:
     BGMinValue: 0
     BGMaxValue: 25
   - action: {fileID: 11400000, guid: 969a44d20f8c9e849a55a3cbbb1a019b, type: 2}
-    BGMinValue: 51
+    BGMinValue: 50
     BGMaxValue: 75
   - action: {fileID: 11400000, guid: fa8ca7b8c786e3a4d9cdfa8cce7bfe34, type: 2}
-    BGMinValue: 26
+    BGMinValue: 25
     BGMaxValue: 50
   isAI: 0
   actionSequences: []

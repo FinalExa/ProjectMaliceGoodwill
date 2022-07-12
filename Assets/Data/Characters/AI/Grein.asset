@@ -57,7 +57,7 @@ MonoBehaviour:
     - actionToDo: {fileID: 11400000, guid: 197463c45e7a72b49aeb792b065f49fa, type: 2}
       actionGroupTargeted: 1
     actionOrderIndex: 0
-  - MGMinRange: 26
+  - MGMinRange: 25
     MGMaxRange: 50
     actionOrderRange:
     - actionToDo: {fileID: 11400000, guid: 7ecc1f72ed830394bbdbc0fbdfb89e5b, type: 2}
@@ -67,7 +67,7 @@ MonoBehaviour:
     - actionToDo: {fileID: 11400000, guid: 33cff0012f94cea459168de1fffca9b3, type: 2}
       actionGroupTargeted: 0
     actionOrderIndex: 0
-  - MGMinRange: 51
+  - MGMinRange: 50
     MGMaxRange: 75
     actionOrderRange:
     - actionToDo: {fileID: 11400000, guid: 33cff0012f94cea459168de1fffca9b3, type: 2}
@@ -77,7 +77,7 @@ MonoBehaviour:
     - actionToDo: {fileID: 11400000, guid: 969a44d20f8c9e849a55a3cbbb1a019b, type: 2}
       actionGroupTargeted: 0
     actionOrderIndex: 0
-  - MGMinRange: 76
+  - MGMinRange: 75
     MGMaxRange: 100
     actionOrderRange:
     - actionToDo: {fileID: 11400000, guid: 969a44d20f8c9e849a55a3cbbb1a019b, type: 2}
