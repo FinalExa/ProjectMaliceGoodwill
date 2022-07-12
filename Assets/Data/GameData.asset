@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTypes:
   - actionType: 0
-    actionTypeCoefficient: -1
+    actionTypeCoefficient: -0.7
   - actionType: 1
-    actionTypeCoefficient: 0.5
+    actionTypeCoefficient: 0.4
   traits:
   - characterTrait: 0
     traitActions:

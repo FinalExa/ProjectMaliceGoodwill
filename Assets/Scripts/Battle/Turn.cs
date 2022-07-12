@@ -136,7 +136,6 @@ public class Turn : MonoBehaviour
     public void PassTurn()
     {
         currentCharacter.turnIndicator.SetActive(false);
-        endBattleConditions.CheckForVictoryConditions();
         actionTargetButtons.TurnAllOff();
         turnOrder.turnWait = true;
     }

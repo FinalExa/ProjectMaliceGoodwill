@@ -29,6 +29,7 @@ public class EndBattleConditions : MonoBehaviour
 
     private void Update()
     {
+        CheckForVictoryConditions();
         if (!stopThis && (enemiesDownCondition || enemiesGoodwillCondition) && !alliesPerditionCondition) Victory();
         if (!stopThis && (alliesDownCondition || allPlayableInPerditionCondition)) Defeat();
     }
